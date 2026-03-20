@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Portfolio - Dieudonné
 
-## Getting Started
+Bienvenue sur le dépôt de mon portfolio professionnel. Cette application est une vitrine moderne conçue pour présenter mes projets, mon expertise technique en développement **Web & Mobile**, et ma vision du design UI/UX.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Caractéristiques
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+* **Design Minimaliste & Premium** : Inspiré des meilleures créations Dribbble.
+* **Performance Optimisée** : Score Lighthouse élevé grâce à Next.js 15.
+* **Responsive Design** : Expérience fluide sur Desktop, Tablette et Mobile.
+* **Animations Fluides** : Utilisation de Framer Motion pour des transitions élégantes.
+* **Mode Sombre/Clair** : Support natif du thème utilisateur.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Stack Technique
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* **Framework** : [Next.js 15](https://nextjs.org/) (App Router)
+* **Langage** : [TypeScript](https://www.typescriptlang.org/)
+* **Styling** : [Tailwind CSS](https://tailwindcss.com/)
+* **Composants UI** : [Shadcn UI](https://ui.shadcn.com/) & [Lucide React](https://lucide.dev/)
+* **Animations** : [Framer Motion](https://www.framer.com/motion/)
+* **Déploiement** : [Vercel](https://vercel.com/)
 
-## Learn More
+## 🚀 Installation & Lancement
 
-To learn more about Next.js, take a look at the following resources:
+1.  **Cloner le projet** :
+  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2.  **Installer les dépendances** :
+    ```bash
+    npm install
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3.  **Lancer en mode développement** :
+    ```bash
+    npm run dev
+    ```
 
-## Deploy on Vercel
+4.  **Builder pour la production** :
+    ```bash
+    npm run build
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📂 Structure du Projet
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```text
+├── app/              # Routes et Layouts (Next.js App Router)
+├── components/       # Composants UI réutilisables
+├── public/           # Assets statiques (Images, Icons, PDF)
+├── styles/           # Configurations CSS globales
+└── types/            # Définitions TypeScript
