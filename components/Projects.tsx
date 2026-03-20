@@ -36,7 +36,7 @@ const projects = [
         title: "Mon Portfolio",
         description: "Conception et développement de ma vitrine digitale : une expérience minimaliste et rapide mettant en valeur mes projets, mon expertise technique (Clean Code, UI Premium) et ma passion pour le produit.", 
         image: "/images/portfolio.png",
-        url: "https://ton-portfolio.vercel.app",
+        url: "https://myportfolio-eta-eosin.vercel.app/",
         technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion","UI Design"],
     },
 ];
