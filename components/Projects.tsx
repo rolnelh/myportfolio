@@ -14,7 +14,7 @@ const projects = [
     {
         title: "Dashboard",
         description: "Interface d'administration intuitive conçue pour le suivi des performances, la gestion des produits et l'analyse des ventes en temps réel.",
-        image: "/images/dashboard.png",
+        image: "/images/dash.png",
         url: "https://dashboard-nextjs-pi-ten.vercel.app/dashboard",
         technologies: ["Next.js 15", "Lucide React", "Shadcn", "Tailwind CSS"],
     },
