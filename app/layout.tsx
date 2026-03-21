@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Syne, Inter } from "next/font/google";
 import "./globals.css";
+import { Analytics } from '@vercel/analytics/next';
+
 
 const syne = Syne({
   subsets: ["latin"],
@@ -33,6 +35,9 @@ export default function RootLayout({
             <main className="flex-1 overflow-y-auto p-6 md:p-10 lg:p-16">
               <div className="max-w-7xl mx-auto">
                 {children}
+
+                <Analytics />
+
               </div>
             </main>
           </div>
