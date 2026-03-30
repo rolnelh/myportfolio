@@ -15,8 +15,29 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Dieudonné Houndagnon | Développeur Front-End",
-  description: "Portfolio premium présentant mes projets et mon expertise en développement web moderne.",
+  title: "Dieudonné Houndagnon | Développeur Web & Mobile (Next.js • React • Expo)",
+  description: "Développeur full-stack spécialisé dans la création d'interfaces premium et performantes. Je conçois des solutions numériques complètes, du web responsive aux applications mobiles natives, avec une attention particulière au clean code et à l'expérience utilisateur.",
+
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+
+  manifest: "/site.webmanifest",
+
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Dieudonné",
+    startupImage: [
+      {
+        url: "/images/splash/icons8-developer.png",
+        media: "(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)",
+      },
+
+    ],
+  },
+
 };
 
 export default function RootLayout({
@@ -35,7 +56,6 @@ export default function RootLayout({
             <main className="flex-1 overflow-y-auto p-6 md:p-10 lg:p-16">
               <div className="max-w-7xl mx-auto">
                 {children}
-
                 <Analytics />
 
               </div>
