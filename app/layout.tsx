@@ -18,6 +18,10 @@ export const metadata: Metadata = {
   title: "Dieudonné Houndagnon | Développeur Web & Mobile (Next.js • React • Expo)",
   description: "Développeur full-stack spécialisé dans la création d'interfaces premium et performantes. Je conçois des solutions numériques complètes, du web responsive aux applications mobiles natives, avec une attention particulière au clean code et à l'expérience utilisateur.",
 
+  verification: {
+    google: "M81974KQb_dBv3rXZBgunEoqTN5dL7bHQHXkLisgRQ", 
+  },
+
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
