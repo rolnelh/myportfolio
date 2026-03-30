@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description: "Développeur full-stack spécialisé dans la création d'interfaces premium et performantes. Je conçois des solutions numériques complètes, du web responsive aux applications mobiles natives, avec une attention particulière au clean code et à l'expérience utilisateur.",
 
   verification: {
-    google: "M81974KQb_dBv3rXZBgunEoqTN5dL7bHQHXkLisgRQ", 
+    google: "_M81974KQb_dBv3rXZBgunEoqTN5dL7bHQHXkLisgRQ", 
   },
 
   icons: {
