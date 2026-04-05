@@ -3,41 +3,44 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
+import Image from "next/image";
+
+
 const projects = [
     {
         title: "Mefolio Platform",
-        description: "Une plateforme de portfolio innovante permettant aux créatifs de présenter leurs projets avec une esthétique minimaliste et un dashboard de gestion complet.",
+        description: "An innovative portfolio platform for creative professionals to showcase their work with a minimalist aesthetic and a comprehensive management dashboard.",
         image: "/images/mefolio-deskop.png",
         url: "https://github.com/rolnelh/mefolio.git",
         technologies: ["Laravel", "Tailwind CSS", "MySQL", "JavaScript"],
     },
     {
         title: "Dashboard",
-        description: "Interface d'administration intuitive conçue pour le suivi des performances, la gestion des produits et l'analyse des ventes en temps réel.",
+        description: "Intuitive admin interface designed for performance tracking, product management, and real-time sales analytics.",
         image: "/images/dash.png",
         url: "https://dashboard-nextjs-pi-ten.vercel.app/dashboard",
         technologies: ["Next.js 15", "Lucide React", "Shadcn", "Tailwind CSS"],
     },
     {
         title: "L'Expo Plateforme",
-        description: "Vitrine digitale dédiée aux artisans et créateurs africains, facilitant la création de catalogues professionnels en quelques minutes.",
+        description: "A digital showcase for African artisans and creators, enabling professional catalog creation in minutes.",
         image: "/images/lexpo-deskop.png",
         url: "https://lexpo-gallery.vercel.app",
         technologies: ["React.js", "TypeScript", "Tailwind CSS", "Lucide React"],
     },
     {
         title: "Gozem Optimizer",
-        description: "Refonte stratégique de l'interface utilisateur pour optimiser l'expérience de réservation et de suivi de trajets sur la super-app leader en Afrique.",
+        description: "Strategic UI redesign to optimize the booking and tracking experience for Africa's leading super-app.",
         image: "/images/goze.png",
         url: "https://rolnelh.github.io/gozem-refonte/",
         technologies: ["UI Design", "UX Research", "Tailwind CSS"],
     },
     {
         title: "Mon Portfolio",
-        description: "Conception et développement de ma vitrine digitale : une expérience minimaliste et rapide mettant en valeur mes projets, mon expertise technique (Clean Code, UI Premium) et ma passion pour le produit.", 
-        image: "/images/portfolio.png",
+        description: "Design and development of my digital showcase: a minimalist, high-speed experience highlighting my projects, technical expertise (Clean Code, Premium UI), and product-driven mindset.",
+        image: "/images/myportfolio.png",
         url: "https://myportfolio-eta-eosin.vercel.app/",
-        technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion","UI Design"],
+        technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion", "UI Design"],
     },
 ];
 
@@ -45,11 +48,11 @@ const Projects = () => {
     return (
         <section className="py-24 max-w-7xl mx-auto px-6">
             <div className="flex flex-col mb-12">
-                <h2 className="font-syne text-6xl md:text-7xl font-bold tracking-tight text-black mb-2">
+                <h2 className="font-syne text-5xl md:text-7xl font-bold tracking-tight text-black mb-2">
                     Explore Our Projects
                 </h2>
                 <div className="flex items-center gap-3">
-                    <span className="font-inter text-xs font-bold uppercase tracking-widest text-gray-400">
+                    <span className="font-inter mt-2 text-xs font-bold uppercase tracking-widest text-gray-400">
                         OUR WORK
                     </span>
                     <div className="flex gap-1">

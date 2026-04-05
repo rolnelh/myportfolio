@@ -5,16 +5,10 @@ import { CheckCircle2, ArrowRight, Linkedin, Github, Instagram, MessageCircle } 
 
 const Hero = () => {
 
-    const expertise = [
-        "High-Performance Web Apps",
-        "Native Mobile Experience",
-        "Scalable Architecture",
-    ];
-
     return (
-        <section className="flex flex-col items-start px-6 pt-24 pb-20 max-w-7xl mx-auto">
+        <section className="flex flex-col items-start px-3 pt-24 pb-20 max-w-7xl mx-auto">
 
-            <motion.div
+            {/* <motion.div
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
@@ -28,7 +22,8 @@ const Hero = () => {
                         </span>
                     </div>
                 ))}
-            </motion.div>
+
+            </motion.div> */}
 
             <motion.h1
                 initial={{ opacity: 0, y: 20 }}
@@ -37,7 +32,8 @@ const Hero = () => {
                 style={{
                     fontFamily: "'Syne', sans-serif",
                 }}
-                className="text-5xl md:text-8xl font-600 tracking-tighter text-black leading-[0.95] mb-8 max-w-5xl"
+
+                className="text-5xl md:text-8xl font-600 tracking-tighter text-black leading-[0.95] mb-8 max-w-7xl mt-12 md:mt-0"
             >
                 Turning complex ideas into digital products
             </motion.h1>
@@ -47,19 +43,20 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 style={{
-                    fontFamily: "'DM Sans', sans-serif",
+                    fontFamily: "'Syne', sans-serif",
                 }}
-                className="text-lg md:text-2xl font-medium text-gray-900 mb-12 max-w-2xl leading-relaxed"
+                className="text-md md:text-2xl font-medium text-gray-900 mb-12 max-w-2xl leading-relaxed"
             >
                 I build intuitive and high-performance web and mobile apps — <span className="font-bold text-black">bridging the gap between clean code and premium UI.</span>
+
             </motion.p>
 
 
             <motion.div
                 initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 0.8, y: 0 }} 
+                animate={{ opacity: 0.8, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                whileInView={{ opacity: 1 }} 
+                whileInView={{ opacity: 1 }}
                 className="flex items-center gap-4 mb-12"
             >
                 {[
