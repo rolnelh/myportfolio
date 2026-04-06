@@ -6,11 +6,14 @@ import { Analytics } from '@vercel/analytics/next';
 const syne = Syne({
   subsets: ["latin"],
   variable: "--font-syne",
+  display: "swap", 
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
 });
 
 
@@ -26,7 +29,7 @@ export const metadata: Metadata = {
     siteName: 'Dieudonné Portfolio',
     images: [
       {
-        url: '/images/og-image.png',
+        url: '/images/og-image.webp',
         width: 1200,
         height: 630,
         alt: 'Aperçu du portfolio de Dieudonné',

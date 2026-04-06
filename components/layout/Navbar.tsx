@@ -26,7 +26,6 @@ const Navbar = () => {
         >
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
-                {/* Logo & Profil */}
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -35,7 +34,7 @@ const Navbar = () => {
                 >
                     <div className={`relative rounded-full border-2 border-black overflow-hidden bg-gray-200 flex-shrink-0 transition-all duration-300 group-hover:shadow-lg ${isScrolled ? "w-10 h-10" : "w-12 h-12"}`}>
                         <Image
-                            src="/images/profil.png"
+                            src="/images/profil.webp"
                             alt="Dieudonné"
                             width={48}
                             height={48}
@@ -48,13 +47,12 @@ const Navbar = () => {
                     </span>
                 </motion.div>
 
-                {/* Actions (Traduction + Menu) */}
                 <motion.div
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     className="flex items-center gap-4 md:gap-8"
                 >
-                    {/* Sélecteur de Langue Premium */}
+
                     <div className="flex items-center gap-2 group cursor-pointer relative">
                         <Globe size={18} className="text-black group-hover:rotate-12 transition-transform" />
                         <select
@@ -68,12 +66,10 @@ const Navbar = () => {
                         <ChevronDown size={14} className="absolute right-0 pointer-events-none" />
                     </div>
 
-                    {/* Let's Talk - Hidden on mobile */}
                     <button className="hidden md:block font-inter font-bold text-sm border-b-2 border-black pb-1 hover:text-gray-500 hover:border-gray-500 transition-all">
                         {language === "EN" ? "Let's Talk" : "Discutons"}
                     </button>
 
-                    {/* Menu Toggle Button */}
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         className="relative w-12 h-12 rounded-full bg-black text-white flex items-center justify-center hover:scale-110 transition-transform z-[60]"
@@ -105,7 +101,6 @@ const Navbar = () => {
                 </motion.div>
             </div>
 
-            {/* Overlay du Menu Mobile */}
             <AnimatePresence>
                 {isMenuOpen && (
                     <motion.div

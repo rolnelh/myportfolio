@@ -3,6 +3,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Plus, ArrowUpRight } from "lucide-react";
 
+import Image from "next/image";
+
 const services = [
     {
         title: "Web Development",
@@ -75,9 +77,18 @@ const Services = () => {
                         className="group flex items-center bg-[#F9F9F9] rounded-2xl p-4 border border-transparent hover:border-gray-200 transition-all cursor-pointer"
                     >
 
-                        <div className="w-24 h-24 md:w-32 md:h-20 rounded-xl overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
-                            <div className="w-full h-full bg-gray-300" />
-                            <img src={service.image} className="object-cover w-full h-full" />
+                        <div className="relative w-24 h-24 md:w-32 md:h-20 rounded-xl overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
+                            <div className="absolute inset-0 bg-gray-100 -z-10" />
+
+                            <Image
+                                src={service.image}
+                                alt={service.title || "Service image"}
+                                fill
+                                
+                                className="object-contain p-2"
+                                quality={90}
+                                sizes="(max-w-768px) 96px, 128px"
+                            />
                         </div>
 
                         <div className="flex-1 ml-6">

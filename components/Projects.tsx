@@ -10,14 +10,14 @@ const projects = [
     {
         title: "Mefolio Platform",
         description: "An innovative portfolio platform for creative professionals to showcase their work with a minimalist aesthetic and a comprehensive management dashboard.",
-        image: "/images/mefolio-deskop.png",
+        image: "/images/mefolio-deskop.webp",
         url: "https://github.com/rolnelh/mefolio.git",
         technologies: ["Laravel", "Tailwind CSS", "MySQL", "JavaScript"],
     },
     {
         title: "Dashboard",
         description: "Intuitive admin interface designed for performance tracking, product management, and real-time sales analytics.",
-        image: "/images/dash.png",
+        image: "/images/dash.webp",
         url: "https://dashboard-nextjs-pi-ten.vercel.app/dashboard",
         technologies: ["Next.js 15", "Lucide React", "Shadcn", "Tailwind CSS"],
     },
@@ -38,7 +38,7 @@ const projects = [
     {
         title: "Mon Portfolio",
         description: "Design and development of my digital showcase: a minimalist, high-speed experience highlighting my projects, technical expertise (Clean Code, Premium UI), and product-driven mindset.",
-        image: "/images/myportfolio.png",
+        image: "/images/myportfolio.webp",
         url: "https://myportfolio-eta-eosin.vercel.app/",
         technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion", "UI Design"],
     },
