@@ -1,29 +1,26 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2, ArrowRight, Linkedin, Github, Instagram, MessageCircle } from "lucide-react";
+import { ArrowRight, Linkedin, Github, Instagram, MessageCircle, Sparkles } from "lucide-react";
 
 const Hero = () => {
-
     return (
-        <section className="flex flex-col items-start px-3 pt-24 pb-20 max-w-7xl mx-auto">
+        <section className="relative flex flex-col items-start px-6 pt-18 pb-20 max-w-7xl mx-auto overflow-hidden">
 
-            {/* <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
+            <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="flex flex-wrap gap-6 mb-8"
+                className="flex items-center gap-2 bg-green-50 border border-green-100 px-4 py-2 rounded-full mb-6"
             >
-                {expertise.map((text, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                        <CheckCircle2 size={16} className="text-black" />
-                        <span className="font-inter text-xs md:text-sm font-semibold uppercase tracking-wider text-gray-600">
-                            {text}
-                        </span>
-                    </div>
-                ))}
-
-            </motion.div> */}
+                <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span className="font-inter text-xs font-bold uppercase tracking-wider text-green-700">
+                    Disponible pour de nouveaux projets
+                </span>
+            </motion.div>
 
             <motion.h1
                 initial={{ opacity: 0, y: 20 }}
@@ -32,78 +29,70 @@ const Hero = () => {
                 style={{
                     fontFamily: "'Syne', sans-serif",
                 }}
-
-                className="text-5xl md:text-8xl font-600 tracking-tighter text-black leading-[0.95] mb-8 max-w-7xl mt-12 md:mt-0"
+                className="text-4xl md:text-8xl font-600 tracking-tighter text-black leading-[0.90] mb-8 max-w-7xl mt-12 md:mt-0"
             >
-                Turning complex ideas into digital products
+                I build high-performance interfaces that turn visitors into customers.
             </motion.h1>
 
             <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                style={{
-                    fontFamily: "'Syne', sans-serif",
-                }}
-                className="text-md md:text-2xl font-medium text-gray-900 mb-12 max-w-2xl leading-relaxed"
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-lg md:text-xl font-medium text-gray-600 mb-12 max-w-2xl leading-relaxed tracking-tight"
             >
-                I build intuitive and high-performance web and mobile apps — <span className="font-bold text-black">bridging the gap between clean code and premium UI.</span>
-
+                Bridging the gap between <span className="text-black italic">complex design</span> and seamless code.
+                I specialize in building high-end Front-End experiences using <span className="text-black font-semibold">Next.js</span> and <span className="text-black font-semibold">Tailwind CSS</span>.
             </motion.p>
 
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-8 w-full">
 
-            <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 0.8, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                whileInView={{ opacity: 1 }}
-                className="flex items-center gap-4 mb-12"
-            >
-                {[
-                    { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/in/dieudonn%C3%A9-houndagnon-093387250", label: "LinkedIn" },
-                    { icon: <Github size={20} />, href: "https://github.com/rolnelh", label: "GitHub" },
-                    { icon: <Instagram size={20} />, href: "https://instagram.com/ton-insta", label: "Instagram" },
-                    { icon: <MessageCircle size={20} />, href: "https://wa.me/+22966374586", label: "WhatsApp" },
-                ].map((social, i) => (
-                    <motion.a
-                        key={i}
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group flex items-center justify-center w-12 h-12 rounded-full bg-black border border-black transition-all duration-300 hover:bg-white hover:shadow-lg"
-                        whileHover={{ y: -3 }}
-                        aria-label={social.label}
+                <div className="flex flex-wrap gap-4">
+                    <motion.button
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.97 }}
+                        className="group flex items-center gap-3 bg-black text-white rounded-full px-8 py-4 font-inter font-bold transition-all shadow-lg shadow-black/10 cursor-pointer"
                     >
+                        Démarrer un projet
+                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                    </motion.button>
 
-                        <div className="text-white group-hover:text-black transition-colors duration-300">
+                    <motion.button
+                        whileHover={{ backgroundColor: "#f3f4f6" }}
+                        className="font-inter font-bold text-black border-2 border-black/5 rounded-full px-8 py-4 transition-all cursor-pointer"
+                    >
+                        Voir mes réalisations
+                    </motion.button>
+                </div>
+
+                <div className="hidden md:block w-px h-12 bg-gray-200" />
+
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.4 }}
+                    className="flex items-center gap-3"
+                >
+                    {[
+                        { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/in/dieudonn%C3%A9-houndagnon-093387250", label: "LinkedIn" },
+                        { icon: <Github size={20} />, href: "https://github.com/rolnelh", label: "GitHub" },
+                        { icon: <MessageCircle size={20} />, href: "https://wa.me/+2290166374586", label: "WhatsApp" },
+                    ].map((social, i) => (
+                        <a
+                            key={i}
+                            href={social.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-11 h-11 flex items-center justify-center rounded-xl bg-gray-50 border border-gray-100 text-gray-400 hover:text-black hover:border-black hover:bg-white transition-all duration-300"
+                            aria-label={social.label}
+                        >
                             {social.icon}
-                        </div>
-                    </motion.a>
-                ))}
-            </motion.div>
+                        </a>
+                    ))}
+                </motion.div>
+            </div>
 
-            <div className="flex flex-wrap gap-4">
-                <motion.button
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    transition={{ duration: 0.3, delay: 0.6 }}
-                    className="group flex items-center gap-3 cursor-pointer bg-black text-white rounded-full px-5 py-3 transition-all duration-300"
-                >
-                    <span className="font-syne font-normal text-sm">Start a Project</span>
-                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                </motion.button>
-
-                <motion.button
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    whileHover={{ scale: 1.02, backgroundColor: "#f1f1f1" }}
-                    transition={{ duration: 0.3, delay: 0.7 }}
-                    className="font-syne font-normal cursor-pointer text-sm border-2 border-black rounded-full px-5 py-3 transition-all"
-                >
-                    View my work
-                </motion.button>
+            <div className="absolute top-1/2 right-0 -z-10 blur-[120px] opacity-20 pointer-events-none">
+                <div className="w-[300px] h-[300px] bg-blue-400 rounded-full" />
             </div>
         </section>
     );
