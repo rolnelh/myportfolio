@@ -7,20 +7,20 @@ const Hero = () => {
     return (
         <section className="relative flex flex-col items-start px-6 pt-18 pb-20 max-w-7xl mx-auto overflow-hidden">
 
-            <motion.div
+            {/* <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="flex items-center gap-2 bg-green-50 border border-green-100 px-4 py-2 rounded-full mb-6"
+                className="flex items-center gap-2 bg-green-50/50 border border-green-100/50 px-3 py-1.5 md:px-4 md:py-2 rounded-full mb-2 mt-12 w-fit"
             >
-                <span className="relative flex h-2 w-2">
+                <span className="relative flex h-1.5 w-1.5 md:h-2 md:w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 md:h-2 md:w-2 bg-green-500"></span>
                 </span>
-                <span className="font-inter text-xs font-bold uppercase tracking-wider text-green-700">
-                    Disponible pour de nouveaux projets
+                <span className="font-inter text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] text-green-700 whitespace-nowrap">
+                    Available for hire
                 </span>
-            </motion.div>
+            </motion.div> */}
 
             <motion.h1
                 initial={{ opacity: 0, y: 20 }}
@@ -29,7 +29,7 @@ const Hero = () => {
                 style={{
                     fontFamily: "'Syne', sans-serif",
                 }}
-                className="text-4xl md:text-8xl font-600 tracking-tighter text-black leading-[0.90] mb-8 max-w-7xl mt-12 md:mt-0"
+                className="text-4xl md:text-8xl font-normal tracking-tight md:tracking-tighter text-black leading-tight md:leading-[0.90] mb-10 md:mb-8 max-w-7xl mt-12 md:mt-6"
             >
                 I build high-performance interfaces that turn visitors into customers.
             </motion.h1>

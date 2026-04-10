@@ -10,7 +10,9 @@ import {
   SiTailwindcss,
   SiTypescript,
   SiMysql,
-  SiFramer
+  SiFramer,
+  SiHtml5,
+  SiCss
 } from "react-icons/si";
 
 const technologies = [
@@ -22,6 +24,8 @@ const technologies = [
   { name: "TypeScript", icon: <SiTypescript size={32} /> },
   { name: "MySQL", icon: <SiMysql size={32} /> },
   { name: "Framer", icon: <SiFramer size={32} /> },
+  { name: "Html5", icon: <SiHtml5 size={32} /> },
+  { name: "Css3", icon: <SiCss size={32} /> },
 ];
 
 const TechStack = () => {
