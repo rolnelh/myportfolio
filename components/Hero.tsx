@@ -1,80 +1,50 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
-import { ArrowRight, Linkedin, Github, Instagram, MessageCircle, Sparkles } from "lucide-react";
+import { ArrowRight, Linkedin, Github, MessageCircle } from "lucide-react";
 
 const Hero = () => {
     return (
         <section className="relative flex flex-col items-start px-6 pt-18 pb-20 max-w-7xl mx-auto overflow-hidden">
-
-            {/* <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="flex items-center gap-2 bg-green-50/50 border border-green-100/50 px-3 py-1.5 md:px-4 md:py-2 rounded-full mb-2 mt-12 w-fit"
-            >
+            
+            <div className="flex items-center gap-2 bg-green-50/50 border border-green-100/50 px-3 py-1.5 md:px-4 md:py-2 rounded-full mb-2 mt-3 w-fit">
                 <span className="relative flex h-1.5 w-1.5 md:h-2 md:w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-1.5 w-1.5 md:h-2 md:w-2 bg-green-500"></span>
                 </span>
                 <span className="font-inter text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] text-green-700 whitespace-nowrap">
                     Available for hire
                 </span>
-            </motion.div> */}
+            </div>
 
             <h1
                 style={{ fontFamily: "'Syne', sans-serif" }}
                 className="text-4xl md:text-8xl font-normal tracking-tight md:tracking-tighter text-black leading-tight md:leading-[0.90] mb-10 md:mb-8 max-w-7xl mt-12 md:mt-6"
             >
-
-                <motion.span
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4 }}
-                    className="block"
-                >
-                    I build high-performance interfaces that turn visitors into customers.
-                </motion.span>
+                I build high-performance interfaces that turn visitors into customers.
             </h1>
 
-            <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 0.4, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-lg md:text-xl font-medium text-black-600 mb-12 max-w-2xl leading-relaxed tracking-tight"
-            >
+            <p className="text-lg md:text-xl font-medium text-gray-600 mb-12 max-w-2xl leading-relaxed tracking-tight">
                 Bridging the gap between <span className="text-black italic">complex design</span> and seamless code.
                 I specialize in building high-end Front-End experiences using <span className="text-black font-semibold">Next.js</span> and <span className="text-black font-semibold">Tailwind CSS</span>.
-            </motion.p>
+            </p>
 
             <div className="flex flex-col md:flex-row items-start md:items-center gap-8 w-full">
+                
 
                 <div className="flex flex-wrap gap-4">
-                    <motion.button
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.97 }}
-                        className="group flex items-center gap-3 bg-black text-white rounded-full px-8 py-4 font-inter font-bold transition-all shadow-lg shadow-black/10 cursor-pointer"
-                    >
+                    <button className="group flex items-center gap-3 bg-black text-white rounded-full px-8 py-4 font-inter font-bold transition-transform active:scale-95 shadow-lg shadow-black/10 cursor-pointer hover:scale-[1.02]">
                         Démarrer un projet
                         <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                    </motion.button>
+                    </button>
 
-                    <motion.button
-                        whileHover={{ backgroundColor: "#f3f4f6" }}
-                        className="font-inter font-bold text-black border-2 border-black/5 rounded-full px-8 py-4 transition-all cursor-pointer"
-                    >
+                    <button className="font-inter font-bold text-black border-2 border-black/5 rounded-full px-8 py-4 transition-colors cursor-pointer hover:bg-gray-100">
                         Voir mes réalisations
-                    </motion.button>
+                    </button>
                 </div>
 
                 <div className="hidden md:block w-px h-12 bg-gray-200" />
 
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.4 }}
-                    className="flex items-center gap-3"
-                >
+                <div className="flex items-center gap-3">
                     {[
                         { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/in/dieudonn%C3%A9-houndagnon-093387250", label: "LinkedIn" },
                         { icon: <Github size={20} />, href: "https://github.com/rolnelh", label: "GitHub" },
@@ -91,7 +61,7 @@ const Hero = () => {
                             {social.icon}
                         </a>
                     ))}
-                </motion.div>
+                </div>
             </div>
 
             <div className="absolute top-1/2 right-0 -z-10 blur-[120px] opacity-20 pointer-events-none">
