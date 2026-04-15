@@ -49,7 +49,7 @@ const Navbar = () => {
 
                 <motion.div
                     initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 0.5, x: 0 }}
+                    animate={{ opacity: 1, x: 0 }}
                     className="flex items-center gap-4 md:gap-8"
                 >
 
