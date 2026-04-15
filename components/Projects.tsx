@@ -42,6 +42,13 @@ const projects = [
         url: "https://myportfolio-eta-eosin.vercel.app/",
         technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion", "UI Design"],
     },
+    {
+        title: "ANIP Bénin – E-services Redesign",
+        description: "A complete UI/UX overhaul of the National Identification Agency platform. Focused on simplifying citizen administrative journeys through a high-performance dashboard, intuitive service access, and a mobile-first approach to identification management.",
+        image: "/images/anip_refonte.webp", 
+        url: "https://anip-eservices-redesign-koy3.vercel.app/",
+        technologies: ["Next.js 16", "TypeScript", "Tailwind CSS","E-services Redesign", "Dashboard Architecture"],
+    },
 ];
 
 const Projects = () => {
