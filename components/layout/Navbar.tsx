@@ -7,7 +7,7 @@ import Image from "next/image";
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [language, setLanguage] = useState("EN"); 
+    const [language, setLanguage] = useState("EN");
 
     useEffect(() => {
         const handleScroll = () => {
@@ -27,8 +27,8 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
                 <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ x: -20 }}
+                    animate={{ x: 0 }}
                     className="flex items-center gap-3 group cursor-pointer"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 >
@@ -49,7 +49,7 @@ const Navbar = () => {
 
                 <motion.div
                     initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    animate={{ opacity: 0.5, x: 0 }}
                     className="flex items-center gap-4 md:gap-8"
                 >
 

@@ -22,23 +22,26 @@ const Hero = () => {
                 </span>
             </motion.div> */}
 
-            <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                style={{
-                    fontFamily: "'Syne', sans-serif",
-                }}
+            <h1
+                style={{ fontFamily: "'Syne', sans-serif" }}
                 className="text-4xl md:text-8xl font-normal tracking-tight md:tracking-tighter text-black leading-tight md:leading-[0.90] mb-10 md:mb-8 max-w-7xl mt-12 md:mt-6"
             >
-                I build high-performance interfaces that turn visitors into customers.
-            </motion.h1>
+
+                <motion.span
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="block"
+                >
+                    I build high-performance interfaces that turn visitors into customers.
+                </motion.span>
+            </h1>
 
             <motion.p
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 0.4, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-lg md:text-xl font-medium text-gray-600 mb-12 max-w-2xl leading-relaxed tracking-tight"
+                className="text-lg md:text-xl font-medium text-black-600 mb-12 max-w-2xl leading-relaxed tracking-tight"
             >
                 Bridging the gap between <span className="text-black italic">complex design</span> and seamless code.
                 I specialize in building high-end Front-End experiences using <span className="text-black font-semibold">Next.js</span> and <span className="text-black font-semibold">Tailwind CSS</span>.
