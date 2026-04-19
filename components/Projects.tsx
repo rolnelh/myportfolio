@@ -11,7 +11,7 @@ const projects = [
         title: "Mefolio Platform",
         description: "An innovative portfolio platform for creative professionals to showcase their work with a minimalist aesthetic and a comprehensive management dashboard.",
         image: "/images/mefolio-deskop.webp",
-        url: "https://github.com/rolnelh/mefolio.git",
+        url: "https://mefolio-z6n9.onrender.com/",
         technologies: ["Laravel", "Tailwind CSS", "MySQL", "JavaScript"],
     },
     {

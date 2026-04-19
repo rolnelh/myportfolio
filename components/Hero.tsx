@@ -5,7 +5,7 @@ import { ArrowRight, Linkedin, Github, MessageCircle } from "lucide-react";
 const Hero = () => {
     return (
         <section className="relative flex flex-col items-start px-6 pt-18 pb-20 max-w-7xl mx-auto overflow-hidden">
-            
+
             <div className="flex items-center gap-2 bg-green-50/50 border border-green-100/50 px-3 py-1.5 md:px-4 md:py-2 rounded-full mb-2 mt-3 w-fit">
                 <span className="relative flex h-1.5 w-1.5 md:h-2 md:w-2">
                     <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -20,16 +20,15 @@ const Hero = () => {
                 style={{ fontFamily: "'Syne', sans-serif" }}
                 className="text-4xl md:text-8xl font-normal tracking-tight md:tracking-tighter text-black leading-tight md:leading-[0.90] mb-10 md:mb-8 max-w-7xl mt-12 md:mt-6"
             >
-                I build high-performance interfaces that turn visitors into customers.
+                I design and build digital platforms that simplify complex experiences.
             </h1>
 
             <p className="text-lg md:text-xl font-medium text-gray-600 mb-12 max-w-2xl leading-relaxed tracking-tight">
-                Bridging the gap between <span className="text-black italic">complex design</span> and seamless code.
-                I specialize in building high-end Front-End experiences using <span className="text-black font-semibold">Next.js</span> and <span className="text-black font-semibold">Tailwind CSS</span>.
+                Product Designer & Digital Product Builder focused on scalable platforms, dashboards, and modern digital services — combining UX thinking, interface design, and front-end expertise.
             </p>
 
             <div className="flex flex-col md:flex-row items-start md:items-center gap-8 w-full">
-                
+
 
                 <div className="flex flex-wrap gap-4">
                     <button className="group flex items-center gap-3 bg-black text-white rounded-full px-8 py-4 font-inter font-bold transition-transform active:scale-95 shadow-lg shadow-black/10 cursor-pointer hover:scale-[1.02]">
