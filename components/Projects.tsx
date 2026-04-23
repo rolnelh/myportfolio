@@ -9,8 +9,8 @@ import Image from "next/image";
 const projects = [
     {
         title: "Mefolio Platform",
-        description: "An innovative portfolio platform for creative professionals to showcase their work with a minimalist aesthetic and a comprehensive management dashboard.",
-        image: "/images/mefolio-deskop.webp",
+        description: "The first African platform dedicated to creative talent. A minimalist, high-performance ecosystem designed to showcase African excellence through professional portfolios and streamlined project management.",
+        image: "/images/mefolio.png",
         url: "https://mefolio-z6n9.onrender.com/",
         technologies: ["Laravel", "Tailwind CSS", "MySQL", "JavaScript"],
     },
@@ -45,9 +45,9 @@ const projects = [
     {
         title: "ANIP Bénin – E-services Redesign",
         description: "A complete UI/UX overhaul of the National Identification Agency platform. Focused on simplifying citizen administrative journeys through a high-performance dashboard, intuitive service access, and a mobile-first approach to identification management.",
-        image: "/images/anip_refonte.webp", 
+        image: "/images/anip_refonte.webp",
         url: "https://anip-eservices-redesign-koy3.vercel.app/dashboard",
-        technologies: ["Next.js 16", "TypeScript", "Tailwind CSS","E-services Redesign", "Dashboard Architecture"],
+        technologies: ["Next.js 16", "TypeScript", "Tailwind CSS", "E-services Redesign", "Dashboard Architecture"],
     },
 ];
 

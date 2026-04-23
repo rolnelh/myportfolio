@@ -43,21 +43,25 @@ const Hero = () => {
 
                 <div className="hidden md:block w-px h-12 bg-gray-200" />
 
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3">
                     {[
-                        { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/in/dieudonn%C3%A9-houndagnon-093387250", label: "LinkedIn" },
-                        { icon: <Github size={20} />, href: "https://github.com/rolnelh", label: "GitHub" },
-                        { icon: <MessageCircle size={20} />, href: "https://wa.me/+2290166374586", label: "WhatsApp" },
+                        { icon: <Linkedin size={18} />, name: "LinkedIn", href: "https://www.linkedin.com/in/dieudonn%C3%A9-houndagnon-093387250" },
+                        { icon: <Github size={18} />, name: "GitHub", href: "https://github.com/rolnelh" },
+                        { icon: <MessageCircle size={18} />, name: "WhatsApp", href: "https://wa.me/+2290166374586" },
                     ].map((social, i) => (
                         <a
                             key={i}
                             href={social.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-11 h-11 flex items-center justify-center rounded-xl bg-gray-50 border border-gray-100 text-gray-400 hover:text-black hover:border-black hover:bg-white transition-all duration-300"
-                            aria-label={social.label}
+                            className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-300 text-gray-500 hover:text-black hover:border-black hover:bg-white transition-all duration-300 group"
                         >
-                            {social.icon}
+                            <span className="group-hover:scale-110 transition-transform duration-300">
+                                {social.icon}
+                            </span>
+                            <span className="font-inter font-semibold text-sm tracking-tight">
+                                {social.name}
+                            </span>
                         </a>
                     ))}
                 </div>
