@@ -10,7 +10,7 @@ const projects = [
     {
         title: "Mefolio Platform",
         description: "The first African platform dedicated to creative talent. A minimalist, high-performance ecosystem designed to showcase African excellence through professional portfolios and streamlined project management.",
-        image: "/images/mefolio.png",
+        image: "/images/mefolio.webp",
         url: "https://mefolio-z6n9.onrender.com/",
         technologies: ["Laravel", "Tailwind CSS", "MySQL", "JavaScript"],
     },
