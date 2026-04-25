@@ -18,7 +18,7 @@ const Hero = () => {
 
             <h1
                 style={{ fontFamily: "'Syne', sans-serif" }}
-                className="text-4xl md:text-7xl font-normal tracking-tight md:tracking-tighter text-black leading-relaxed md:leading-[0.90] mb-10 md:mb-8 max-w-7xl mt-12 md:mt-6"
+                className="text-4xl md:text-7xl font-normal tracking-tight md:tracking-tighter text-black leading-tight md:leading-[0.90] mb-10 md:mb-8 max-w-7xl mt-12 md:mt-6"
             >
                 I design and build digital platforms that simplify complex experiences.
             </h1>
