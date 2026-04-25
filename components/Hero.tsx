@@ -4,7 +4,7 @@ import { ArrowRight, Linkedin, Github, MessageCircle } from "lucide-react";
 
 const Hero = () => {
     return (
-        <section className="relative flex flex-col items-start px-6 pt-18 pb-20 max-w-7xl mx-auto overflow-hidden">
+        <section className="relative flex flex-col items-start px-6 pt-14 pb-20 max-w-7xl mx-auto overflow-hidden">
 
             <div className="flex items-center gap-2 bg-green-50/50 border border-green-100/50 px-3 py-1.5 md:px-4 md:py-2 rounded-full mb-2 mt-3 w-fit">
                 <span className="relative flex h-1.5 w-1.5 md:h-2 md:w-2">
@@ -18,12 +18,12 @@ const Hero = () => {
 
             <h1
                 style={{ fontFamily: "'Syne', sans-serif" }}
-                className="text-4xl md:text-8xl font-normal tracking-tight md:tracking-tighter text-black leading-tight md:leading-[0.90] mb-10 md:mb-8 max-w-7xl mt-12 md:mt-6"
+                className="text-4xl md:text-7xl font-normal tracking-tight md:tracking-tighter text-black leading-relaxed md:leading-[0.90] mb-10 md:mb-8 max-w-7xl mt-12 md:mt-6"
             >
                 I design and build digital platforms that simplify complex experiences.
             </h1>
 
-            <p className="text-lg md:text-xl font-medium text-gray-600 mb-12 max-w-2xl leading-relaxed tracking-tight">
+            <p className="text-lg md:text-xl font-medium text-gray-700 mb-12 max-w-2xl leading-relaxed tracking-tight">
                 Product Designer & Digital Product Builder focused on scalable platforms, dashboards, and modern digital services — combining UX thinking, interface design, and front-end expertise.
             </p>
 
