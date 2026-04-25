@@ -32,12 +32,12 @@ const Hero = () => {
 
                 <div className="flex flex-wrap gap-4">
                     <button className="group flex items-center gap-3 bg-black text-white rounded-full px-8 py-4 font-inter font-bold transition-transform active:scale-95 shadow-lg shadow-black/10 cursor-pointer hover:scale-[1.02]">
-                        Démarrer un projet
+                        Start a project
                         <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                     </button>
 
                     <button className="font-inter font-bold text-black border-2 border-black/5 rounded-full px-8 py-4 transition-colors cursor-pointer hover:bg-gray-100">
-                        Voir mes réalisations
+                        View my work
                     </button>
                 </div>
 

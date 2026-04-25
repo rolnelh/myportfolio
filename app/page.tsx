@@ -1,3 +1,4 @@
+import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/layout/Navbar";
@@ -13,6 +14,7 @@ export default function Page() {
 
       <Hero />
       <TechStack />
+      <About />
       <Projects />
       <Services />
       <Contact />
