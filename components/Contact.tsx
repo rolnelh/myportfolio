@@ -5,11 +5,11 @@ import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 const Contact = () => {
     const [status, setStatus] = useState("");
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setStatus("sending");
 
-        const form = e.target;
+        const form = e.currentTarget;
         const data = new FormData(form);
 
         try {
@@ -21,7 +21,7 @@ const Contact = () => {
 
             if (response.ok) {
                 setStatus("success");
-                form.reset();
+                form.reset(); 
             } else {
                 setStatus("error");
             }
