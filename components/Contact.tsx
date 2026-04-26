@@ -1,10 +1,37 @@
 "use client";
-import React from "react";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import React, { useState } from "react";
+import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 
 const Contact = () => {
+    const [status, setStatus] = useState("");
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus("sending");
+
+        const form = e.target;
+        const data = new FormData(form);
+
+        try {
+            const response = await fetch("https://formspree.io/f/xojybgwq", {
+                method: "POST",
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                setStatus("success");
+                form.reset();
+            } else {
+                setStatus("error");
+            }
+        } catch (error) {
+            setStatus("error");
+        }
+    };
+
     return (
-        <section className="bg-black text-white py-24 px-6 mt-20 rounded-t-[3rem]">
+        <section className="bg-black text-white py-24 px-6 mt-20 rounded-2xl">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
 
                 <div>
@@ -53,75 +80,58 @@ const Contact = () => {
                     </div>
                 </div>
 
-                <form
-                    action="https://formspree.io/f/xojybgwq"
-                    method="POST"
-                    className="space-y-10"
-                >
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        <div className="relative">
-                            <input
-                                type="text"
-                                name="first_name"
-                                placeholder="First Name"
-                                required
-                                className="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-white transition-colors font-inter"
-                            />
+                <div className="relative">
+                    {status === "success" ? (
+                        <div className="bg-white/5 border border-white/10 rounded-[2rem] p-12 text-center flex flex-col items-center justify-center h-full min-h-[400px]">
+                            <CheckCircle size={60} className="text-green-500 mb-6" />
+                            <h3 className="font-syne text-3xl font-bold mb-4">Message sent!</h3>
+                            <p className="text-gray-400 mb-8">Thank you for reaching out. I'll get back to you shortly.</p>
+                            <button
+                                onClick={() => setStatus("")}
+                                className="text-white border-b border-white pb-1 font-bold hover:text-gray-400 transition-colors"
+                            >
+                                Send another message
+                            </button>
                         </div>
-                        <div className="relative">
-                            <input
-                                type="text"
-                                name="last_name"
-                                placeholder="Last Name"
-                                required
-                                className="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-white transition-colors font-inter"
-                            />
-                        </div>
-                    </div>
+                    ) : (
+                        <form onSubmit={handleSubmit} className="space-y-10">
 
-                    <div className="relative">
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Email Address"
-                            required
-                            className="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-white transition-colors font-inter"
-                        />
-                    </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                                <input name="first_name" placeholder="First Name" required className="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-white transition-colors" />
+                                <input name="last_name" placeholder="Last Name" required className="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-white transition-colors" />
+                            </div>
 
-                    <div className="relative">
-                        <select
-                            name="project_type"
-                            className="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-white transition-colors appearance-none text-gray-400 font-inter"
-                        >
-                            <option value="" disabled selected className="text-gray-700">Select project type</option>
-                            <option value="web_app" className="text-gray-700">Web Application (Front-end)</option>
-                            <option value="redesign" className="text-gray-700">Website Redesign (UI/UX Update)</option>
-                            <option value="new_sections" className="text-gray-700">Adding New Features / Sections</option>
-                            <option value="responsive" className="text-gray-700">Responsive Design Adaptation</option>
-                            <option value="performance" className="text-gray-700">Speed & Performance Optimization</option>
-                            <option value="other" className="text-gray-700">Other Inquiry</option>
-                        </select>
-                    </div>
+                            <input name="email" type="email" placeholder="Email Address" required className="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-white transition-colors" />
 
-                    <div className="relative">
-                        <textarea
-                            name="message"
-                            placeholder="Project Details"
-                            rows={4}
-                            required
-                            className="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-white transition-colors resize-none font-inter"
-                        />
-                    </div>
+                            <select
+                                name="project_type"
+                                className="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-white transition-colors appearance-none text-gray-400 font-inter"
+                            >
+                                <option value="" disabled selected className="text-gray-700">Select project type</option>
+                                <option value="web_app" className="text-gray-700">Web Application (Front-end)</option>
+                                <option value="redesign" className="text-gray-700">Website Redesign (UI/UX Update)</option>
+                                <option value="new_sections" className="text-gray-700">Adding New Features / Sections</option>
+                                <option value="responsive" className="text-gray-700">Responsive Design Adaptation</option>
+                                <option value="performance" className="text-gray-700">Speed & Performance Optimization</option>
+                                <option value="other" className="text-gray-700">Other Inquiry</option>
+                            </select>
 
-                    <button
-                        type="submit"
-                        aria-label="Submit contact form and send message"
-                        className="w-full md:w-fit flex items-center justify-center gap-3 bg-white text-black font-bold py-4 px-12 rounded-xl hover:bg-gray-200 transition-all ml-auto cursor-pointer"
-                    >
-                        Send Message <Send size={18} />
-                    </button>
-                </form>
+                            <textarea name="message" placeholder="Project Details" rows={4} required className="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-white transition-colors resize-none" />
+
+                            <button
+                                type="submit"
+                                disabled={status === "sending"}
+                                className="w-full md:w-fit flex items-center justify-center gap-3 bg-white text-black font-bold py-4 px-12 rounded-xl hover:bg-gray-200 transition-all ml-auto disabled:opacity-50"
+                            >
+                                {status === "sending" ? "Sending..." : "Send Message"} <Send size={18} />
+                            </button>
+
+                            {status === "error" && (
+                                <p className="text-red-500 text-sm mt-4 text-right">Something went wrong. Please try again.</p>
+                            )}
+                        </form>
+                    )}
+                </div>
             </div>
         </section>
     );
