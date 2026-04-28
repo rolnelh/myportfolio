@@ -57,7 +57,7 @@ const Hero = () => {
 
             <h1
                 style={{ fontFamily: "'Syne', sans-serif" }}
-                className="text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-black leading-[0.997] mb-8 max-w-7xl"
+                className="text-4xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-black leading-[0.9999] mb-8 max-w-7xl"
             >
                 {t.heading1}{" "}
                 <span className="relative inline-block">
@@ -67,7 +67,7 @@ const Hero = () => {
                         style={{ transform: "skewX(-3deg)" }}
                     /> */}
                 </span>{" "}
-                <br />
+                {/* <br /> */}
                 <span className="text-gray-400">{t.heading3}</span>
             </h1>
 
