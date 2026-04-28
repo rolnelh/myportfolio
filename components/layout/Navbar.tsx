@@ -1,38 +1,49 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Globe, ChevronDown } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import Image from "next/image";
+import { useLanguage } from "../Languagecontext";
+
+const navLinks = {
+    EN: ["Projects", "Services", "About", "Contact"],
+    FR: ["Projets", "Services", "À propos", "Contact"],
+};
+
+const navHrefs = ["#projects", "#services", "#about", "#contact"];
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [language, setLanguage] = useState("EN");
+    const { language, setLanguage } = useLanguage();
 
     useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
-        };
+        // On active l'effet dès 20px de scroll
+        const handleScroll = () => setIsScrolled(window.scrollY > 20);
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const toggleLang = () => setLanguage(language === "EN" ? "FR" : "EN");
+
     return (
         <nav
             className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled
-                ? "py-4 bg-white/70 backdrop-blur-lg border-b border-white/20 shadow-sm"
-                : "py-8 bg-transparent"
+                    ? "py-3 bg-white/40 backdrop-blur-xl border-b border-white/20 shadow-sm"
+                    : "py-7 bg-transparent"
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
-                <motion.div
-                    initial={{ x: -20 }}
-                    animate={{ x: 0 }}
+                {/* Section Logo - Sans Motion */}
+                <div
                     className="flex items-center gap-3 group cursor-pointer"
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 >
-                    <div className={`relative rounded-full border-2 border-black overflow-hidden bg-gray-200 flex-shrink-0 transition-all duration-300 group-hover:shadow-lg ${isScrolled ? "w-10 h-10" : "w-12 h-12"}`}>
+                    <div
+                        className={`relative rounded-full border-2 border-black overflow-hidden bg-gray-200 flex-shrink-0 transition-all duration-300 ${isScrolled ? "w-9 h-9" : "w-11 h-11"
+                            }`}
+                    >
                         <Image
                             src="/images/profil.webp"
                             alt="Dieudonné"
@@ -42,37 +53,35 @@ const Navbar = () => {
                             className="w-full h-full object-cover"
                         />
                     </div>
-                    <span className="font-syne font-bold text-xl tracking-tight text-black transition-colors duration-300 group-hover:text-gray-600">
+                    <span
+                        style={{ fontFamily: "'Syne', sans-serif" }}
+                        className="font-bold text-lg tracking-tight text-black transition-colors group-hover:text-gray-500"
+                    >
                         Dieudonné
                     </span>
-                </motion.div>
+                </div>
 
-                <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    className="flex items-center gap-4 md:gap-8"
-                >
-
-                    <div className="flex items-center gap-2 group cursor-pointer relative">
-                        <Globe size={18} className="text-black group-hover:rotate-12 transition-transform" />
-                        <select
-                            value={language}
-                            onChange={(e) => setLanguage(e.target.value)}
-                            className="appearance-none bg-transparent font-inter font-semibold text-sm cursor-pointer outline-none pr-4 text-black"
-                        >
-                            <option value="EN">EN</option>
-                            <option value="FR">FR</option>
-                        </select>
-                        <ChevronDown size={14} className="absolute right-0 pointer-events-none" />
-                    </div>
-
-                    <button className="hidden md:block font-inter font-bold text-sm border-b-2 border-black pb-1 hover:text-gray-500 hover:border-gray-500 transition-all">
-                        {language === "EN" ? "Let's Talk" : "Discutons"}
+                {/* Section Actions - Sans Motion */}
+                <div className="flex items-center gap-3 md:gap-6">
+                    <button
+                        onClick={toggleLang}
+                        className="flex items-center gap-1.5 text-sm font-bold text-gray-600 hover:text-black transition-colors"
+                    >
+                        <Globe size={15} />
+                        <span>{language === "EN" ? "FR" : "EN"}</span>
                     </button>
+
+                    <a
+                        href="#contact"
+                        className="hidden md:block font-bold text-sm border-b-2 border-black pb-0.5 hover:text-gray-500 hover:border-gray-500 transition-all"
+                    >
+                        {language === "EN" ? "Let's Talk" : "Discutons"}
+                    </a>
 
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className="relative w-12 h-12 rounded-full bg-black text-white flex items-center justify-center hover:scale-110 transition-transform z-[60]"
+                        aria-label="Toggle menu"
+                        className="relative w-11 h-11 rounded-full bg-black text-white flex items-center justify-center hover:scale-110 transition-transform z-[60]"
                     >
                         <AnimatePresence mode="wait">
                             {isMenuOpen ? (
@@ -83,7 +92,7 @@ const Navbar = () => {
                                     exit={{ rotate: 90, opacity: 0 }}
                                     transition={{ duration: 0.2 }}
                                 >
-                                    <X size={24} />
+                                    <X size={20} />
                                 </motion.div>
                             ) : (
                                 <motion.div
@@ -93,34 +102,37 @@ const Navbar = () => {
                                     exit={{ rotate: -90, opacity: 0 }}
                                     transition={{ duration: 0.2 }}
                                 >
-                                    <Menu size={24} />
+                                    <Menu size={20} />
                                 </motion.div>
                             )}
                         </AnimatePresence>
                     </button>
-                </motion.div>
+                </div>
             </div>
 
+            {/* Menu mobile reste inchangé */}
             <AnimatePresence>
                 {isMenuOpen && (
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center gap-8"
+                        transition={{ duration: 0.25 }}
+                        className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center gap-3"
                     >
-                        {(language === "EN"
-                            ? ["Home", "Projects", "Services", "Contact"]
-                            : ["Accueil", "Projets", "Services", "Contact"]
-                        ).map((item, i) => (
+                        {navLinks[language].map((item, i) => (
                             <motion.a
                                 key={item}
-                                href={`#${item.toLowerCase()}`}
+                                href={navHrefs[i]}
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: i * 0.1 }}
+                                transition={{ delay: i * 0.07 }}
                                 onClick={() => setIsMenuOpen(false)}
-                                className="font-syne text-5xl md:text-7xl font-bold hover:italic transition-all text-black"
+                                className="font-bold hover:italic transition-all text-black"
+                                style={{
+                                    fontFamily: "'Syne', sans-serif",
+                                    fontSize: "clamp(1.2rem, 4vw, 3rem)",
+                                }}
                             >
                                 {item}
                             </motion.a>

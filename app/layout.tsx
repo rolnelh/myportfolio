@@ -81,7 +81,7 @@ export default function RootLayout({
         fontFamily: "'Syne', sans-serif",
       }}>
 
-        <div className="flex h-screen bg-[#F8FAFC]">
+        <div className="flex h-screen">
           <div className="flex flex-col flex-1 overflow-hidden">
             <main className="flex-1 overflow-y-auto p-2 md:p-10 lg:p-16">
               <div className="max-w-7xl mx-auto">

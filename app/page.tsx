@@ -1,25 +1,30 @@
-import About from "@/components/About";
-import Contact from "@/components/Contact";
-import Hero from "@/components/Hero";
+import { LanguageProvider } from "../components/Languagecontext";
 import Navbar from "@/components/layout/Navbar";
-import Projects from "@/components/Projects";
-import Services from "@/components/Services";
-import TechStack from "@/components/TechStack";
+import Hero from "../components/Hero";
+import TechStack from "../components/TechStack";
+import About from "../components/About";
+import Projects from "../components/Projects";
+import Services from "../components/Services";
+import Testimonials from "../components/Testimonials";
+import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 
-export default function Page() {
+export default function Home() {
   return (
-
-    <main className="min-h-screen bg-[#F8FAFC]">
-      <Navbar />
-
-      <Hero />
-      <TechStack />
-      <About />
-      <Projects />
-      <Services />
-      <Contact />
-
-
-    </main>
+    <LanguageProvider>
+      <main className="min-h-screen bg-white text-black antialiased">
+        <Navbar />
+        <div className="pt-24">
+          <Hero />
+          <TechStack />
+          <About />
+          <Projects />
+          <Services />
+          <Testimonials />
+          <Contact />
+          <Footer />
+        </div>
+      </main>
+    </LanguageProvider>
   );
 }
