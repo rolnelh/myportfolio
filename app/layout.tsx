@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Next.js & React Developer | Dieudonné Houndagnon | Premium UI/UX",
     description: "Explore my portfolio: premium interfaces and high-performance digital solutions.",
-    url: 'https://myportfolio-eta-eosin.vercel.app',
+    url: 'https://dieudonne-dev.vercel.app/',
     siteName: 'Dieudonné Portfolio',
     images: [
       {
@@ -105,8 +105,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Dieudonné Houndagnon",
-              "url": "https://myportfolio-eta-eosin.vercel.app",
-              "image": "https://myportfolio-eta-eosin.vercel.app/images/profil.png",
+              "url": "https://dieudonne-dev.vercel.app/",
+              "image": "https://dieudonne-dev.vercel.app//images/profil.png",
               "jobTitle": "Full-Stack Web & Mobile Developer",
               "alumniOf": "EIG-Bénin",
               "address": {

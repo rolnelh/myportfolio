@@ -107,7 +107,7 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
             description: "Minimalist, high-speed showcase — 100% Lighthouse score for SEO & Best Practices.",
             outcome: "Perf 80 · SEO 100 · Best Practices 100",
             image: "/images/myportfolio.webp",
-            url: "https://myportfolio-eta-eosin.vercel.app/",
+            url: "https://dieudonne-dev.vercel.app/",
             technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion"],
             role: "Designer & Developer",
             duration: "3 weeks",
