@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { Star } from "lucide-react";
 import { useLanguage } from "../components/Languagecontext";
 
 const content = {
