@@ -1,47 +1,62 @@
 "use client";
 import React from "react";
 import { CheckCircle } from "lucide-react";
+import Image from "next/image";
 import { useLanguage } from "../components/Languagecontext";
 
 const content = {
   EN: {
-    label: "About Me",
-    heading: "Building products with purpose and precision.",
-    para1:
-      "I help startups and businesses turn ideas into functional, user-friendly digital products. With a strong focus on performance, simplicity, and scalability, I create solutions that make an impact.",
-    para2:
-      "Based in Cotonou, Bénin — working fully remote with clients in Europe, North America & across Africa. Async-friendly, deadline-driven, and fluent in English and French.",
+    sectionLabel: "My Professional Journey",
+    sectionSub: "An overview of my background and expertise",
+    badge: "Available",
+    name: "Hello I'm Dieudonné",
+    role: "Next.js Developer & UI Designer based in Benin",
+    bio: "I'm Dieudonné Houndagnon, Next.js developer and UI designer based in Benin. With 3+ years of experience, I transform complex ideas into fast, intuitive interfaces — built to convert and grow your business.",
+    skills: [
+      {
+        category: "Development",
+        items: ["HTML5","CSS3","JavaScript", "Next.js", "React", "TypeScript", "Tailwind CSS", "Laravel", "MySQL"],
+      },
+      {
+        category: "Design & UX",
+        items: ["UI Design", "UX Research", "Figma", "Wireframing", "Design System", "Prototyping"],
+      },
+      {
+        category: "Performance & Deploy",
+        items: ["Lighthouse 90+", "SEO", "Vercel", "Core Web Vitals", "Mobile-first"],
+      },
+    ],
     bullets: [
-      "Deliverables in weeks, not months",
-      "Clean, documented, maintainable code",
+      "Clean, documented & maintainable code",
       "Design-first & performance-obsessed",
       "Transparent communication throughout",
     ],
-    stats: [
-      { value: "15+", label: "Projects Shipped" },
-      { value: "10+", label: "Happy Clients" },
-      { value: "3+", label: "Years Building" },
-      { value: "100%", label: "Client Satisfaction" },
-    ],
   },
   FR: {
-    label: "À propos",
-    heading: "Je construis des produits avec rigueur et intention.",
-    para1:
-      "J'aide startups et entreprises à transformer leurs idées en produits digitaux fonctionnels, performants et centrés utilisateur.",
-    para2:
-      "Basé à Cotonou, Bénin — je travaille 100% à distance avec des clients en Europe, Amérique du Nord & Afrique. Async-friendly, ponctuel et bilingue.",
+    sectionLabel: "Mon parcours professionnel",
+    sectionSub: "Un aperçu de mon parcours et de mes expériences",
+    badge: "Disponible",
+    name: "Hello I'm Dieudonné",
+    role: "Développeur Next.js & Designer UI basé au Bénin",
+    bio: "Je suis Dieudonné Houndagnon, développeur Next.js et designer UI basé au Bénin. Avec plus de 3 ans d'expérience, je transforme des idées complexes en interfaces rapides et intuitives, conçues pour convertir et faire croître votre business.",
+    skills: [
+      {
+        category: "Développement",
+        items: ["HTML5","CSS3","JavaScript","Next.js", "React", "TypeScript", "Tailwind CSS", "Laravel", "MySQL"],
+      },
+      {
+        category: "Design & UX",
+        items: ["UI Design", "UX Research", "Figma", "Wireframing", "Design System", "Prototypage"],
+      },
+      {
+        category: "Performance & Déploiement",
+        items: ["Lighthouse 90+", "SEO", "Vercel", "Core Web Vitals", "Mobile-first"],
+      },
+    ],
     bullets: [
-      "Livraison en semaines, pas en mois",
       "Code propre, documenté et maintenable",
       "Design-first & obsédé par la performance",
       "Communication transparente en permanence",
-    ],
-    stats: [
-      { value: "15+", label: "Projets livrés" },
-      { value: "10+", label: "Clients satisfaits" },
-      { value: "3+", label: "Ans d'expérience" },
-      { value: "100%", label: "Satisfaction client" },
     ],
   },
 };
@@ -51,61 +66,88 @@ const About = () => {
   const t = content[language];
 
   return (
-    <section id="about" className="py-24 px-6 w-full">
+    <section id="about" className="bg-[#050505] py-24 px-6 rounded-2xl">
       <div className="max-w-7xl mx-auto">
-        {/* Top label */}
-        <div className="flex items-center gap-2 mb-10">
-          <span className="w-2 h-2 rounded-full bg-black inline-block" />
-          <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-gray-500">
-            {t.label}
-          </span>
+
+        <div className="text-center mb-8">
+          <h2
+            style={{ fontFamily: "'Syne', sans-serif" }}
+            className="text-4xl md:text-6xl font-bold mb-3"
+          >
+            <span className="text-white">{t.sectionLabel.split(" ").slice(0, -1).join(" ")} </span>
+            <span className="text-white/30">{t.sectionLabel.split(" ").slice(-1)}</span>
+          </h2>
+          <p className="text-white/40 text-base">{t.sectionSub}</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Left */}
-          <div>
-            <h2
-              style={{ fontFamily: "'Syne', sans-serif" }}
-              className="text-4xl md:text-5xl font-bold text-black leading-tight tracking-tight mb-8"
-            >
-              {t.heading}
-            </h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
 
-            <p className="text-lg text-gray-600 leading-relaxed mb-5">
-              {t.para1}
-            </p>
-            <p className="text-base text-gray-500 leading-relaxed mb-8 border-l-2 border-gray-200 pl-4">
-              {t.para2}
-            </p>
+          <div className="bg-[#0d0d0d] border border-white/5 rounded-3xl p-6 flex flex-col gap-5">
 
-            <ul className="space-y-3">
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
+              <Image
+                src="/images/profil.webp"
+                alt="Dieudonné"
+                fill
+                className="object-cover object-top"
+              />
+
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
+                <div className="flex items-center gap-2 bg-black/70 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full">
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping" />
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
+                  </span>
+                  <span className="text-white text-sm font-semibold">{t.badge}</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3
+                style={{ fontFamily: "'Syne', sans-serif" }}
+                className="text-white text-2xl font-bold mb-1"
+              >
+                {t.name}
+              </h3>
+              <p className="text-white/40 text-sm font-medium">{t.role}</p>
+            </div>
+
+            <ul className="space-y-2.5 border-t border-white/5 pt-5">
               {t.bullets.map((b, i) => (
                 <li key={i} className="flex items-center gap-3">
-                  <CheckCircle size={16} className="text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700 font-medium">{b}</span>
+                  <CheckCircle size={15} className="text-green-500 flex-shrink-0" />
+                  <span className="text-white/60 text-sm font-medium">{b}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Right — stats */}
-          <div className="grid grid-cols-2 gap-4">
-            {t.stats.map((stat, i) => (
-              <div
-                key={i}
-                className="bg-gray-50 border border-gray-100 rounded-3xl p-8 flex flex-col gap-2 hover:border-black hover:bg-white transition-all duration-300 group"
-              >
-                <span
-                  style={{ fontFamily: "'Syne', sans-serif" }}
-                  className="text-4xl font-bold text-black"
-                >
-                  {stat.value}
-                </span>
-                <span className="text-sm font-semibold text-gray-500 uppercase tracking-wider">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
+          <div className="bg-[#0d0d0d] border border-white/5 rounded-3xl p-8 flex flex-col gap-8">
+
+            <p className="text-white/70 text-lg leading-relaxed border-b border-white/5 pb-8">
+              {t.bio}
+            </p>
+
+            <div className="flex flex-col gap-7">
+              {t.skills.map((group, gi) => (
+                <div key={gi}>
+                  <p className="text-white/30 text-xs font-bold uppercase tracking-widest mb-3">
+                    {group.category}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {group.items.map((skill, si) => (
+                      <span
+                        key={si}
+                        className="px-3 py-1.5 bg-white/5 border border-white/8 text-white/60 text-sm font-medium rounded-lg hover:bg-white/10 hover:text-white transition-all duration-200"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

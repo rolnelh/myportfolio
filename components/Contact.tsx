@@ -1,109 +1,70 @@
 "use client";
 import React, { useState } from "react";
-import { Mail, MapPin, Send, CheckCircle, Calendar, Clock, Globe2 } from "lucide-react";
+import { Send, CheckCircle, Linkedin, Github, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "../components/Languagecontext";
 
-interface FormOption {
-    v: string;
-    l: string;
-}
+interface FormOption { v: string; l: string; }
 
-interface FormContent {
-    firstName: string;
-    lastName: string;
-    email: string;
-    selectDefault: string;
-    options: FormOption[];
-    message: string;
-    send: string;
-    sending: string;
-}
-
-interface LangContent {
-    label: string;
-    heading: string;
-    headingAccent: string;
-    headingSuffix: string;
-    sub: string;
-    remote: string;
-    timezone: string;
-    callBtn: string;
-    callSub: string;
-    form: FormContent;
-    successTitle: string;
-    successSub: string;
-    successBtn: string;
-    errorMsg: string;
-    emailLabel: string;
-    locationLabel: string;
-}
-
-const content: Record<"EN" | "FR", LangContent> = {
+const content = {
     EN: {
-        label: "Get in Touch",
-        heading: "Share your",
-        headingAccent: "ideas",
-        headingSuffix: "with me.",
-        sub: "Whether you have a project in mind or want to explore possibilities, I'll build the right solution for you.",
-        remote: "🌍 Working remotely with clients worldwide — async-friendly, responsive within 24h.",
-        timezone: "GMT+1 (Cotonou) — available for calls Mon–Fri, 9am–6pm",
-        callBtn: "Book a free 30-min call",
-        callSub: "No commitment · Zoom or Google Meet",
+        label: "Contact",
+        title1: "Let's build",
+        title2: "something great.",
+        sub: "A project in mind? A quick question? Write to me — I respond within 24h.",
+        whatsapp: "Chat on WhatsApp",
+        waNumber: "https://wa.me/22901663745865",
         form: {
             firstName: "First Name",
             lastName: "Last Name",
-            email: "Email Address",
-            selectDefault: "Select project type",
+            email: "Email",
+            selectDefault: "Project type",
             options: [
-                { v: "web_app", l: "Web Application (Front-end)" },
-                { v: "redesign", l: "Website Redesign (UI/UX)" },
-                { v: "mobile", l: "Mobile App (React Native)" },
-                { v: "performance", l: "Performance Audit" },
-                { v: "other", l: "Other Inquiry" },
+                { v: "landing", l: "Landing Page" },
+                { v: "webapp", l: "Web App / Dashboard" },
+                { v: "redesign", l: "UI/UX Redesign" },
+                { v: "audit", l: "Performance Audit" },
+                { v: "other", l: "Other" },
             ],
-            message: "Tell me about your project",
-            send: "Send Message",
+            message: "Tell me about your project...",
+            send: "Send",
             sending: "Sending…",
         },
         successTitle: "Message sent!",
         successSub: "I'll get back to you within 24 hours.",
-        successBtn: "Send another message",
-        errorMsg: "Something went wrong. Please try again.",
-        emailLabel: "Email",
-        locationLabel: "Location",
+        successBtn: "Send another",
+        errorMsg: "Something went wrong. Try again.",
+        availability: "Available for new projects",
+        remote: "Remote · Worldwide · GMT+1",
     },
     FR: {
-        label: "Me contacter",
-        heading: "Partagez vos",
-        headingAccent: "idées",
-        headingSuffix: "avec moi.",
-        sub: "Que vous ayez un projet ou souhaitiez explorer des possibilités, je construirai la bonne solution pour vous.",
-        remote: "🌍 Travail 100% remote avec des clients du monde entier — async-friendly, réponse sous 24h.",
-        timezone: "GMT+1 (Cotonou) — disponible Lun–Ven, 9h–18h",
-        callBtn: "Réserver un appel gratuit de 30 min",
-        callSub: "Sans engagement · Zoom ou Google Meet",
+        label: "Contact",
+        title1: "Construisons",
+        title2: "quelque chose ensemble.",
+        sub: "Un projet ? Une question ? Écrivez-moi — je réponds sous 24h.",
+        whatsapp: "Me contacter sur WhatsApp",
+        waNumber: "https://wa.me/22901663745865",
         form: {
             firstName: "Prénom",
             lastName: "Nom",
-            email: "Adresse email",
+            email: "Email",
             selectDefault: "Type de projet",
             options: [
-                { v: "web_app", l: "Application Web (Front-end)" },
-                { v: "redesign", l: "Refonte de site (UI/UX)" },
-                { v: "mobile", l: "Application Mobile (React Native)" },
-                { v: "performance", l: "Audit de performance" },
-                { v: "other", l: "Autre demande" },
+                { v: "landing", l: "Landing Page" },
+                { v: "webapp", l: "Application Web / Dashboard" },
+                { v: "redesign", l: "Refonte UI/UX" },
+                { v: "audit", l: "Audit Performance" },
+                { v: "other", l: "Autre" },
             ],
-            message: "Décrivez votre projet",
-            send: "Envoyer le message",
-            sending: "Envoi en cours…",
+            message: "Décrivez votre projet...",
+            send: "Envoyer",
+            sending: "Envoi…",
         },
         successTitle: "Message envoyé !",
         successSub: "Je vous réponds sous 24 heures.",
-        successBtn: "Envoyer un autre message",
-        errorMsg: "Une erreur est survenue. Veuillez réessayer.",
-        emailLabel: "Email",
-        locationLabel: "Localisation",
+        successBtn: "Envoyer un autre",
+        errorMsg: "Une erreur est survenue. Réessayez.",
+        availability: "Disponible pour de nouveaux projets",
+        remote: "Remote · Monde entier · GMT+1",
     },
 };
 
@@ -118,120 +79,186 @@ const Contact = () => {
         const form = e.currentTarget;
         const data = new FormData(form);
         try {
-            const response = await fetch("https://formspree.io/f/xojybgwq", {
+            const res = await fetch("https://formspree.io/f/xojybgwq", {
                 method: "POST",
                 body: data,
                 headers: { Accept: "application/json" },
             });
-            if (response.ok) {
-                setStatus("success");
-                form.reset();
-            } else {
-                setStatus("error");
-            }
-        } catch {
-            setStatus("error");
-        }
+            if (res.ok) { setStatus("success"); form.reset(); }
+            else setStatus("error");
+        } catch { setStatus("error"); }
     };
 
     return (
-        <section id="contact" className="bg-black text-white py-24 px-6 mt-20 rounded-2xl">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
-                {/* Left */}
-                <div>
-                    <div className="flex items-center gap-2 mb-6">
-                        <span className="w-2 h-2 rounded-full bg-green-400" />
-                        <span className="font-mono text-xs font-bold uppercase tracking-widest text-gray-500">
-                            {t.label}
-                        </span>
-                    </div>
+        <section id="contact" className="bg-[#050505] py-28 px-6 rounded-3xl">
+            <div className="max-w-5xl mx-auto">
+
+                <div className="mb-16">
+                    <p className="text-white/20 text-xs font-bold uppercase tracking-widest mb-5">
+                        {t.label}
+                    </p>
                     <h2
                         style={{ fontFamily: "'Syne', sans-serif" }}
-                        className="text-5xl md:text-7xl font-bold leading-tight mb-6"
+                        className="text-5xl md:text-7xl font-bold leading-[0.92] tracking-tight mb-6"
                     >
-                        {t.heading} <span className="text-gray-500">{t.headingAccent}</span> {t.headingSuffix}
+                        <span className="text-white">{t.title1}</span><br />
+                        <span className="text-white/20">{t.title2}</span>
                     </h2>
-                    <p className="text-gray-400 text-lg mb-8 max-w-md leading-relaxed">{t.sub}</p>
-
-                    {/* Remote reassurance */}
-                    <div className="bg-white/5 border border-white/10 rounded-2xl px-5 py-4 mb-8">
-                        <p className="text-gray-300 text-sm leading-relaxed">{t.remote}</p>
-                        <div className="flex items-center gap-2 mt-3 text-gray-500 text-xs">
-                            <Clock size={12} />
-                            <span>{t.timezone}</span>
-                        </div>
-                    </div>
-
-                    {/* Calendly CTA */}
-                    <a
-                        href="https://calendly.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 bg-white text-black font-bold py-4 px-8 rounded-xl hover:bg-gray-100 transition-all w-full md:w-fit mb-2 justify-center md:justify-start"
-                    >
-                        <Calendar size={18} />
-                        {t.callBtn}
-                    </a>
-                    <p className="text-gray-600 text-xs mb-10">{t.callSub}</p>
-
-                    {/* Contact info */}
-                    <div className="space-y-5">
-                        {[
-                            { icon: <Mail size={16} className="text-gray-400" />, label: t.emailLabel, value: "houndagnondieudonne4@gmail.com", href: "mailto:houndagnondieudonne4@gmail.com" },
-                            { icon: <MapPin size={16} className="text-gray-400" />, label: t.locationLabel, value: "Cotonou, Bénin 🇧🇯", href: null },
-                            { icon: <Globe2 size={16} className="text-gray-400" />, label: "Availability", value: "Worldwide · Remote only", href: null },
-                        ].map((item, i) => (
-                            <div key={i} className="flex items-center gap-4">
-                                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 shrink-0">
-                                    {item.icon}
-                                </div>
-                                <div>
-                                    <p className="text-xs font-bold uppercase tracking-widest text-gray-600 mb-0.5">{item.label}</p>
-                                    {item.href ? (
-                                        <a href={item.href} className="text-gray-300 hover:text-white transition-colors text-sm">{item.value}</a>
-                                    ) : (
-                                        <p className="text-gray-300 text-sm">{item.value}</p>
-                                    )}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                    <p className="text-white/40 text-lg max-w-md leading-relaxed">{t.sub}</p>
                 </div>
 
-                {/* Right — Form */}
-                <div className="relative">
-                    {status === "success" ? (
-                        <div className="bg-white/5 border border-white/10 rounded-[2rem] p-12 text-center flex flex-col items-center justify-center h-full min-h-[400px]">
-                            <CheckCircle size={56} className="text-green-500 mb-6" />
-                            <h3 style={{ fontFamily: "'Syne', sans-serif" }} className="text-3xl font-bold mb-3">
-                                {t.successTitle}
-                            </h3>
-                            <p className="text-gray-400 mb-8">{t.successSub}</p>
-                            <button onClick={() => setStatus("")} className="text-white border-b border-white pb-1 font-bold hover:text-gray-400 transition-colors">
-                                {t.successBtn}
-                            </button>
-                        </div>
-                    ) : (
-                        <form onSubmit={handleSubmit} className="space-y-8">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                <input name="first_name" placeholder={t.form.firstName} required className="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-white transition-colors placeholder-gray-600" />
-                                <input name="last_name" placeholder={t.form.lastName} required className="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-white transition-colors placeholder-gray-600" />
+                <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+
+                    <div className="lg:col-span-2 flex flex-col gap-5">
+
+                        <div className="bg-white/[0.03] border border-white/5 rounded-2xl p-6 flex flex-col gap-4">
+                            <div className="flex items-center gap-2.5">
+                                <span className="relative flex h-2.5 w-2.5">
+                                    <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping" />
+                                    <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
+                                </span>
+                                <span className="text-white text-sm font-semibold">{t.availability}</span>
                             </div>
-                            <input name="email" type="email" placeholder={t.form.email} required className="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-white transition-colors placeholder-gray-600" />
-                            <select name="project_type" defaultValue="" className="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-white transition-colors appearance-none text-gray-400">
-                                <option value="" disabled className="text-gray-700">{t.form.selectDefault}</option>
-                                {t.form.options.map((opt: FormOption) => (
-                                    <option key={opt.v} value={opt.v} className="text-gray-700">{opt.l}</option>
-                                ))}
-                            </select>
-                            <textarea name="message" placeholder={t.form.message} rows={4} required className="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-white transition-colors resize-none placeholder-gray-600" />
-                            <button type="submit" disabled={status === "sending"} className="w-full md:w-fit flex items-center justify-center gap-3 bg-white text-black font-bold py-4 px-12 rounded-xl hover:bg-gray-200 transition-all ml-auto disabled:opacity-50">
-                                {status === "sending" ? t.form.sending : t.form.send}
-                                <Send size={16} />
-                            </button>
-                            {status === "error" && <p className="text-red-400 text-sm text-right">{t.errorMsg}</p>}
-                        </form>
-                    )}
+                            <p className="text-white/30 text-xs font-medium">{t.remote}</p>
+                        </div>
+
+                        <a
+                            href={t.waNumber}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center justify-between bg-white text-black font-bold py-5 px-6 rounded-2xl hover:bg-gray-100 transition-all duration-200 hover:scale-[1.02] active:scale-95"
+                        >
+                            <div className="flex items-center gap-3">
+
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                                </svg>
+                                <span className="text-base">{t.whatsapp}</span>
+                            </div>
+                            <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        </a>
+
+                        <a
+                            href="mailto:houndagnondieudonne4@gmail.com"
+                            className="flex items-center justify-between bg-white/[0.03] border border-white/5 text-white/50 hover:text-white hover:border-white/20 font-medium py-4 px-6 rounded-2xl transition-all duration-200 text-sm group"
+                        >
+                            <span>houndagnondieudonne4@gmail.com</span>
+                            <ArrowUpRight size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform flex-shrink-0 ml-2" />
+                        </a>
+
+                        <div className="flex items-center gap-3">
+                            <a
+                                href="https://www.linkedin.com/in/dieudonn%C3%A9-houndagnon-093387250"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex-1 flex items-center justify-center gap-2.5 py-3.5 rounded-2xl bg-white/[0.03] border border-white/5 text-white/40 hover:text-white hover:border-white/20 transition-all duration-200 group"
+                            >
+                                <Linkedin size={16} />
+                                <span className="text-sm font-semibold">LinkedIn</span>
+                            </a>
+                            <a
+                                href="https://github.com/rolnelh"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex-1 flex items-center justify-center gap-2.5 py-3.5 rounded-2xl bg-white/[0.03] border border-white/5 text-white/40 hover:text-white hover:border-white/20 transition-all duration-200 group"
+                            >
+                                <Github size={16} />
+                                <span className="text-sm font-semibold">GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div className="lg:col-span-3 bg-white/[0.03] border border-white/5 rounded-2xl p-8">
+                        {status === "success" ? (
+                            <div className="flex flex-col items-center justify-center h-full min-h-[360px] text-center gap-5">
+                                <CheckCircle size={52} className="text-green-500" />
+                                <div>
+                                    <h3 style={{ fontFamily: "'Syne', sans-serif" }} className="text-2xl font-bold text-white mb-2">
+                                        {t.successTitle}
+                                    </h3>
+                                    <p className="text-white/40">{t.successSub}</p>
+                                </div>
+                                <button
+                                    onClick={() => setStatus("")}
+                                    className="text-white/40 hover:text-white text-sm font-medium border-b border-white/20 pb-0.5 transition-colors"
+                                >
+                                    {t.successBtn}
+                                </button>
+                            </div>
+                        ) : (
+                            <form onSubmit={handleSubmit} className="flex flex-col gap-7">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
+                                    <div className="flex flex-col gap-1.5">
+                                        <label className="text-white/30 text-xs font-bold uppercase tracking-wider">{t.form.firstName}</label>
+                                        <input
+                                            name="first_name"
+                                            placeholder="Dieudonné"
+                                            required
+                                            className="bg-transparent border-b border-white/10 py-3 outline-none focus:border-white/40 transition-colors text-white placeholder-white/20 text-sm"
+                                        />
+                                    </div>
+                                    <div className="flex flex-col gap-1.5">
+                                        <label className="text-white/30 text-xs font-bold uppercase tracking-wider">{t.form.lastName}</label>
+                                        <input
+                                            name="last_name"
+                                            placeholder="Houndagnon"
+                                            required
+                                            className="bg-transparent border-b border-white/10 py-3 outline-none focus:border-white/40 transition-colors text-white placeholder-white/20 text-sm"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="flex flex-col gap-1.5">
+                                    <label className="text-white/30 text-xs font-bold uppercase tracking-wider">{t.form.email}</label>
+                                    <input
+                                        name="email"
+                                        type="email"
+                                        placeholder="vous@exemple.com"
+                                        required
+                                        className="bg-transparent border-b border-white/10 py-3 outline-none focus:border-white/40 transition-colors text-white placeholder-white/20 text-sm"
+                                    />
+                                </div>
+
+                                <div className="flex flex-col gap-1.5">
+                                    <label className="text-white/30 text-xs font-bold uppercase tracking-wider">{t.form.selectDefault}</label>
+                                    <select
+                                        name="project_type"
+                                        defaultValue=""
+                                        className="bg-transparent border-b border-white/10 py-3 outline-none focus:border-white/40 transition-colors appearance-none text-white/60 text-sm cursor-pointer"
+                                    >
+                                        <option value="" disabled className="bg-[#0d0d0d]">—</option>
+                                        {t.form.options.map((opt: FormOption) => (
+                                            <option key={opt.v} value={opt.v} className="bg-[#0d0d0d] text-white">{opt.l}</option>
+                                        ))}
+                                    </select>
+                                </div>
+
+                                <div className="flex flex-col gap-1.5">
+                                    <label className="text-white/30 text-xs font-bold uppercase tracking-wider">Message</label>
+                                    <textarea
+                                        name="message"
+                                        placeholder={t.form.message}
+                                        rows={4}
+                                        required
+                                        className="bg-transparent border-b border-white/10 py-3 outline-none focus:border-white/40 transition-colors resize-none text-white placeholder-white/20 text-sm"
+                                    />
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    disabled={status === "sending"}
+                                    className="self-end flex items-center gap-3 bg-white text-black font-bold py-4 px-8 rounded-xl hover:bg-gray-100 transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-40 text-sm"
+                                >
+                                    {status === "sending" ? t.form.sending : t.form.send}
+                                    <Send size={15} />
+                                </button>
+
+                                {status === "error" && (
+                                    <p className="text-red-400 text-xs text-right">{t.errorMsg}</p>
+                                )}
+                            </form>
+                        )}
+                    </div>
                 </div>
             </div>
         </section>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Syne, Inter } from "next/font/google";
+import { Syne, Poppins } from "next/font/google";
 import "./globals.css";
 import { Analytics } from '@vercel/analytics/next';
 
@@ -10,10 +10,16 @@ const syne = Syne({
   weight: ["400", "500"],
 });
 
-const inter = Inter({
+// const inter = Inter({
+//   subsets: ["latin"],
+//   variable: "--font-inter",
+//   display: "swap",
+// });
+
+const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
+  variable: "--font-poppins",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 
@@ -76,7 +82,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className={`${syne.variable} ${inter.variable}`}>
+    <html lang="fr" className={`${syne.variable} ${poppins.variable}`}>
       <body className="antialiased text-slate-900" style={{
         fontFamily: "'Syne', sans-serif",
       }}>

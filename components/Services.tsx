@@ -1,76 +1,82 @@
 "use client";
 import React from "react";
-import { ArrowUpRight, Layout, Smartphone, Layers, Gauge } from "lucide-react";
+import { ArrowUpRight, Monitor, Smartphone, Layers, Gauge } from "lucide-react";
 import { useLanguage } from "../components/Languagecontext";
 
 const content = {
     EN: {
-        label: "Services & Expertise",
-        heading: "High-performance digital solutions.",
+        label: "What I offer",
+        title1: "My",
+        title2: "Services",
+        sub: "Clear, results-oriented services",
         cta: "Start a project",
         services: [
             {
-                title: "Web Development",
-                category: "Next.js 15 / SSR Architecture",
+                icon: <Monitor size={22} />,
+                title: "Landing Page & Website",
                 description:
-                    "Scalable, SEO-optimized platforms with a focus on speed, reliability, and clean code.",
-                icon: <Layout className="text-black" size={24} />,
+                    "I design and build fast, modern websites centered on user experience — built to engage, convert, and support your business growth.",
+                image: "/images/anip_refonte.webp",
+                featured: true,
             },
             {
-                title: "Mobile Solutions",
-                category: "React Native / Expo",
+                icon: <Layers size={22} />,
+                title: "UI/UX Redesign",
                 description:
-                    "Cross-platform apps delivering native performance on iOS and Android.",
-                icon: <Smartphone className="text-black" size={24} />,
+                    "I audit your existing interface and transform it into a clean, high-performing product your users will love.",
+                featured: false,
             },
             {
-                title: "UI/UX Integration",
-                category: "Tailwind CSS / Design Systems",
+                icon: <Gauge size={22} />,
+                title: "Performance Audit",
                 description:
-                    "Translating Figma designs into pixel-perfect, highly interactive interfaces.",
-                icon: <Layers className="text-black" size={24} />,
+                    "I optimize your app for speed, SEO, and Core Web Vitals — Lighthouse 90+ guaranteed.",
+                featured: false,
             },
             {
-                title: "Performance Audits",
-                category: "Core Web Vitals / Speed",
+                icon: <Smartphone size={22} />,
+                title: "Web App / Dashboard",
                 description:
-                    "Optimizing loading times and accessibility to achieve 90+ Lighthouse scores.",
-                icon: <Gauge className="text-black" size={24} />,
+                    "Custom web applications and admin dashboards — scalable, clean, and maintainable.",
+                featured: false,
             },
         ],
     },
     FR: {
-        label: "Services & Expertise",
-        heading: "Des solutions digitales hautes performances.",
+        label: "Ce que je propose",
+        title1: "Mes",
+        title2: "Services",
+        sub: "Des services clairs et orientés résultats",
         cta: "Démarrer un projet",
         services: [
             {
-                title: "Développement Web",
-                category: "Next.js 15 / Architecture SSR",
+                icon: <Monitor size={22} />,
+                title: "Landing Page & Site Web",
                 description:
-                    "Plateformes scalables, optimisées SEO, avec un focus sur la vitesse et la fiabilité.",
-                icon: <Layout className="text-black" size={24} />,
+                    "Je conçois et développe des sites rapides et modernes centrés utilisateur, pensés pour engager, convertir et soutenir la croissance de votre activité.",
+                image: "/images/anip_refonte.webp",
+                featured: true,
             },
             {
-                title: "Solutions Mobile",
-                category: "React Native / Expo",
+                icon: <Layers size={22} />,
+                title: "Refonte UI/UX",
                 description:
-                    "Applications cross-platform offrant des performances natives sur iOS et Android.",
-                icon: <Smartphone className="text-black" size={24} />,
+                    "J'audite votre interface existante et la transforme en un produit propre et performant que vos utilisateurs adoreront.",
+                featured: false,
             },
             {
-                title: "Intégration UI/UX",
-                category: "Tailwind CSS / Design Systems",
+                icon: <Gauge size={22} />,
+                title: "Audit de Performance",
                 description:
-                    "Transformation de maquettes Figma en interfaces interactives pixel-perfect.",
-                icon: <Layers className="text-black" size={24} />,
+                    "J'optimise votre app pour la vitesse, le SEO et les Core Web Vitals — Lighthouse 90+ garanti.",
+                featured: false,
             },
             {
-                title: "Audits Performance",
-                category: "Core Web Vitals / Vitesse",
+                icon: <Smartphone size={22} />,
+                title: "Application Web & Dashboard",
                 description:
-                    "Optimisation des temps de chargement et accessibilité pour atteindre 90+ Lighthouse.",
-                icon: <Gauge className="text-black" size={24} />,
+                    "Applications web sur mesure et dashboards admin — scalables, propres et maintenables.",
+                featured: false,
             },
         ],
     },
@@ -79,55 +85,96 @@ const content = {
 const Services = () => {
     const { language } = useLanguage();
     const t = content[language];
+    const featured = t.services[0];
+    const others = t.services.slice(1);
 
     return (
-        <section id="services" className="py-24 max-w-7xl mx-auto px-6">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-14 gap-8">
-                <div className="max-w-2xl">
-                    <div className="flex items-center gap-2 mb-4">
-                        <span className="w-2 h-2 rounded-full bg-green-500" />
-                        <span className="font-mono text-xs font-bold uppercase tracking-widest text-gray-400">
-                            {t.label}
-                        </span>
-                    </div>
-                    <h2
-                        style={{ fontFamily: "'Syne', sans-serif" }}
-                        className="text-4xl md:text-6xl font-bold text-black leading-tight"
-                    >
-                        {t.heading}
-                    </h2>
-                </div>
-                <a
-                    href="#contact"
-                    className="group flex items-center gap-3 bg-black text-white rounded-full px-8 py-4 font-bold hover:scale-105 transition-all cursor-pointer whitespace-nowrap"
-                >
-                    {t.cta} <ArrowUpRight size={20} />
-                </a>
-            </div>
+        <section id="services" className="bg-white py-24 px-6">
+            <div className="max-w-7xl mx-auto">
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {t.services.map((service, index) => (
-                    <div
-                        key={index}
-                        className="group p-8 bg-gray-50 border border-gray-100 rounded-[32px] hover:bg-white hover:border-black transition-all duration-500 flex flex-col h-full"
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+                    <div>
+                        <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">
+                            {t.label}
+                        </p>
+                        <h2
+                            style={{ fontFamily: "'Syne', sans-serif" }}
+                            className="text-5xl md:text-7xl font-bold leading-none tracking-tight"
+                        >
+                            <span className="text-gray-950">{t.title1} </span>
+                            <span className="text-gray-300">{t.title2}</span>
+                        </h2>
+                        <p className="text-gray-400 text-base mt-4">{t.sub}</p>
+                    </div>
+
+                    <a
+                        href="#contact"
+                        className="flex items-center gap-2 bg-gray-950 text-white font-bold px-7 py-4 rounded-xl hover:bg-gray-800 transition-all duration-200 hover:scale-[1.02] active:scale-95 whitespace-nowrap w-fit"
                     >
-                        <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform duration-500">
-                            {service.icon}
+                        {t.cta}
+                        <ArrowUpRight size={18} />
+                    </a>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+
+                    <div className="bg-gray-950 rounded-3xl overflow-hidden flex flex-col group cursor-pointer hover:ring-1 hover:ring-white/10 transition-all duration-300">
+
+                        <div className="relative h-56 overflow-hidden">
+                            <img
+                                src={featured.image}
+                                alt={featured.title}
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/40 to-transparent" />
                         </div>
-                        <div className="mt-auto">
-                            <p className="font-mono text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">
-                                {service.category}
+
+                        <div className="p-8 flex flex-col gap-4 flex-1">
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white">
+                                    {featured.icon}
+                                </div>
+                                <h3
+                                    style={{ fontFamily: "'Syne', sans-serif" }}
+                                    className="text-white text-2xl font-bold"
+                                >
+                                    {featured.title}
+                                </h3>
+                            </div>
+                            <p className="text-white/50 leading-relaxed text-base">
+                                {featured.description}
                             </p>
-                            <h3
-                                style={{ fontFamily: "'Syne', sans-serif" }}
-                                className="text-xl font-bold text-gray-900 mb-3"
-                            >
-                                {service.title}
-                            </h3>
-                            <p className="text-sm text-gray-500 leading-relaxed">{service.description}</p>
+                            <div className="mt-auto flex items-center gap-2 text-white/30 text-sm font-medium group-hover:text-white/60 transition-colors">
+                                <span>En savoir plus</span>
+                                <ArrowUpRight size={14} />
+                            </div>
                         </div>
                     </div>
-                ))}
+
+                    <div className="flex flex-col gap-4">
+                        {others.map((service, i) => (
+                            <div
+                                key={i}
+                                className="bg-gray-50 border border-gray-100 rounded-3xl p-7 flex flex-col gap-3 group cursor-pointer hover:bg-white hover:border-gray-950 hover:shadow-lg transition-all duration-300"
+                            >
+                                <div className="flex items-center gap-3">
+                                    <div className="w-10 h-10 rounded-xl bg-gray-950 flex items-center justify-center text-white flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                        {service.icon}
+                                    </div>
+                                    <h3
+                                        style={{ fontFamily: "'Syne', sans-serif" }}
+                                        className="text-gray-950 text-xl font-bold"
+                                    >
+                                        {service.title}
+                                    </h3>
+                                </div>
+                                <p className="text-gray-500 text-sm leading-relaxed">
+                                    {service.description}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
         </section>
     );

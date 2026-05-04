@@ -1,156 +1,143 @@
 "use client";
 import React from "react";
-import { ArrowRight, Calendar, Linkedin, Github, DribbbleIcon } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, Linkedin, Github } from "lucide-react";
 import { useLanguage } from "../components/Languagecontext";
 
 const content = {
     EN: {
-        badge: "Available for new projects",
-        heading1: "I build",
-        heading2: "high-performance",
-        heading3: "web products that convert.",
-        sub: "Startups & businesses hire me to turn complex ideas into scalable platforms — from UX to deployment, in weeks, not months.",
-        social: "Trusted by 10+ clients across Africa & Europe · Remote-friendly · Async-ready",
-        cta1: "Book a free call",
+        badge: "Next.js Developer & UI Designer",
+        title1: "I Build Interfaces",
+        title2: "That Convert.",
+        offer: "I help entrepreneurs boost their sales with ultra-fast Landing Pages that accelerate their growth.",
+        social: "Trusted by 10+ clients · Africa & Europe · Remote",
+        cta1: "Chat on WhatsApp",
         cta2: "View my work",
-        stat1: "15+",
-        stat1l: "Projects shipped",
-        stat2: "3+",
-        stat2l: "Years building",
-        stat3: "100%",
-        stat3l: "Client satisfaction",
+        stat1: "15+", stat1l: "Projects shipped",
+        stat2: "5d", stat2l: "Average delivery",
+        stat3: "100%", stat3l: "Satisfaction",
+        waNumber: "https://wa.me/22901663745865",
     },
     FR: {
-        badge: "Disponible pour de nouveaux projets",
-        heading1: "Je bâtis des produits web qui",
-        heading2: "performent",
-        heading3: "& convertissent.",
-        sub: "Startups & entreprises me font confiance pour transformer des idées complexes en plateformes scalables — du design au déploiement, en semaines.",
-        social: "Clients en Afrique & Europe · 100% remote · Async-friendly",
-        cta1: "Réserver un appel gratuit",
+        badge: "Développeur Next.js & Designer UI",
+        title1: "Je construis des interfaces",
+        title2: "qui convertissent.",
+        offer: "J'aide les entrepreneurs à booster leurs ventes grâce à des Landing Pages ultra-rapides qui accélèrent leur croissance.",
+        social: "10+ clients satisfaits · Afrique & Europe · Remote",
+        cta1: "Me contacter sur WhatsApp",
         cta2: "Voir mes projets",
-        stat1: "15+",
-        stat1l: "Projets livrés",
-        stat2: "3+",
-        stat2l: "Ans d'expérience",
-        stat3: "100%",
-        stat3l: "Satisfaction client",
+        stat1: "15+", stat1l: "Projets livrés",
+        stat2: "5j", stat2l: "Délai moyen",
+        stat3: "100%", stat3l: "Satisfaction",
+        waNumber: "https://wa.me/22901663745865",
     },
 };
+
+const fadeUp = (delay = 0) => ({
+    initial: { opacity: 0, y: 28 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] },
+});
 
 const Hero = () => {
     const { language } = useLanguage();
     const t = content[language];
 
     return (
-        <section className="relative flex flex-col items-start px-6 pt-2 pb-20 max-w-7xl mx-auto overflow-hidden">
+        <section className="relative min-h-screen flex flex-col items-start justify-center px-6 pt-8 pb-20 max-w-7xl mx-auto overflow-hidden">
 
-            <div className="flex items-center gap-2 bg-green-50 border border-green-200 px-4 py-2 rounded-full mb-10 w-fit">
-                <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                </span>
-                <span className="font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-green-700 whitespace-nowrap">
-                    {t.badge}
-                </span>
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] -translate-y-1/4 translate-x-1/4 pointer-events-none">
+                <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-900/30 via-blue-950/20 to-transparent blur-3xl" />
+                <div className="absolute inset-8 rounded-full bg-gradient-to-br from-blue-800/10 to-transparent blur-2xl" />
             </div>
 
-            <h1
-                style={{ fontFamily: "'Syne', sans-serif" }}
-                className="text-4xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-black leading-[0.9999] mb-8 max-w-7xl"
-            >
-                {t.heading1}{" "}
-                <span className="relative inline-block">
-                    <span className="relative z-10">{t.heading2}</span>
-                    {/* <span
-                        className="absolute -bottom-1 left-0 w-full h-3 bg-yellow-300 -z-0 opacity-60"
-                        style={{ transform: "skewX(-3deg)" }}
-                    /> */}
-                </span>{" "}
-                {/* <br /> */}
-                <span className="text-gray-400">{t.heading3}</span>
-            </h1>
-
-            <p className="text-lg md:text-xl text-gray-600 mb-4 max-w-2xl leading-relaxed tracking-tight">
-                {t.sub}
-            </p>
-
-            <p className="text-sm text-gray-400 font-medium mb-12 flex items-center gap-2">
-                <span className="inline-block w-4 h-px bg-gray-300" />
-                {t.social}
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-start gap-4 mb-14 w-full">
-                <a
-                    href="https://calendly.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center gap-3 bg-black text-white rounded-full px-8 py-4 font-bold text-base transition-all hover:scale-[1.02] shadow-lg shadow-black/20 cursor-pointer"
-                >
-                    <Calendar size={18} />
-                    {t.cta1}
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </a>
-
-                <a
-                    href="#projects"
-                    className="flex items-center gap-3 font-bold text-black border-2 border-black/10 rounded-full px-8 py-4 transition-all hover:bg-gray-100 cursor-pointer"
-                >
-                    {t.cta2}
-                </a>
+            <div className="absolute bottom-0 left-0 w-[400px] h-[300px] pointer-events-none">
+                <div className="w-full h-full bg-gradient-to-tr from-blue-600/5 to-transparent blur-3xl" />
             </div>
 
-            {/* Stats bar — quick credibility */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-12 w-full border-t border-gray-100 pt-10">
-                {[
-                    { v: t.stat1, l: t.stat1l },
-                    { v: t.stat2, l: t.stat2l },
-                    { v: t.stat3, l: t.stat3l },
-                ].map((s, i) => (
-                    <div key={i} className="flex items-center gap-4">
-                        {i > 0 && <span className="hidden sm:block w-px h-10 bg-gray-200" />}
-                        <div>
-                            <p style={{ fontFamily: "'Syne', sans-serif" }} className="text-3xl font-bold text-black leading-none">{s.v}</p>
-                            <p className="text-xs text-gray-500 font-medium mt-1 uppercase tracking-wider">{s.l}</p>
-                        </div>
+            <div
+                className="absolute inset-0 pointer-events-none opacity-[0.03]"
+                style={{
+                    backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
+                    backgroundSize: "40px 40px",
+                }}
+            />
+
+            <div className="relative z-10 w-full max-w-4xl">
+
+                <motion.div {...fadeUp(0.1)} className="mb-8">
+                    <div className="inline-flex items-center gap-2.5 border border-g bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full">
+                        <span className="relative flex h-2 w-2">
+                            <span className="absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75 animate-ping" />
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500" />
+                        </span>
+                        <span className="text-blue-800 text-xs font-semibold tracking-widest uppercase">
+                            {t.badge}
+                        </span>
                     </div>
-                ))}
+                </motion.div>
 
-                <div className="sm:ml-auto flex items-center gap-3">
+                <motion.h1
+                    {...fadeUp(0.2)}
+                    style={{ fontFamily: "'Syne', sans-serif" }}
+                    className="text-5xl sm:text-6xl md:text-7xl font-bold leading-[0.92] tracking-tight mb-6"
+                >
+                    <span className="text-gray-950">{t.title1}</span>
+                    <br />
+                    <span className="text-gray-950">{t.title2}</span>
+                </motion.h1>
+
+                <motion.p
+                    {...fadeUp(0.3)}
+                    className="text-gray-950 text-lg md:text-xl leading-relaxed mb-4 max-w-2xl font-light"
+                >
+                    {t.offer}
+                </motion.p>
+
+                <motion.p
+                    {...fadeUp(0.35)}
+                    className="text-blue-800 text-sm mb-10 flex items-center gap-2"
+                >
+                    <span className="inline-block w-5 h-px bg-white/15" />
+                    {t.social}
+                </motion.p>
+
+                <motion.div {...fadeUp(0.4)} className="flex flex-col sm:flex-row items-start gap-3 mb-16">
+
                     <a
-                        href="https://www.linkedin.com/in/dieudonn%C3%A9-houndagnon-093387250"
+                        href={t.waNumber}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-gray-500 hover:text-black hover:border-black hover:bg-white transition-all duration-300 group"
+                        className="group flex items-center gap-3 border border-gray-900 bg-white hover:bg-gray-100 text-black font-bold text-base px-7 py-4 rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-95 shadow-lg shadow-white/10"
                     >
-                        <Linkedin size={16} className="group-hover:scale-110 transition-transform" />
-                        <span className="font-semibold text-sm">LinkedIn</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="flex-shrink-0">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                        {t.cta1}
+                        <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                     </a>
+
                     <a
-                        href="https://github.com/rolnelh"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-gray-500 hover:text-black hover:border-black hover:bg-white transition-all duration-300 group"
+                        href="#projects"
+                        className="flex items-center gap-2 text-blue-900 hover:text-white font-semibold text-base px-7 py-4 rounded-xl border border-white/10 hover:border-white/25 transition-all duration-200"
                     >
-                        <Github size={16} className="group-hover:scale-110 transition-transform" />
-                        <span className="font-semibold text-sm">GitHub</span>
+                        {t.cta2}
                     </a>
-                     <a
-                        href="https://dribbble.com/dieudonnedev"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-gray-500 hover:text-black hover:border-black hover:bg-white transition-all duration-300 group"
-                    >
-                        <DribbbleIcon size={16} className="group-hover:scale-110 transition-transform" />
-                        <span className="font-semibold text-sm">Dribbble</span>
-                    </a>
-                </div>
+                </motion.div>
+
+               
             </div>
 
-            {/* Background glow */}
-            <div className="absolute top-1/3 right-0 -z-10 blur-[140px] opacity-15 pointer-events-none">
-                <div className="w-[400px] h-[400px] bg-yellow-300 rounded-full" />
-            </div>
+            <motion.a
+                href="#projects"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.8, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:flex w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-500 items-center justify-center text-white shadow-lg shadow-blue-600/20 hover:scale-110 transition-all duration-200"
+                aria-label="Voir les projets"
+            >
+                <ArrowRight size={22} />
+            </motion.a>
         </section>
     );
 };

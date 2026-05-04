@@ -1,11 +1,11 @@
 import { LanguageProvider } from "../components/Languagecontext";
 import Navbar from "@/components/layout/Navbar";
 import Hero from "../components/Hero";
-import TechStack from "../components/TechStack";
+// import TechStack from "../components/TechStack";
 import About from "../components/About";
 import Projects from "../components/Projects";
 import Services from "../components/Services";
-// import Testimonials from "../components/Testimonials";
+import Testimonials from "../components/Testimonials";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
@@ -16,11 +16,11 @@ export default function Home() {
         <Navbar />
         <div className="pt-24">
           <Hero />
-          <TechStack />
+          {/* <TechStack /> */}
           <About />
           <Projects />
           <Services />
-          {/* <Testimonials /> */}
+          <Testimonials />
           <Contact />
           <Footer />
         </div>

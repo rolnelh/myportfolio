@@ -53,13 +53,7 @@ const Footer = () => {
                     >
                         <Github size={16} />
                     </a>
-                    <button
-                        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                        className="flex items-center gap-2 px-4 py-2 rounded-xl border border-gray-200 text-gray-500 hover:text-black hover:border-black transition-all text-sm font-medium"
-                    >
-                        <ArrowUp size={14} />
-                        {t.back}
-                    </button>
+                    
                 </div>
             </div>
 

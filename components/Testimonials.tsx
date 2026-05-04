@@ -21,12 +21,12 @@ const content = {
                 text: "The work is clean, the PageSpeed ​​scores speak for themselves, and the choice of the bottom nav for mobile shows that you're thinking about the user before thinking about the technology. It's the right approach.",
                 country: "BJ Bénin",
             },
-            // {
-            //     name: "Adrien B.",
-            //     role: "CEO, Digital Agency",
-            //     text: "The UI/UX work on our dashboard transformed how our team reads data. Clean, fast, and built to scale. Dieudonné thinks like a product designer, not just a developer.",
-            //     country: "🇧🇪 Belgium",
-            // },
+            {
+                name: "Fiacre K.",
+                role: "web developer",
+                text: "Beyond his technical skills, Dieudonné possesses a rare product vision. His code is clean and structured, and he knows how to transform complex UX challenges into seamless interfaces. A valuable collaborator.",
+                country: "BJ Bénin",
+            },
         ],
     },
     FR: {
@@ -35,23 +35,24 @@ const content = {
         note: "Retours réels de projets réels.",
         testimonials: [
             {
-                name: "Kofi A.",
-                role: "Fondateur, Mefolio",
-                text: "Dieudonné a livré une plateforme prête pour la production en quelques semaines. La qualité du design et la rapidité d'exécution étaient remarquables. Je le recommande sans hésitation.",
-                country: "🇬🇭 Ghana",
-            },
-            {
-                name: "Marie L.",
-                role: "Product Manager",
-                text: "Travailler à distance avec Dieudonné était fluide. Communication claire, zéro retard, et le résultat final a dépassé nos attentes. Exactement ce dont une startup a besoin.",
+                name: "Tine KEITA",
+                role: "Fondatrice, KILALY",
+                text: "Merci pour l'excellent travail d'analyse et de proposition de refonte de mon site web. Je garde précieusement votre contact et n'hésiterai pas à solliciter ou recommander vos services au besoin.",
                 country: "🇫🇷 France",
             },
-            // {
-            //     name: "Adrien B.",
-            //     role: "CEO, Agence Digitale",
-            //     text: "Le travail UI/UX sur notre dashboard a transformé la façon dont notre équipe lit les données. Propre, rapide et conçu pour scaler. Dieudonné pense comme un product designer.",
-            //     country: "🇧🇪 Belgique",
-            // },
+            {
+                name: "Fiacre K.",
+                role: "Développeur web",
+                text: "Au-delà de ses compétences techniques, Dieudonné possède une vision produit rare. Son code est propre, structuré et il sait transformer des défis UX complexes en interfaces fluides. Un collaborateur précieux.",
+                country: "BJ Bénin",
+            },
+
+            {
+                name: "Anziz Adéyèmi ADEHAN",
+                role: "Expert eGov & Project Management",
+                text: "Le travail est propre, les scores PageSpeed parlent d'eux-mêmes, et le choix de la barre de navigation basse pour mobile prouve que vous pensez à l'utilisateur avant de penser à la technologie. C'est exactement la bonne approche.",
+                country: "🇧🇯 Bénin",
+            },
         ],
     },
 };
@@ -82,19 +83,9 @@ const Testimonials = () => {
                         key={i}
                         className="flex flex-col gap-5 p-8 bg-gray-50 border border-gray-100 rounded-3xl hover:border-black hover:bg-white transition-all duration-300"
                     >
-                        {/* Stars */}
-                        <div className="flex gap-1">
-                            {Array(5)
-                                .fill(0)
-                                .map((_, j) => (
-                                    <Star key={j} size={14} className="fill-yellow-400 text-yellow-400" />
-                                ))}
-                        </div>
 
-                        {/* Quote */}
                         <p className="text-gray-700 leading-relaxed text-base">"{t_.text}"</p>
 
-                        {/* Author */}
                         <div className="mt-auto flex items-center justify-between">
                             <div>
                                 <p
