@@ -4,6 +4,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Plus, Github } from "lucide-react";
 import { useLanguage } from "../components/Languagecontext";
 
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+  outcome: string;
+}
+
 
 const projectsData: Record<"EN" | "FR", Project[]> = {
 
