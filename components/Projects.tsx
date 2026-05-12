@@ -15,6 +15,7 @@ interface Project {
     solution: string;
     outcome: string;
     results: string[];
+    hasBeforeAfter?: boolean;
 }
 
 
@@ -54,7 +55,7 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             ],
 
-            // hasBeforeAfter: false,
+            hasBeforeAfter: false,
 
         },
 
