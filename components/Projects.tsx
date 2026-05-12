@@ -5,11 +5,16 @@ import { ArrowUpRight, Plus, Github } from "lucide-react";
 import { useLanguage } from "../components/Languagecontext";
 
 interface Project {
-  title: string;
-  description: string;
-  image: string;
-  link: string;
-  outcome: string;
+    title: string;
+    description: string;
+    image: string;
+    link: string;
+    technologies: string[];
+    role: string;
+    problem: string;
+    solution: string;
+    outcome: string;
+    results: string[];
 }
 
 
@@ -27,13 +32,11 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             image: "/images/mefolio.webp",
 
-            url: "https://mefolio-z6n9.onrender.com/",
+            link: "https://mefolio-z6n9.onrender.com/",
 
             technologies: ["Laravel", "Tailwind CSS", "MySQL", "JavaScript"],
 
             role: "Full-stack Developer & UI Designer",
-
-            duration: "6 weeks",
 
             problem: "African creative professionals had no dedicated platform to showcase their work professionally. Existing solutions like Behance were not tailored to the African market, lacked local context, and were inaccessible to many due to connectivity constraints.",
 
@@ -65,7 +68,7 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             image: "/images/dash.webp",
 
-            url: "https://dashboard-nextjs-pi-ten.vercel.app/dashboard",
+            link: "https://dashboard-nextjs-pi-ten.vercel.app/dashboard",
 
             technologies: ["Next.js 15", "Lucide React", "Shadcn", "Tailwind CSS"],
 
