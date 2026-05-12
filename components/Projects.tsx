@@ -11,6 +11,7 @@ interface Project {
     link: string;
     technologies: string[];
     role: string;
+    duration?: string;
     problem: string;
     solution: string;
     outcome: string;
