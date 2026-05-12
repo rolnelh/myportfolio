@@ -76,8 +76,6 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             role: "Frontend Developer & UI Designer",
 
-            duration: "2 weeks",
-
             problem: "The client's team was spending 30+ minutes per day navigating a cluttered, outdated admin interface. Key metrics were buried under multiple clicks, and the tool wasn't usable on mobile — a major issue for managers on the go.",
 
             solution: "I rebuilt the dashboard UI from scratch with a focus on information hierarchy. The most critical KPIs are visible immediately on load. I used Shadcn components for consistency and built a responsive layout that works perfectly on tablets and phones.",
@@ -114,8 +112,6 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             role: "Frontend Developer & UX Designer",
 
-            duration: "3 weeks",
-
             problem: "African artisans and small creators had no simple way to create a professional digital catalog. Setting up a website or using complex tools like Shopify took hours and required technical knowledge most artisans didn't have.",
 
             solution: "I designed a streamlined flow where artisans can create a professional catalog in under 10 minutes — no technical knowledge required. The interface uses simple language, large touch targets, and a step-by-step guided process.",
@@ -146,13 +142,11 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             image: "/images/goze.png",
 
-            url: "https://rolnelh.github.io/gozem-refonte/",
+            link: "https://rolnelh.github.io/gozem-refonte/",
 
             technologies: ["React", "Tailwind CSS", "Figma", "UI Design"],
 
             role: "Frontend Developer & UI Designer",
-
-            duration: "2 weeks",
 
             problem: "The original Gozem web platform lacked a clear structure and a strong visual identity. The navigation was unintuitive, and the iconography failed to reflect the 'Super App' status, impacting the interface's credibility on modern screens.",
 
@@ -188,13 +182,11 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             image: "/images/myportfolio.webp",
 
-            url: "https://dieudonne-dev.vercel.app/",
+            link: "https://dieudonne-dev.vercel.app/",
 
             technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion"],
 
             role: "Designer & Developer",
-
-            duration: "3 weeks",
 
             problem: "My previous portfolio was generic, didn't communicate value clearly, and had a 75%+ bounce rate. Visitors came from multiple countries but nothing converted — no calls booked, no messages sent.",
 
@@ -226,13 +218,11 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             image: "/images/anip_refonte.webp",
 
-            url: "https://anip-eservices-redesign-koy3.vercel.app/dashboard",
+            link: "https://anip-eservices-redesign-koy3.vercel.app/dashboard",
 
             technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Dashboard Architecture"],
 
             role: "UI/UX Designer & Frontend Developer",
-
-            duration: "4 weeks",
 
             problem: "The ANIP platform was inaccessible on mobile, had confusing navigation, and required citizens to call support just to complete basic identification requests. The interface was designed for desktop in an era when 80%+ of users were on phones.",
 
@@ -250,7 +240,7 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             ],
 
-            // hasBeforeAfter: true,
+            hasBeforeAfter: true,
 
             beforeImage: "/images/anip_refonte.webp",
 
@@ -272,7 +262,7 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             image: "/images/mefolio.webp",
 
-            url: "https://mefolio-z6n9.onrender.com/",
+            link: "https://mefolio-z6n9.onrender.com/",
 
             technologies: ["Laravel", "Tailwind CSS", "MySQL", "JavaScript"],
 
@@ -310,7 +300,7 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             image: "/images/dash.webp",
 
-            url: "https://dashboard-nextjs-pi-ten.vercel.app/dashboard",
+            link: "https://dashboard-nextjs-pi-ten.vercel.app/dashboard",
 
             technologies: ["Next.js 15", "Lucide React", "Shadcn", "Tailwind CSS"],
 
@@ -348,7 +338,7 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             image: "/images/lexpo-deskop.png",
 
-            url: "https://lexpo-gallery.vercel.app",
+            link: "https://lexpo-gallery.vercel.app",
 
             technologies: ["React.js", "TypeScript", "Tailwind CSS"],
 
@@ -386,7 +376,7 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             image: "/images/goze.png",
 
-            url: "https://rolnelh.github.io/gozem-refonte/",
+            link: "https://rolnelh.github.io/gozem-refonte/",
 
             technologies: ["React", "Tailwind CSS", "Figma", "UI Design"],
 
@@ -428,7 +418,7 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             image: "/images/myportfolio.webp",
 
-            url: "https://myportfolio-eta-eosin.vercel.app/",
+            link: "https://myportfolio-eta-eosin.vercel.app/",
 
             technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion"],
 
@@ -466,7 +456,7 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             image: "/images/anip_refonte.webp",
 
-            url: "https://anip-eservices-redesign-koy3.vercel.app/dashboard",
+            link: "https://anip-eservices-redesign-koy3.vercel.app/dashboard",
 
             technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Dashboard Architecture"],
 
