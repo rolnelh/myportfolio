@@ -108,7 +108,7 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             image: "/images/lexpo-deskop.png",
 
-            url: "https://lexpo-gallery.vercel.app",
+            link: "https://lexpo-gallery.vercel.app",
 
             technologies: ["React.js", "TypeScript", "Tailwind CSS"],
 
