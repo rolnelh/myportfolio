@@ -54,7 +54,7 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             ],
 
-            hasBeforeAfter: false,
+            // hasBeforeAfter: false,
 
         },
 
@@ -248,7 +248,7 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             ],
 
-            hasBeforeAfter: true,
+            // hasBeforeAfter: true,
 
             beforeImage: "/images/anip_refonte.webp",
 
