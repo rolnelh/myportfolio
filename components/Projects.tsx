@@ -268,7 +268,6 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             ],
 
-            hasBeforeAfter: false,
 
         },
 
@@ -306,8 +305,6 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             ],
 
-            hasBeforeAfter: false,
-
         },
 
         {
@@ -343,8 +340,6 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
                 "Lien de catalogue partageable propre",
 
             ],
-
-            hasBeforeAfter: false,
 
         },
 
@@ -382,11 +377,6 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             ],
 
-            hasBeforeAfter: true,
-
-            beforeImage: "/images/gozem-old.png", // Pense à mettre une capture de l'ancienne version
-
-            afterImage: "/images/goze.png",
 
         },
 
@@ -424,7 +414,6 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             ],
 
-            hasBeforeAfter: false,
 
         },
 
@@ -462,11 +451,6 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             ],
 
-            hasBeforeAfter: true,
-
-            beforeImage: "/images/anip_refonte.webp",
-
-            afterImage: "/images/anip_refonte.webp",
 
         },
 
