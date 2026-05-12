@@ -72,7 +72,7 @@ export default function Contact() {
   const { language } = useLanguage();
   const t = content[language];
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("sending");
     const form = e.currentTarget;
