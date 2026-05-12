@@ -56,8 +56,6 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             ],
 
-            hasBeforeAfter: false,
-
         },
 
         {
@@ -91,8 +89,6 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
                 "Real-time updates without page refresh",
 
             ],
-
-            hasBeforeAfter: false,
 
         },
 
@@ -128,7 +124,6 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             ],
 
-            hasBeforeAfter: false,
 
         },
 
@@ -164,11 +159,6 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             ],
 
-            hasBeforeAfter: true,
-
-            beforeImage: "/images/gozem-old.png",
-
-            afterImage: "/images/goze.png",
 
         },
 
@@ -204,8 +194,6 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
             ],
 
-            hasBeforeAfter: false,
-
         },
 
         {
@@ -238,13 +226,7 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
                 "Support call volume reduction by simplifying key flows",
 
-            ],
-
-            hasBeforeAfter: true,
-
-            beforeImage: "/images/anip_refonte.webp",
-
-            afterImage: "/images/anip_refonte.webp",
+            ]        
 
         },
 
