@@ -517,7 +517,7 @@ export default function Projects() {
                     {projects.map((project, index) => (
                         <motion.a
                             key={index}
-                            href={project.url}
+                            href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
                             onMouseEnter={() => setHoveredIndex(index)}
