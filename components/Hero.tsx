@@ -26,10 +26,17 @@ const content = {
     },
 };
 
-const fadeUp = (delay = 0) => ({
+const fadeUp = (delay: number) => ({
     initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] },
+    animate: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.8,
+            delay,
+            ease: [0.215, 0.61, 0.355, 1] as const 
+        }
+    }
 });
 
 const Hero = () => {
