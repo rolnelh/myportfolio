@@ -1,181 +1,139 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, X, Menu } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useLanguage } from "../Languagecontext";
 
-const navLinks = {
-    FR: ["Projets", "Services", "Témoignages", "Contact"],
-    EN: ["Projects", "Services", "Testimonials", "Contact"],
+const links = {
+    EN: [
+        { label: "Work", href: "#projects" },
+        { label: "Services", href: "#services" },
+        { label: "About", href: "#about" },
+        { label: "Contact", href: "#contact" },
+    ],
+    FR: [
+        { label: "Projets", href: "#projects" },
+        { label: "Services", href: "#services" },
+        { label: "À propos", href: "#about" },
+        { label: "Contact", href: "#contact" },
+    ],
 };
-const navHrefs = ["#projects", "#services", "#testimonials", "#contact"];
 
-const Navbar = () => {
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+export default function Navbar() {
+    const [open, setOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const { language, setLanguage } = useLanguage();
 
     useEffect(() => {
-        const handleScroll = () => setIsScrolled(window.scrollY > 30);
+        const handleScroll = () => setScrolled(window.scrollY > 20);
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     useEffect(() => {
-        document.body.style.overflow = isMenuOpen ? "hidden" : "";
-        return () => { document.body.style.overflow = ""; };
-    }, [isMenuOpen]);
-
-    const toggleLang = () => setLanguage(language === "FR" ? "EN" : "FR");
-    const goHome = () => { setIsMenuOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); };
+        document.body.style.overflow = open ? "hidden" : "";
+    }, [open]);
 
     return (
         <>
+            <nav className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${scrolled
+                    ? "py-3 border-b border-black/5 bg-white/90 backdrop-blur-xl shadow-sm"
+                    : "py-6 bg-white/50 backdrop-blur-md"
+                }`}>
+                <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
 
-            <nav className="fixed top-0 left-0 w-full z-50 flex justify-center px-4 pt-5">
-                <motion.div
-                    initial={{ opacity: 0, y: -16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className={`w-full max-w-5xl flex items-center justify-between px-4 py-2.5 rounded-2xl transition-all duration-500 ${isScrolled
-                            ? "bg-[#0a0a0a]/90 backdrop-blur-xl border border-white/10 shadow-xl shadow-black/40"
-                            : "bg-[#0a0a0a]/70 backdrop-blur-md border border-white/5"
-                        }`}
-                >
-
-                    <a
-                        href="/"
-                        onClick={(e) => { e.preventDefault(); goHome(); }}
-                        className="flex items-center gap-2.5 group"
-                        aria-label="Accueil"
-                    >
-                        <div className="relative w-9 h-9 rounded-full overflow-hidden border-2 border-white/20 flex-shrink-0 group-hover:border-white/50 transition-all duration-300">
-                            <Image
-                                src="/images/profil.webp"
-                                alt="Dieudonné"
-                                width={36}
-                                height={36}
-                                priority
-                                className="w-full h-full object-cover"
-                            />
+                    <a href="/" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                        className="flex items-center gap-3 group">
+                        <div className="w-8 h-8 rounded-full overflow-hidden border border-blue-600/20 group-hover:border-blue-600 transition-colors">
+                            <Image src="/images/profil.webp" alt="Dieudonné" width={32} height={32} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" />
                         </div>
-                        <span
-                            style={{ fontFamily: "'Syne', sans-serif" }}
-                            className="text-white font-bold text-base tracking-tight group-hover:text-white/70 transition-colors"
-                        >
-                            Dieudonné<span className="text-white/30">.</span>
+                        <span className="text-[#070707] font-bold text-[11px] tracking-[0.2em] uppercase" style={{ fontFamily: "'Syne', sans-serif" }}>
+                            Dieudonné<span className="text-blue-600">.</span>
                         </span>
                     </a>
 
-                    <div className="hidden md:flex items-center gap-8">
-                        {navLinks[language].map((item, i) => (
-                            <a
-                                key={item}
-                                href={navHrefs[i]}
-                                className="text-white/50 hover:text-white text-sm font-medium transition-colors duration-200"
-                            >
-                                {item}
+                    <div className="hidden md:flex items-center gap-10">
+                        <div className="flex items-center gap-8 border-r border-black/5 pr-8">
+                            {links[language === "EN" ? "EN" : "FR"].map((l) => (
+                                <a key={l.label} href={l.href}
+                                    className="text-[#070707]/60 hover:text-blue-600 text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-300">
+                                    {l.label}
+                                </a>
+                            ))}
+                        </div>
+
+                        <div className="flex items-center gap-6">
+                            <button onClick={() => setLanguage(language === "EN" ? "FR" : "EN")}
+                                className="text-black/40 hover:text-black text-[10px] font-black uppercase tracking-widest transition-colors">
+                                {language === "EN" ? "FR" : "EN"}
+                            </button>
+
+                            <a href="#contact"
+                                className="text-[10px] font-black uppercase tracking-[0.2em] text-white bg-blue-600 hover:bg-black px-6 py-3 rounded-full transition-all duration-300 shadow-lg shadow-blue-600/10 hover:shadow-none">
+                                {language === "EN" ? "Let's talk" : "Discutons"}
                             </a>
-                        ))}
+                        </div>
                     </div>
 
-                    <div className="flex items-center gap-3">
+                    <button
+                        onClick={() => setOpen(!open)}
+                        aria-label="Toggle Menu"
+                        className="md:hidden flex flex-col gap-1.5 w-10 h-10 items-center justify-center z-[110] fixed right-6 top-5"
+                    >
+                        <span className={`block h-[2px] transition-all duration-300 ease-out ${open
+                            ? "w-6 rotate-45 translate-y-[4px] bg-white"
+                            : scrolled ? "w-6 bg-black" : "w-6 bg-black"
+                            }`} />
 
-                        <button
-                            onClick={toggleLang}
-                            className="hidden md:flex text-xs font-bold text-white/40 hover:text-white transition-colors px-2 py-1"
-                        >
-                            {language === "EN" ? "FR" : "EN"}
-                        </button>
-
-                        <a
-                            href="#contact"
-                            className="hidden md:flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all duration-200 hover:scale-[1.03] active:scale-95"
-                        >
-                            {language === "EN" ? "Contact me" : "Me contacter"}
-                            <ArrowRight size={14} />
-                        </a>
-
-                        <button
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className="md:hidden w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-all z-[70]"
-                            aria-label="Menu"
-                        >
-                            <AnimatePresence mode="wait">
-                                {isMenuOpen ? (
-                                    <motion.div key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
-                                        <X size={18} />
-                                    </motion.div>
-                                ) : (
-                                    <motion.div key="m" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
-                                        <Menu size={18} />
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </button>
-                    </div>
-                </motion.div>
+                        <span className={`block h-[2px] transition-all duration-300 ease-out ${open
+                            ? "w-6 -rotate-45 -translate-y-[4px] bg-white"
+                            : scrolled ? "w-4 self-end bg-black" : "w-4 self-end bg-black"
+                            }`} />
+                    </button>
+                </div>
             </nav>
 
             <AnimatePresence>
-                {isMenuOpen && (
+                {open && (
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="fixed inset-0 z-[60] bg-[#050505] flex flex-col items-center justify-center gap-5"
+                        initial={{ x: "100%" }}
+                        animate={{ x: 0 }}
+                        exit={{ x: "100%" }}
+                        transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                        className="fixed inset-0 z-[60] bg-[#070707] flex flex-col items-start justify-center px-10"
                     >
+                        <div className="flex flex-col gap-4 w-full">
+                            {links[language === "EN" ? "EN" : "FR"].map((l, i) => (
+                                <motion.a key={l.label} href={l.href}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.1 + i * 0.1 }}
+                                    onClick={() => setOpen(false)}
+                                    className="text-white font-bold uppercase tracking-tighter hover:text-blue-500 transition-colors text-5xl md:text-7xl"
+                                    style={{ fontFamily: "'Syne', sans-serif" }}>
+                                    {l.label}
+                                </motion.a>
+                            ))}
+                        </div>
 
-                        <a
-                            href="/"
-                            onClick={(e) => { e.preventDefault(); goHome(); }}
-                            className="absolute top-6 left-6 flex items-center gap-2.5"
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.5 }}
+                            className="mt-12 flex flex-col gap-6"
                         >
-                            <div className="w-9 h-9 rounded-full overflow-hidden border-2 border-white/20">
-                                <Image src="/images/profil.webp" alt="Dieudonné" width={36} height={36} className="w-full h-full object-cover" />
-                            </div>
-                            <span style={{ fontFamily: "'Syne', sans-serif" }} className="text-white font-bold text-base">
-                                Dieudonné<span className="text-white/30">.</span>
-                            </span>
-                        </a>
-
-                        {navLinks[language].map((item, i) => (
-                            <motion.a
-                                key={item}
-                                href={navHrefs[i]}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: i * 0.07 }}
-                                onClick={() => setIsMenuOpen(false)}
-                                className="text-white font-bold hover:text-white/50 transition-colors"
-                                style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(2rem, 8vw, 3.5rem)" }}
-                            >
-                                {item}
-                            </motion.a>
-                        ))}
-
-                        <motion.a
-                            href="#contact"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.32 }}
-                            onClick={() => setIsMenuOpen(false)}
-                            className="mt-4 flex items-center gap-2 bg-blue-600 text-white font-bold px-8 py-4 rounded-xl text-base"
-                        >
-                            {language === "EN" ? "Contact me" : "Me contacter"}
-                            <ArrowRight size={16} />
-                        </motion.a>
-
-                        <button onClick={toggleLang} className="absolute bottom-8 right-8 text-white/30 hover:text-white text-sm font-bold transition-colors">
-                            {language === "EN" ? "FR" : "EN"}
-                        </button>
+                            <a href="#contact" onClick={() => setOpen(false)}
+                                className="text-xs font-black uppercase tracking-widest text-black bg-white px-8 py-4 rounded-full w-fit">
+                                {language === "EN" ? "Get in touch" : "Contactez-moi"}
+                            </a>
+                            <button onClick={() => { setLanguage(language === "EN" ? "FR" : "EN"); setOpen(false); }}
+                                className="text-white/40 text-xs font-bold uppercase tracking-widest text-left">
+                                Switch to {language === "EN" ? "French" : "English"}
+                            </button>
+                        </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>
         </>
     );
-};
-
-export default Navbar;
+}

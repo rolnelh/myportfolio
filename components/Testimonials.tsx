@@ -1,5 +1,7 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
+import { Quote } from "lucide-react"; // Import optionnel pour un petit icône discret
 import { useLanguage } from "../components/Languagecontext";
 
 const content = {
@@ -55,53 +57,72 @@ const content = {
         ],
     },
 };
-
 const Testimonials = () => {
     const { language } = useLanguage();
     const t = content[language];
 
     return (
-        <section id="testimonials" className="py-24 max-w-7xl mx-auto px-6">
-            <div className="flex items-center gap-2 mb-4">
-                <span className="w-2 h-2 rounded-full bg-yellow-400" />
-                <span className="font-mono text-xs font-bold uppercase tracking-widest text-gray-400">
-                    {t.label}
-                </span>
-            </div>
-            <h2
-                style={{ fontFamily: "'Syne', sans-serif" }}
-                className="text-4xl md:text-6xl font-bold text-black mb-3"
-            >
-                {t.heading}
-            </h2>
-            <p className="text-gray-400 text-sm mb-14">{t.note}</p>
+        <section id="testimonials" className="bg-white py-16 px-6 md:px-10">
+            <div className="max-w-[1400px] mx-auto">
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {t.testimonials.map((t_, i) => (
-                    <div
-                        key={i}
-                        className="flex flex-col gap-5 p-8 bg-gray-50 border border-gray-100 rounded-3xl hover:border-black hover:bg-white transition-all duration-300"
+                <div className="flex flex-col mb-20">
+                    {/* <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        className="flex items-center gap-3 mb-6"
                     >
+                        <span className="w-1.5 h-1.5 rounded-full bg-black" />
+                        <span className="text-black/30 text-[10px] font-bold uppercase tracking-[0.3em]">
+                            {t.label}
+                        </span>
+                    </motion.div> */}
 
-                        <p className="text-gray-700 leading-relaxed text-base">"{t_.text}"</p>
+                    <h2 style={{ fontFamily: "'Syne', sans-serif" }}
+                        className="text-4xl md:text-5xl font-bold text-black leading-[0.9] tracking-tighter">
+                        {t.heading.split('.')[0]}<span className="text-black/5 italic font-light">.</span>
+                    </h2>
+                </div>
 
-                        <div className="mt-auto flex items-center justify-between">
-                            <div>
-                                <p
-                                    style={{ fontFamily: "'Syne', sans-serif" }}
-                                    className="font-bold text-black text-sm"
-                                >
-                                    {t_.name}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {t.testimonials.map((t_, i) => (
+                        <motion.div
+                            key={i}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1 }}
+                            className="group relative flex flex-col justify-between p-10 bg-[#f9f9f9] border border-black/[0.03] rounded-[2.5rem] hover:bg-white hover:shadow-2xl hover:shadow-black/[0.02] transition-all duration-500"
+                        >
+
+                            <Quote className="absolute top-10 right-10 text-black/[0.02] group-hover:text-black/[0.05] transition-colors" size={60} />
+
+                            <div className="relative z-10">
+                                <p className="text-black/70 leading-relaxed text-md font-medium mb-6">
+                                    "{t_.text}"
                                 </p>
-                                <p className="text-gray-400 text-xs">{t_.role}</p>
                             </div>
-                            <span className="text-xs">{t_.country}</span>
-                        </div>
-                    </div>
-                ))}
+
+                            <div className="relative z-10 flex items-end justify-between border-t border-black/[0.05] pt-2">
+                                <div>
+                                    <p style={{ fontFamily: "'Syne', sans-serif" }}
+                                        className="font-bold text-black text-lg tracking-tight">
+                                        {t_.name}
+                                    </p>
+                                    <p className="text-black/30 text-xs font-semibold uppercase tracking-wider mt-1">
+                                        {t_.role}
+                                    </p>
+                                </div>
+                                <span className="text-xl grayscale group-hover:grayscale-0 transition-all">
+                                    {t_.country.split(' ')[0]}
+                                </span>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
         </section>
     );
 };
 
 export default Testimonials;
+

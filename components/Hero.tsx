@@ -1,134 +1,115 @@
 "use client";
+
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Linkedin, Github } from "lucide-react";
+import { ArrowRight, MoveDown } from "lucide-react";
 import { useLanguage } from "../components/Languagecontext";
 
 const content = {
     EN: {
-        badge: "Next.js Developer & UI Designer",
-        title1: "I Build Interfaces",
-        title2: "That Convert.",
-        offer: "I help entrepreneurs boost their sales with ultra-fast Landing Pages that accelerate their growth.",
-        social: "Trusted by 10+ clients · Africa & Europe · Remote",
-        cta1: "Chat on WhatsApp",
-        cta2: "View my work",
-        stat1: "15+", stat1l: "Projects shipped",
-        stat2: "5d", stat2l: "Average delivery",
-        stat3: "100%", stat3l: "Satisfaction",
+        intro: "Dieudonné — Frontend Engineer & UI Designer",
+        title1: "High-performance interfaces",
+        title2: "crafted for growth.",
+        offer: "I build ultra-fast web experiences that help entrepreneurs turn visitors into loyal customers.",
+        cta1: "Get in touch",
+        cta2: "View work",
         waNumber: "https://wa.me/22901663745865",
     },
     FR: {
-        badge: "Développeur Next.js & Designer UI",
-        title1: "Je construis des interfaces",
-        title2: "qui convertissent.",
-        offer: "J'aide les entrepreneurs à booster leurs ventes grâce à des Landing Pages ultra-rapides qui accélèrent leur croissance.",
-        cta1: "Me contacter sur WhatsApp",
-        cta2: "Voir mes projets",
-        stat1: "15+", stat1l: "Projets livrés",
-        stat2: "5j", stat2l: "Délai moyen",
-        stat3: "100%", stat3l: "Satisfaction",
+        intro: "Dieudonné — Développeur Frontend & UI Designer",
+        title1: "Des interfaces haute performance",
+        title2: "conçues pour la croissance.",
+        offer: "Je construis des expériences web ultra-rapides qui aident les entrepreneurs à transformer leurs visiteurs en clients.",
+        cta1: "Me contacter",
+        cta2: "Voir projets",
         waNumber: "https://wa.me/22901663745865",
     },
 };
 
 const fadeUp = (delay = 0) => ({
-    initial: { opacity: 0, y: 28 },
+    initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] as const },
+    transition: { duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] },
 });
 
 const Hero = () => {
     const { language } = useLanguage();
-    const t = content[language];
+    const t = content[language === "EN" ? "EN" : "FR"];
 
     return (
-        <section className="relative min-h-screen flex flex-col items-start justify-center px-6 pt-4 pb-20 max-w-7xl mx-auto overflow-hidden">
+        <section className="relative min-h-[85vh] flex items-center px-6 py-20 max-w-7xl mx-auto bg-white">
 
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] -translate-y-1/4 translate-x-1/4 pointer-events-none">
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-900/30 via-blue-950/20 to-transparent blur-3xl" />
-                <div className="absolute inset-8 rounded-full bg-gradient-to-br from-blue-800/10 to-transparent blur-2xl" />
-            </div>
+            <div className="relative z-10 w-full max-w-5xl">
 
-            <div className="absolute bottom-0 left-0 w-[400px] h-[300px] pointer-events-none">
-                <div className="w-full h-full bg-gradient-to-tr from-blue-600/5 to-transparent blur-3xl" />
-            </div>
-
-            <div
-                className="absolute inset-0 pointer-events-none opacity-[0.03]"
-                style={{
-                    backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
-                    backgroundSize: "40px 40px",
-                }}
-            />
-
-            <div className="relative z-10 w-full max-w-4xl">
-
-                <motion.div {...fadeUp(0.1)} className="mb-8">
-                    <div className="inline-flex items-center gap-2.5 border border-g bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full">
-                        <span className="relative flex h-2 w-2">
-                            <span className="absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75 animate-ping" />
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500" />
-                        </span>
-                        <span className="text-blue-800 text-xs font-semibold tracking-widest uppercase">
-                            {t.badge}
-                        </span>
-                    </div>
+                <motion.div {...fadeUp(0.1)} className="flex items-center gap-3 mb-8">
+                    <div className="h-px w-8 bg-gray-900/20" />
+                    <p className="text-gray-900 text-xs font-bold uppercase tracking-[0.2em]">
+                        {t.intro}
+                    </p>
                 </motion.div>
 
                 <motion.h1
                     {...fadeUp(0.2)}
+                    className="text-4xl sm:text-4xl md:text-6xl font-bold leading-[1.1] tracking-tight mb-8 text-gray-900"
                     style={{ fontFamily: "'Syne', sans-serif" }}
-                    className="text-5xl sm:text-6xl md:text-7xl font-bold leading-[0.999] tracking-tight mb-6"
                 >
-                    <span className="text-gray-950">{t.title1}</span>
+                    {t.title1}
                     <br />
-                    <span className="text-gray-950">{t.title2}</span>
+                    <span className="text-gray-900/30 italic font-medium">{t.title2}</span>
                 </motion.h1>
 
                 <motion.p
                     {...fadeUp(0.3)}
-                    className="text-gray-950 text-lg md:text-xl leading-relaxed mb-4 max-w-2xl font-light"
+                    className="text-gray-600 text-lg sm:text-xl leading-relaxed mb-12 max-w-2xl font-medium"
                 >
                     {t.offer}
                 </motion.p>
 
-                <motion.div {...fadeUp(0.4)} className="flex flex-col sm:flex-row items-start gap-3 mb-16 mt-8">
-
+                <motion.div
+                    {...fadeUp(0.4)}
+                    className="flex flex-col sm:flex-row gap-4 sm:items-center"
+                >
                     <a
                         href={t.waNumber}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group flex items-center gap-3 border border-gray-900 bg-white hover:bg-gray-100 text-black font-bold text-base px-4 py-3 rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-95 shadow-lg shadow-white/10"
+                        className="group flex items-center justify-center gap-3 bg-gray-900 text-white font-bold px-8 py-4 rounded-full hover:bg-black transition-all duration-300 shadow-sm"
                     >
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="flex-shrink-0">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                        </svg>
                         {t.cta1}
                         <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                     </a>
 
                     <a
                         href="#projects"
-                        className="flex items-center gap-2 text-blue-900 hover:text-white font-semibold text-base px-7 py-4 rounded-xl border border-white/10 hover:border-white/25 transition-all duration-200"
+                        className="flex items-center justify-center text-gray-900 font-bold px-8 py-4 rounded-full border border-gray-900/10 hover:border-gray-900 transition-all duration-300"
                     >
                         {t.cta2}
                     </a>
                 </motion.div>
-
-               
             </div>
+
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1, duration: 1 }}
+                className="absolute bottom-10 left-6 hidden md:flex items-center gap-4 text-gray-400"
+            >
+                <div className="flex flex-col items-center gap-2">
+                    <div className="w-[1px] h-12 bg-gradient-to-b from-gray-200 to-transparent" />
+                    <span className="text-[10px] font-black uppercase tracking-widest vertical-text rotate-180" style={{ writingMode: 'vertical-rl' }}>Scroll</span>
+                </div>
+            </motion.div>
 
             <motion.a
                 href="#projects"
-                initial={{ opacity: 0, scale: 0 }}
+                initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.8, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:flex w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-500 items-center justify-center text-white shadow-lg shadow-blue-600/20 hover:scale-110 transition-all duration-200"
-                aria-label="Voir les projets"
+                transition={{ delay: 0.8 }}
+                className="hidden lg:flex absolute right-8 bottom-20 w-16 h-16 rounded-full border border-gray-900/5 hover:border-gray-900 items-center justify-center text-gray-900 transition-all duration-500 hover:bg-gray-900 hover:text-white"
             >
-                <ArrowRight size={22} />
+                <MoveDown size={24} className="animate-bounce" />
             </motion.a>
+
         </section>
     );
 };

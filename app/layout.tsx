@@ -88,8 +88,8 @@ export default function RootLayout({
       }}>
 
         <div className="flex h-screen">
-          <div className="flex flex-col flex-1 overflow-hidden">
-            <main className="flex-1 overflow-y-auto p-2 md:p-10 lg:p-16">
+          <div className="flex flex-col flex-1">
+            <main className="flex-1 overflow-y-auto p-2 md:p-4 lg:p-4">
               <div className="max-w-7xl mx-auto">
                 {children}
                 <Analytics />

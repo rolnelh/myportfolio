@@ -1,158 +1,95 @@
 "use client";
 import React from "react";
-import { CheckCircle } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { useLanguage } from "../components/Languagecontext";
 
 const content = {
   EN: {
-    sectionLabel: "My Professional Journey",
-    sectionSub: "An overview of my background and expertise",
-    badge: "Available",
-    name: "Hello I'm Dieudonné",
-    role: "Next.js Developer & UI Designer based in Benin",
-    bio: "I'm Dieudonné Houndagnon, Next.js developer and UI designer based in Benin. With 3+ years of experience, I transform complex ideas into fast, intuitive interfaces — built to convert and grow your business.",
-    skills: [
-      {
-        category: "Development",
-        items: ["HTML5","CSS3","JavaScript", "Next.js", "React", "TypeScript", "Tailwind CSS", "Laravel", "MySQL"],
-      },
-      {
-        category: "Design & UX",
-        items: ["UI Design", "UX Research", "Figma", "Wireframing", "Design System", "Prototyping"],
-      },
-      {
-        category: "Performance & Deploy",
-        items: ["Lighthouse 90+", "SEO", "Vercel", "Core Web Vitals", "Mobile-first"],
-      },
-    ],
-    bullets: [
-      "Clean, documented & maintainable code",
-      "Design-first & performance-obsessed",
-      "Transparent communication throughout",
+    label: "Background",
+    title: "Dieudonné — Frontend Engineer",
+    bio: "I build high-performance digital products with a focus on speed and visual precision. Based in Benin, working globally.",
+    journey: [
+      { period: "26—Now", title: "Epitech Innovation", desc: "R&D on cutting-edge web technologies, building prototypes and production-ready solutions for clients across industries." },
+      { period: "22—Now", title: "Freelance Engineer", desc: "Providing freelance frontend development services to clients worldwide." },
+      { period: "2023", title: "AJS Partner", desc: "Collaborating with AJS to deliver high-quality web solutions for various clients." },
     ],
   },
   FR: {
-    sectionLabel: "Mon parcours professionnel",
-    sectionSub: "Un aperçu de mon parcours et de mes expériences",
-    badge: "Disponible",
-    name: "Hello I'm Dieudonné",
-    role: "Développeur Next.js & Designer UI basé au Bénin",
-    bio: "Je suis Dieudonné Houndagnon, développeur Next.js et designer UI basé au Bénin. Avec plus de 3 ans d'expérience, je transforme des idées complexes en interfaces rapides et intuitives, conçues pour convertir et faire croître votre business.",
-    skills: [
-      {
-        category: "Développement",
-        items: ["HTML5","CSS3","JavaScript","Next.js", "React", "TypeScript", "Tailwind CSS", "Laravel", "MySQL"],
-      },
-      {
-        category: "Design & UX",
-        items: ["UI Design", "UX Research", "Figma", "Wireframing", "Design System", "Prototypage"],
-      },
-      {
-        category: "Performance & Déploiement",
-        items: ["Lighthouse 90+", "SEO", "Vercel", "Core Web Vitals", "Mobile-first"],
-      },
+    label: "Profil",
+    title: "Dieudonné — Ingénieur Frontend",
+    bio: "Je conçois des produits digitaux haute performance, avec un focus sur la vitesse et la précision visuelle. Basé au Bénin, je suis disponible pour toutes collaborations à distance pour relever vos défis UI/UX les plus complexes",
+    journey: [
+      { period: "26—Pr", title: "Programme Entrepreneurial - Epitech", desc: "Programme d’excellence en innovation technologique et entrepreneuriat" },
+      { period: "22—Pr", title: "Ingénieur Freelance", desc: "Fourniture de services de développement frontend indépendants à des clients du monde entier." },
+      { period: "22—24", title: "EIG-Bénin", desc: "Formation professionnelle en développement web." },
+      { period: "2023", title: "AJS Partner", desc: "Collaboration avec AJS pour livrer des solutions web de qualité pour divers clients." },
+      { period: "2019-2021", title: "FASEG - UAC", desc: "Etudes en Sciences Economiques et de Gestion" },
     ],
-    bullets: [
-      "Code propre, documenté et maintenable",
-      "Design-first & obsédé par la performance",
-      "Communication transparente en permanence",
-    ],
-  },
+  }
 };
 
-const About = () => {
+export default function About() {
   const { language } = useLanguage();
-  const t = content[language];
+  const t = content[language === "EN" ? "EN" : "FR"];
 
   return (
-    <section id="about" className="bg-[#050505] py-24 px-6 rounded-2xl">
-      <div className="max-w-7xl mx-auto">
+    <section id="about" className="bg-[#FDFDFD] py-24 px-6 md:px-12 border-t border-black/[0.03]">
+      <div className="max-w-4xl mx-auto">
 
-        <div className="text-center mb-8">
-          <h2
-            style={{ fontFamily: "'Syne', sans-serif" }}
-            className="text-4xl md:text-6xl font-bold mb-3"
-          >
-            <span className="text-white">{t.sectionLabel.split(" ").slice(0, -1).join(" ")} </span>
-            <span className="text-white/30">{t.sectionLabel.split(" ").slice(-1)}</span>
-          </h2>
-          <p className="text-white/40 text-base">{t.sectionSub}</p>
-        </div>
+        <p className="text-[9px] font-bold uppercase tracking-[0.4em] text-black/20 mb-20">
+          {t.label}
+        </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24">
 
-          <div className="bg-[#0d0d0d] border border-white/5 rounded-3xl p-6 flex flex-col gap-5">
-
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
+          <div className="md:col-span-4">
+            <div className="relative aspect-[3/4] grayscale hover:grayscale-0 transition-all duration-1000 overflow-hidden">
               <Image
                 src="/images/profil.webp"
                 alt="Dieudonné"
                 fill
-                className="object-cover object-top"
+                className="object-cover"
               />
-
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
-                <div className="flex items-center gap-2 bg-black/70 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full">
-                  <span className="relative flex h-2.5 w-2.5">
-                    <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping" />
-                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
-                  </span>
-                  <span className="text-white text-sm font-semibold">{t.badge}</span>
-                </div>
-              </div>
             </div>
-
-            <div>
-              <h3
-                style={{ fontFamily: "'Syne', sans-serif" }}
-                className="text-white text-2xl font-bold mb-1"
-              >
-                {t.name}
-              </h3>
-              <p className="text-white/40 text-sm font-medium">{t.role}</p>
-            </div>
-
-            <ul className="space-y-2.5 border-t border-white/5 pt-5">
-              {t.bullets.map((b, i) => (
-                <li key={i} className="flex items-center gap-3">
-                  <CheckCircle size={15} className="text-green-500 flex-shrink-0" />
-                  <span className="text-white/60 text-sm font-medium">{b}</span>
-                </li>
-              ))}
-            </ul>
           </div>
 
-          <div className="bg-[#0d0d0d] border border-white/5 rounded-3xl p-8 flex flex-col gap-8">
+          <div className="md:col-span-8 flex flex-col justify-between py-2">
 
-            <p className="text-white/70 text-lg leading-relaxed border-b border-white/5 pb-8">
-              {t.bio}
-            </p>
+            <div className="space-y-8">
+              <h2 className="text-xl font-medium tracking-tight text-black leading-tight">
+                {t.title}
+              </h2>
+              <p className="text-md text-black/40 leading-relaxed font-light max-w-md">
+                {t.bio}
+              </p>
+            </div>
 
-            <div className="flex flex-col gap-7">
-              {t.skills.map((group, gi) => (
-                <div key={gi}>
-                  <p className="text-white/30 text-xs font-bold uppercase tracking-widest mb-3">
-                    {group.category}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {group.items.map((skill, si) => (
-                      <span
-                        key={si}
-                        className="px-3 py-1.5 bg-white/5 border border-white/8 text-white/60 text-sm font-medium rounded-lg hover:bg-white/10 hover:text-white transition-all duration-200"
-                      >
-                        {skill}
-                      </span>
-                    ))}
+            <div className="mt-20 space-y-6">
+              {t.journey.map((item, i) => (
+                <div key={i} className="flex items-baseline gap-6 border-b border-black/[0.05] pb-4">
+                  <span className="text-[10px] font-medium text-black/20 w-12">{item.period}</span>
+                  <div className="flex flex-col gap-1">
+
+                    <span className="text-[10px] font-bold text-black/40 uppercase tracking-[0.2em]">
+                      {item.title}
+                    </span>
+
+                    <span className="text-sm font-medium text-black/40 tracking-tight">
+                      {item.desc}
+                    </span>
                   </div>
                 </div>
               ))}
             </div>
+
+            <a href="#contact" className="mt-12 text-[10px] font-black uppercase tracking-[0.3em] text-black hover:text-black/40 transition-colors w-fit">
+              Get in touch —
+            </a>
           </div>
+
         </div>
       </div>
     </section>
   );
-};
-
-export default About;
+}

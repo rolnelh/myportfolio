@@ -14,7 +14,7 @@ export default function Home() {
     <LanguageProvider>
       <main className="min-h-screen bg-white text-black antialiased">
         <Navbar />
-        <div className="pt-24">
+        <div className="pt-16">
           <Hero />
           {/* <TechStack /> */}
           <About />
