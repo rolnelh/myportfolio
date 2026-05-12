@@ -226,7 +226,7 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
 
                 "Support call volume reduction by simplifying key flows",
 
-            ]        
+            ]
 
         },
 
@@ -499,9 +499,11 @@ export default function Projects() {
                             </div>
 
                             <div className="relative z-10 flex flex-wrap gap-4 md:justify-end items-center">
-                                <p className="hidden md:block text-sm text-black/40 font-light max-w-[200px] text-right leading-snug">
+
+                                <p className="text-[12px] md:text-sm text-black/40 font-light max-w-[250px] md:max-w-[200px] text-left md:text-right leading-snug">
                                     {project.description}
                                 </p>
+
                                 <div className="h-10 w-10 rounded-full border border-black/10 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-all duration-300">
                                     <Plus size={16} className={`transition-transform duration-500 ${hoveredIndex === index ? 'rotate-45' : ''}`} />
                                 </div>
