@@ -483,6 +483,7 @@ export default function Projects() {
                             rel="noopener noreferrer"
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
+                            viewport={{ once: true }}
                             className="group relative border-b border-black/5 py-12 flex flex-col md:flex-row md:items-center justify-between gap-8 cursor-pointer overflow-hidden"
                         >
 
@@ -515,6 +516,7 @@ export default function Projects() {
                                         initial={{ opacity: 0, scale: 0.8, x: -20 }}
                                         animate={{ opacity: 1, scale: 1, x: 0 }}
                                         exit={{ opacity: 0, scale: 0.8 }}
+                                        viewport={{ once: true }}
                                         className="absolute left-1/3 top-1/2 -translate-y-1/2 z-0 pointer-events-none hidden lg:block w-64 aspect-video rounded-xl overflow-hidden shadow-2xl"
                                     >
                                         <img src={project.image} alt="" className="w-full h-full object-cover grayscale-[0.5]" />

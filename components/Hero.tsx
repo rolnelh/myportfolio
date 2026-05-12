@@ -48,7 +48,7 @@ const Hero = () => {
 
             <div className="relative z-10 w-full max-w-5xl">
 
-                <motion.div {...fadeUp(0.1)} className="flex items-center gap-3 mb-8">
+                <motion.div {...fadeUp(0.1)} viewport={{ once: true }} className="flex items-center gap-3 mb-8">
                     <div className="h-px w-8 bg-gray-900/20" />
                     <p className="text-gray-900 text-xs font-bold uppercase tracking-[0.2em]">
                         {t.intro}
@@ -56,7 +56,7 @@ const Hero = () => {
                 </motion.div>
 
                 <motion.h1
-                    {...fadeUp(0.2)}
+                    {...fadeUp(0.2)} viewport={{ once: true }}
                     className="text-4xl sm:text-4xl md:text-6xl font-bold leading-[1.1] tracking-tight mb-8 text-gray-900"
                     style={{ fontFamily: "'Syne', sans-serif" }}
                 >
@@ -66,14 +66,14 @@ const Hero = () => {
                 </motion.h1>
 
                 <motion.p
-                    {...fadeUp(0.3)}
+                    {...fadeUp(0.3)} viewport={{ once: true }}
                     className="text-gray-600 text-lg sm:text-xl leading-relaxed mb-12 max-w-2xl font-medium"
                 >
                     {t.offer}
                 </motion.p>
 
                 <motion.div
-                    {...fadeUp(0.4)}
+                    {...fadeUp(0.4)} viewport={{ once: true }}
                     className="flex flex-col sm:flex-row gap-4 sm:items-center"
                 >
                     <a
@@ -99,6 +99,7 @@ const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1, duration: 1 }}
+                viewport={{ once: true }}
                 className="absolute bottom-10 left-6 hidden md:flex items-center gap-4 text-gray-400"
             >
                 <div className="flex flex-col items-center gap-2">
@@ -112,6 +113,7 @@ const Hero = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.8 }}
+                viewport={{ once: true }}
                 className="hidden lg:flex absolute right-8 bottom-20 w-16 h-16 rounded-full border border-gray-900/5 hover:border-gray-900 items-center justify-center text-gray-900 transition-all duration-500 hover:bg-gray-900 hover:text-white"
             >
                 <MoveDown size={24} className="animate-bounce" />

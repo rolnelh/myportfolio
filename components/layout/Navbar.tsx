@@ -37,8 +37,8 @@ export default function Navbar() {
     return (
         <>
             <nav className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${scrolled
-                    ? "py-3 border-b border-black/5 bg-white/90 backdrop-blur-xl shadow-sm"
-                    : "py-6 bg-white/50 backdrop-blur-md"
+                ? "py-3 border-b border-black/5 bg-white/90 backdrop-blur-xl shadow-sm"
+                : "py-6 bg-white/50 backdrop-blur-md"
                 }`}>
                 <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
 
@@ -99,7 +99,7 @@ export default function Navbar() {
                         initial={{ x: "100%" }}
                         animate={{ x: 0 }}
                         exit={{ x: "100%" }}
-                        transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                        transition={{ type: "spring", damping: 25, stiffness: 200 }} viewport={{ once: true }}
                         className="fixed inset-0 z-[60] bg-[#070707] flex flex-col items-start justify-center px-10"
                     >
                         <div className="flex flex-col gap-4 w-full">
@@ -120,6 +120,7 @@ export default function Navbar() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.5 }}
+                            viewport={{ once: true }}
                             className="mt-12 flex flex-col gap-6"
                         >
                             <a href="#contact" onClick={() => setOpen(false)}

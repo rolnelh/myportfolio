@@ -8,6 +8,7 @@ const syne = Syne({
   variable: "--font-syne",
   display: "swap", 
   weight: ["400", "500"],
+  preload: true,
 });
 
 // const inter = Inter({

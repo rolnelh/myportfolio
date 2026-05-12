@@ -92,6 +92,7 @@ export default function Contact() {
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
             className="text-black/30 text-[10px] font-bold uppercase tracking-[0.3em]"
           >
             {t.label}
@@ -134,6 +135,7 @@ export default function Contact() {
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   className="flex flex-col items-center justify-center h-full min-h-[400px] text-center"
                 >
                   <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mb-6">
@@ -193,6 +195,7 @@ export default function Contact() {
                     whileTap={{ scale: 0.95 }}
                     type="submit"
                     disabled={status === "sending"}
+                    viewport={{ once: true }}
                     className="flex items-center gap-3 text-black font-bold text-[10px] uppercase tracking-[0.3em] pt-4 group disabled:opacity-30"
                   >
                     <span className="border-b-2 border-black pb-1">
