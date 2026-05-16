@@ -6,16 +6,11 @@ import { Analytics } from '@vercel/analytics/next';
 const syne = Syne({
   subsets: ["latin"],
   variable: "--font-syne",
-  display: "swap", 
+  display: "swap",
   weight: ["400", "500"],
   preload: true,
 });
 
-// const inter = Inter({
-//   subsets: ["latin"],
-//   variable: "--font-inter",
-//   display: "swap",
-// });
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -25,32 +20,65 @@ const poppins = Poppins({
 
 
 export const metadata: Metadata = {
-  title: "Next.js & React Developer | Dieudonné Houndagnon | Premium UI/UX",
-  description: "Explore my portfolio: premium interfaces and high-performance digital solutions built with Next.js, React, and Tailwind CSS.",
-  keywords: ["Next.js", "React", "Tailwind CSS", "Framer Motion", "Front-end Developer", "Benin"],
+  metadataBase: new URL('https://dieudonne-dev.vercel.app/'),
+  title: "Remote Full-Stack Developer & UI/UX Designer | Dieudonné Houndagnon",
+  description: "Premium Next.js, React, and Laravel developer crafting high-performance digital solutions worldwide. Specializing in high-converting landing pages, website redesigns, and custom SaaS platforms.",
+  keywords: [
+    // --- Services Phares (Landing Page & Refonte) ---
+    "High-converting landing page",
+    "Création landing page freelance",
+    "Website redesign specialist",
+    "Refonte de site internet",
+    "Refonte de site web premium",
+    "UI/UX modern website redesign",
+
+    // --- International & Remote ---
+    "Remote Full-Stack Developer",
+    "Freelance Next.js developer",
+    "React developer freelance",
+    "Remote Web Developer",
+    "Premium UI/UX Designer",
+
+    // --- Plateformes & Contrats ---
+    "Développeur freelance ComeUp",
+    "Freelance Laravel developer",
+    "Développeur web freelance",
+    "Full-stack Web Developer",
+
+    // --- Tech Stack & Performance ---
+    "Next.js 15",
+    "Tailwind CSS specialist",
+    "Framer Motion animations",
+    "Web performance optimization",
+    "Shadcn UI developer",
+
+    // --- Ancrage Local ---
+    "Développeur web Cotonou",
+    "Développeur web Bénin"
+  ],
 
   openGraph: {
-    title: "Next.js & React Developer | Dieudonné Houndagnon | Premium UI/UX",
-    description: "Explore my portfolio: premium interfaces and high-performance digital solutions.",
+    title: "Full-Stack Developer & UI/UX Designer | Dieudonné",
+    description: "Crafting fast landing pages, premium website redesigns, and high-performance digital solutions with Next.js and Laravel worldwide.",
     url: 'https://dieudonne-dev.vercel.app/',
-    siteName: 'Dieudonné Portfolio',
+    siteName: 'Dieudonné Houndagnon | Portfolio',
     images: [
       {
         url: '/images/og-image.webp',
         width: 1200,
         height: 630,
-        alt: 'Aperçu du portfolio de Dieudonné',
+        alt: 'Dieudonné Houndagnon - Remote Full-Stack Developer Portfolio',
       },
     ],
-    locale: 'fr_BJ',
+    locale: 'en_US',
     type: 'website',
   },
 
   twitter: {
     card: 'summary_large_image',
-    title: "Next.js & React Developer | Dieudonné Houndagnon | Premium UI/UX",
-    description: "Crafting premium web and mobile solutions with a focus on high performance and exceptional UI/UX.",
-    images: ['/images/og-image.png'],
+    title: "Full-Stack Developer & UI/UX Designer",
+    description: "High-converting landing pages and premium website redesigns optimized for extreme speed and SEO.",
+    images: ['/images/og-image.webp'],
   },
 
   verification: {
@@ -75,7 +103,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-}; 
+};
 
 export default function RootLayout({
   children,
@@ -107,22 +135,41 @@ export default function RootLayout({
               "@type": "Person",
               "name": "Dieudonné Houndagnon",
               "url": "https://dieudonne-dev.vercel.app/",
-              "image": "https://dieudonne-dev.vercel.app//images/profil.png",
-              "jobTitle": "Full-Stack Web & Mobile Developer",
-              "alumniOf": "EIG-Bénin",
+              "image": "https://dieudonne-dev.vercel.app/images/profil.png",
+              "jobTitle": "Freelance Full-Stack Developer & UI/UX Designer", 
+              "description": "Remote web developer specializing in premium landing pages, website redesigns, Next.js, and Laravel.",
+              "alumniOf": {
+                "@type": "EducationalOrganization",
+                "name": "EIG-Bénin"
+              },
               "address": {
                 "@type": "PostalAddress",
-                "addressLocality": "Cotonou", 
+                "addressLocality": "Cotonou",
+                "addressRegion": "Littoral",
                 "addressCountry": "BJ"
               },
               "sameAs": [
                 "https://www.linkedin.com/in/dieudonné-houndagnon-093387250",
                 "https://github.com/rolnelh",
+                "https://comeup.com/fr/@dieudonne-dev"
               ],
               "knowsAbout": [
-                "Next.js", "React.js", "React Native", "Tailwind CSS",
-                "Framer Motion", "UI/UX Design", "TypeScript", "Expo"
-              ]
+                "Next.js",
+                "React.js",
+                "Laravel",
+                "Tailwind CSS",
+                "Framer Motion",
+                "UI/UX Design",
+                "Website Redesign",
+                "Landing Page Optimization",
+                "TypeScript",
+                "Web Performance Optimization"
+              ],
+              "offers": { 
+                "@type": "Offer",
+                "description": "Premium Web Development, Website Redesign, and High-Converting Landing Pages",
+                "availability": "https://schema.org/InStock"
+              }
             })
           }}
         />

@@ -1,21 +1,69 @@
 {
-  "name": "Dieudonné Houndagnon | Développeur Web & Mobile",
+  "name": "Dieudonné Houndagnon | Développeur Web Full-Stack",
   "short_name": "Dieudonné",
-  "description": "Passionné par le développement d'interfaces modernes avec Next.js et React Native. Apprendre en bâtissant des solutions premium.",
+  "description": "Développeur Web Full-Stack spécialisé en Next.js, React et Laravel. Création de sites web modernes, rapides et optimisés SEO pour startups et entreprises.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#F8FAFC",
   "theme_color": "#000000",
+  "lang": "fr-FR",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "categories": [
+    "portfolio",
+    "web development",
+    "technology",
+    "business"
+  ],
   "icons": [
     {
-      "src": "/favicon.ico.png",
-      "sizes": "192x192",
+      "src": "/images/icons/icons8-google-code-ios-17-glyph-72.png",
+      "sizes": "72x72",
       "type": "image/png"
     },
     {
-      "src": "/apple-touch-icon.png.png",
-      "sizes": "512x512",
+      "src": "/images/icons/icons8-google-code-ios-17-glyph-96.png",
+      "sizes": "96x96",
       "type": "image/png"
+    },
+    {
+      "src": "/images/icons/icons8-google-code-ios-17-glyph-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/icons/icons8-google-code-ios-17-glyph-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/icons/icons8-google-code-ios-17-glyph-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/icons8-google-code-ios-17-glyph-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Projets",
+      "short_name": "Projets",
+      "url": "/#projects",
+      "description": "Voir mes dernières réalisations",
+      "icons": [
+        {
+          "src": "/images/icons/icons8-google-code-ios-17-glyph-96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
     }
   ]
 }

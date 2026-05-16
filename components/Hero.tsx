@@ -34,7 +34,7 @@ const fadeUp = (delay: number) => ({
         transition: {
             duration: 0.8,
             delay,
-            ease: [0.215, 0.61, 0.355, 1] as const 
+            ease: [0.215, 0.61, 0.355, 1] as const
         }
     }
 });
@@ -48,53 +48,70 @@ const Hero = () => {
 
             <div className="relative z-10 w-full max-w-5xl">
 
-                <motion.div {...fadeUp(0.1)} viewport={{ once: true }} className="flex items-center gap-3 mb-8">
+                {/* Intro */}
+                <motion.div
+                    {...fadeUp(0.1)}
+                    viewport={{ once: true }}
+                    className="flex items-center gap-3 mb-8"
+                >
                     <div className="h-px w-8 bg-gray-900/20" />
                     <p className="text-gray-900 text-xs font-bold uppercase tracking-[0.2em]">
                         {t.intro}
                     </p>
                 </motion.div>
 
+                {/* H1 SEO OPTIMISÉ */}
                 <motion.h1
-                    {...fadeUp(0.2)} viewport={{ once: true }}
-                    className="text-4xl sm:text-4xl md:text-6xl font-bold leading-[1.1] tracking-tight mb-8 text-gray-900"
+                    {...fadeUp(0.2)}
+                    viewport={{ once: true }}
+                    className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.1] tracking-tight mb-8 text-gray-900"
                     style={{ fontFamily: "'Syne', sans-serif" }}
                 >
-                    {t.title1}
+                    Développeur Web Full-Stack
                     <br />
-                    <span className="text-gray-900/30 italic font-medium">{t.title2}</span>
+                    <span className="text-gray-900/40 italic font-medium">
+                        Next.js • React • Laravel
+                    </span>
                 </motion.h1>
 
+                {/* VALUE PROPOSITION */}
                 <motion.p
-                    {...fadeUp(0.3)} viewport={{ once: true }}
-                    className="text-gray-600 text-lg sm:text-xl leading-relaxed mb-12 max-w-2xl font-medium"
+                    {...fadeUp(0.3)}
+                    viewport={{ once: true }}
+                    className="text-gray-600 text-base sm:text-lg md:text-xl leading-relaxed mb-12 max-w-2xl font-medium"
                 >
-                    {t.offer}
+                    Je conçois des applications web modernes, rapides et optimisées SEO pour aider les entreprises et startups à transformer leurs idées en produits performants.
                 </motion.p>
 
+                {/* CTA */}
                 <motion.div
-                    {...fadeUp(0.4)} viewport={{ once: true }}
+                    {...fadeUp(0.4)}
+                    viewport={{ once: true }}
                     className="flex flex-col sm:flex-row gap-4 sm:items-center"
                 >
+                    {/* Primary CTA */}
                     <a
                         href={t.waNumber}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group flex items-center justify-center gap-3 bg-gray-900 text-white font-bold px-8 py-4 rounded-full hover:bg-black transition-all duration-300 shadow-sm"
+                        className="group flex items-center justify-center gap-3 bg-gray-900 text-white font-bold px-8 py-4 rounded-full hover:bg-black transition-all duration-300 shadow-sm w-full sm:w-auto"
                     >
-                        {t.cta1}
+                        Discutons de votre projet
                         <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                     </a>
 
+                    {/* Secondary CTA */}
                     <a
                         href="#projects"
-                        className="flex items-center justify-center text-gray-900 font-bold px-8 py-4 rounded-full border border-gray-900/10 hover:border-gray-900 transition-all duration-300"
+                        className="flex items-center justify-center text-gray-900 font-bold px-8 py-4 rounded-full border border-gray-900/10 hover:border-gray-900 transition-all duration-300 w-full sm:w-auto"
                     >
-                        {t.cta2}
+                        Voir mes projets
                     </a>
                 </motion.div>
+
             </div>
 
+            {/* Scroll indicator */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -104,10 +121,16 @@ const Hero = () => {
             >
                 <div className="flex flex-col items-center gap-2">
                     <div className="w-[1px] h-12 bg-gradient-to-b from-gray-200 to-transparent" />
-                    <span className="text-[10px] font-black uppercase tracking-widest vertical-text rotate-180" style={{ writingMode: 'vertical-rl' }}>Scroll</span>
+                    <span
+                        className="text-[10px] font-black uppercase tracking-widest rotate-180"
+                        style={{ writingMode: "vertical-rl" }}
+                    >
+                        Scroll
+                    </span>
                 </div>
             </motion.div>
 
+            {/* Floating CTA */}
             <motion.a
                 href="#projects"
                 initial={{ opacity: 0, scale: 0.8 }}
