@@ -12,7 +12,7 @@ const withPWA = withPWAInit({
   dest: "public",
   disable: process.env.NODE_ENV === "development", // Désactivé en dev pour éviter les conflits
   register: true,
-  skipWaiting: true,
+  // skipWaiting: true,
 });
 
 // 3. Exportation de la configuration combinée (CRUCIAL pour éviter le crash Vercel)
