@@ -21,10 +21,11 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://dieudonne-dev.vercel.app/'),
-  title: "Remote Full-Stack Developer & UI/UX Designer | Dieudonné Houndagnon",
+  title: " Dieudonné Houndagnon | Full-Stack Developer & UI/UX Designer ",
   description: "Premium Next.js, React, and Laravel developer crafting high-performance digital solutions worldwide. Specializing in high-converting landing pages, website redesigns, and custom SaaS platforms.",
+  manifest: "/site.webmanifest",
   keywords: [
-    // --- Services Phares (Landing Page & Refonte) ---
+
     "High-converting landing page",
     "Création landing page freelance",
     "Website redesign specialist",
@@ -32,28 +33,31 @@ export const metadata: Metadata = {
     "Refonte de site web premium",
     "UI/UX modern website redesign",
 
-    // --- International & Remote ---
     "Remote Full-Stack Developer",
     "Freelance Next.js developer",
+    "Frontend developer",
     "React developer freelance",
     "Remote Web Developer",
     "Premium UI/UX Designer",
 
-    // --- Plateformes & Contrats ---
     "Développeur freelance ComeUp",
     "Freelance Laravel developer",
     "Développeur web freelance",
     "Full-stack Web Developer",
 
-    // --- Tech Stack & Performance ---
+    "Next.js 15",
+    "HTML5 & CSS3 expert",
+    "Responsive web design",
+    "Core web vitals optimization",
+    "Next.js 15",
     "Next.js 15",
     "Tailwind CSS specialist",
     "Framer Motion animations",
     "Web performance optimization",
     "Shadcn UI developer",
 
-    // --- Ancrage Local ---
     "Développeur web Cotonou",
+    "Développeur web Frontend",
     "Développeur web Bénin"
   ],
 

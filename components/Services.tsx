@@ -90,7 +90,7 @@ const content = {
 
         cta: "Start a project",
 
-        wa: "https://wa.me/22901663745865",
+        wa: "https://wa.me/2290166374586",
 
     },
 
@@ -178,7 +178,7 @@ const content = {
 
         cta: "Démarrer un projet",
 
-        wa: "https://wa.me/22901663745865",
+        wa: "https://wa.me/2290166374586",
 
     },
 

@@ -1,30 +1,31 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { useLanguage } from "../components/Languagecontext";
 
 const content = {
   EN: {
     label: "Background",
-    title: "Dieudonné — Frontend Engineer",
-    bio: "I build high-performance digital products with a focus on speed and visual precision. Based in Benin, working globally.",
+    title: "Dieudonné — Full-Stack Engineer & UI Designer",
+    bio: "I build high-performance digital products with a focus on speed, robust architecture, and visual precision. Based in Benin, working globally.",
     journey: [
-      { period: "26—Now", title: "Epitech Innovation", desc: "R&D on cutting-edge web technologies, building prototypes and production-ready solutions for clients across industries." },
-      { period: "22—Now", title: "Freelance Engineer", desc: "Providing freelance frontend development services to clients worldwide." },
-      { period: "2023", title: "AJS Partner", desc: "Collaborating with AJS to deliver high-quality web solutions for various clients." },
+      { period: "26—Now", title: "Epitech Innovation", desc: "R&D on cutting-edge web technologies, building prototypes and production-ready entrepreneurial solutions." },
+      { period: "24—Now", title: "Full-Stack Developer", desc: "Architecting scalable web applications and premium SaaS products using Next.js, NestJS, and Laravel." },
+      { period: "22—24", title: "Frontend Developer", desc: "Crafting pixel-perfect responsive interfaces, high-converting landing pages, and advanced SEO optimization." },
+      { period: "2023", title: "AJS Partner", desc: "Collaborating with AJS to deliver high-quality web solutions for international clients." },
+      { period: "19—21", title: "FASEG - UAC", desc: "Foundational academic background in Economics and Management before transitioning into technology." },
     ],
   },
   FR: {
     label: "Profil",
-    title: "Dieudonné — Ingénieur Frontend",
-    bio: "Je conçois des produits digitaux haute performance, avec un focus sur la vitesse et la précision visuelle. Basé au Bénin, je suis disponible pour toutes collaborations à distance pour relever vos défis UI/UX les plus complexes",
+    title: "Dieudonné — Ingénieur Full-Stack & UI Designer",
+    bio: "Je conçois des produits digitaux haute performance, avec un focus sur la vitesse, l'architecture robuste et la précision visuelle. Basé au Bénin, disponible à distance.",
     journey: [
-      { period: "26—Pr", title: "Programme Entrepreneurial - Epitech", desc: "Programme d’excellence en innovation technologique et entrepreneuriat" },
-      { period: "22—Pr", title: "Ingénieur Freelance", desc: "Fourniture de services de développement frontend indépendants à des clients du monde entier." },
-      { period: "22—24", title: "EIG-Bénin", desc: "Formation professionnelle en développement web." },
-      { period: "2023", title: "AJS Partner", desc: "Collaboration avec AJS pour livrer des solutions web de qualité pour divers clients." },
-      { period: "2019-2021", title: "FASEG - UAC", desc: "Etudes en Sciences Economiques et de Gestion" },
+      { period: "26—Pr", title: "Programme Entrepreneurial - Epitech", desc: "Programme d’excellence axé sur l’innovation technologique, la R&D et la création de solutions prêtes pour la production." },
+      { period: "24—Pr", title: "Développeur Full-Stack", desc: "Architecture d'applications web évolutives et de plateformes SaaS modernes avec Next.js, NestJS et Laravel." },
+      { period: "22—24", title: "Développeur Frontend", desc: "Création d'interfaces utilisateur premium pixel-perfect, de landing pages haute conversion et optimisation SEO globale." },
+      { period: "2023", title: "AJS Partner", desc: "Collaboration avec AJS pour livrer des solutions web de qualité supérieure pour divers clients." },
+      { period: "19—21", title: "FASEG - UAC", desc: "Cursus en Sciences Économiques et de Gestion, une base analytique solide avant ma transition vers l'ingénierie logicielle." },
     ],
   }
 };
@@ -44,7 +45,7 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24">
 
           <div className="md:col-span-4">
-            <div className="relative aspect-[3/4] grayscale hover:grayscale-0 transition-all duration-1000 overflow-hidden">
+            <div className="relative aspect-[3/4] grayscale hover:grayscale-0 transition-all duration-1000 overflow-hidden rounded-2xl border border-black/[0.03]">
               <Image
                 src="/images/profil.webp"
                 alt="Dieudonné"
@@ -57,25 +58,23 @@ export default function About() {
           <div className="md:col-span-8 flex flex-col justify-between py-2">
 
             <div className="space-y-8">
-              <h2 className="text-xl font-medium tracking-tight text-black leading-tight">
+              <h2 className="text-xl font-medium tracking-tight text-black leading-tight" style={{ fontFamily: "'Syne', sans-serif" }}>
                 {t.title}
               </h2>
-              <p className="text-md text-black/40 leading-relaxed font-light max-w-md">
+              <p className="text-sm md:text-base text-black/50 leading-relaxed font-normal max-w-md">
                 {t.bio}
               </p>
             </div>
 
-            <div className="mt-20 space-y-6">
+            <div className="mt-16 space-y-6">
               {t.journey.map((item, i) => (
-                <div key={i} className="flex items-baseline gap-6 border-b border-black/[0.05] pb-4">
-                  <span className="text-[10px] font-medium text-black/20 w-12">{item.period}</span>
+                <div key={i} className="flex items-baseline gap-6 border-b border-black/[0.04] pb-5 last:border-none">
+                  <span className="text-[10px] font-bold tracking-wider text-black/30 w-16 shrink-0">{item.period}</span>
                   <div className="flex flex-col gap-1">
-
-                    <span className="text-[10px] font-bold text-black/40 uppercase tracking-[0.2em]">
+                    <span className="text-[10px] font-black text-black/80 uppercase tracking-[0.15em]">
                       {item.title}
                     </span>
-
-                    <span className="text-sm font-medium text-black/40 tracking-tight">
+                    <span className="text-xs md:text-sm font-normal text-black/50 leading-relaxed">
                       {item.desc}
                     </span>
                   </div>
@@ -83,7 +82,7 @@ export default function About() {
               ))}
             </div>
 
-            <a href="#contact" className="mt-12 text-[10px] font-black uppercase tracking-[0.3em] text-black hover:text-black/40 transition-colors w-fit">
+            <a href="#contact" className="mt-12 text-[10px] font-black uppercase tracking-[0.3em] text-black hover:text-black/40 transition-colors w-fit border-b border-black/10 pb-1">
               Get in touch —
             </a>
           </div>
