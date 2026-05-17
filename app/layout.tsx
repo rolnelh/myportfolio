@@ -94,7 +94,7 @@ export const metadata: Metadata = {
     apple: "/favicon.webp",
   },
 
-  manifest: "/site.webmanifest",
+  // manifest: "/site.webmanifest",
 
   appleWebApp: {
     capable: true,
