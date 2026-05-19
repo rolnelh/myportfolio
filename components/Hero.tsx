@@ -90,9 +90,9 @@ const Hero = () => {
                     >
                         {t.title1}
                         <br />
-                        <span className="text-gray-900/40 font-medium text-xl">
+                        {/* <span className="text-gray-900/40 font-medium text-xl">
                             {t.title2}
-                        </span>
+                        </span> */}
                     </motion.h1>
 
                     <motion.p
