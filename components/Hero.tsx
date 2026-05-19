@@ -7,26 +7,43 @@ import { useLanguage } from "../components/Languagecontext";
 
 const content = {
     EN: {
-        intro: "Dieudonné — Frontend & Backend Developer",
-        title1: "Full-Stack Web Developer",
-        title2: "Next.js • React • Laravel.",
-        offer: "I craft modern, fast, and SEO-optimized web applications to help businesses and startups turn their ideas into high-performance products.",
-        cta1: "Discuss your project",
-        cta2: "View my work",
-        badgeCode: "Solution Code",
-        badgeNoCode: "Solution No-Code",
-        waLink: "https://wa.me/2290166374586?text=Bonjour%20Dieudonn%C3%A9%2C%20j%27ai%20vu%20votre%20portfolio%20et%20je%20souhaite%20discuter%20d%27un%20projet%20web%20!",
+        intro:
+            "Frontend Engineer — React & Next.js & Tailwind CSS",
+
+        title1:
+            "I build fast, scalable web interfaces.",
+
+        offer:
+            "Helping startups and businesses launch modern web products focused on performance, clean architecture and premium user experience.",
+
+        cta1: "Work with me",
+        cta2: "View projects",
+
+        badgeCode: "Frontend Engineering",
+        badgeNoCode: "Performance • UX • SEO",
+
+        waLink:
+            "https://wa.me/2290166374586?text=Hello%20Dieudonné,%20I%20saw%20your%20portfolio%20and%20I%20would%20like%20to%20work%20with%20you!",
     },
+
     FR: {
-        intro: "Dieudonné — Frontend & Backend Developer",
-        title1: "Développeur Web Full-Stack",
-        title2: "Next.js • React • Laravel.",
-        offer: "Je conçois des applications web modernes, rapides et optimisées SEO pour aider les entreprises et startups à transformer leurs idées en produits performants.",
-        cta1: "Discutons de votre projet",
+        intro:
+            "Frontend Engineer — React & Next.js & Tailwind CSS",
+
+        title1:
+            "Je conçois des interfaces web rapides et scalables.",
+
+        offer:
+            "J’aide startups et entreprises à lancer des produits web modernes axés sur la performance, une architecture propre et une expérience utilisateur premium.",
+
+        cta1: "Travailler avec moi",
         cta2: "Voir mes projets",
-        badgeCode: "Solution Code",
-        badgeNoCode: "Solution No-Code",
-        waLink: "https://wa.me/2290166374586?text=Bonjour%20Dieudonn%C3%A9%2C%20j%27ai%20vu%20votre%20portfolio%20et%20je%20souhaite%20discuter%20d%27un%20projet%20web%20!",
+
+        badgeCode: "Frontend Engineering",
+        badgeNoCode: "Performance • UX • SEO",
+
+        waLink:
+            "https://wa.me/2290166374586?text=Bonjour%20Dieudonné,%20j’ai%20vu%20ton%20portfolio%20et%20je%20souhaite%20collaborer%20avec%20toi!",
     },
 };
 
@@ -68,7 +85,7 @@ const Hero = () => {
                     <motion.h1
                         {...fadeUp(0.2)}
                         viewport={{ once: true }}
-                        className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.1] tracking-tight mb-4 text-gray-900"
+                        className="text-4xl sm:text-5xl md:text-5xl font-bold leading-[1.1] tracking-tight mb-4 text-gray-900"
                         style={{ fontFamily: "'Syne', sans-serif" }}
                     >
                         {t.title1}

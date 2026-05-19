@@ -7,9 +7,9 @@ const content = {
   EN: {
     label: "Background",
     title: "Dieudonné — Full-Stack Engineer & UI Designer",
-    bio: "I build high-performance digital products with a focus on speed, robust architecture, and visual precision. Based in Benin, working globally.",
+    bio: "Frontend Engineer focused on building performant interfaces and scalable web products. Currently expanding expertise in mobile development with React Native.",
     journey: [
-      { period: "26—Now", title: "Epitech Innovation", desc: "R&D on cutting-edge web technologies, building prototypes and production-ready entrepreneurial solutions." },
+      { period: "26—Now", title: "Entrepreneurial Tech Program", desc: "A program focused on building digital products from scratch. Encompasses user research, product design, architecture, and deployment using Agile methodologies." },
       { period: "24—Now", title: "Full-Stack Developer", desc: "Architecting scalable web applications and premium SaaS products using Next.js, NestJS, and Laravel." },
       { period: "22—24", title: "Frontend Developer", desc: "Crafting pixel-perfect responsive interfaces, high-converting landing pages, and advanced SEO optimization." },
       { period: "2023", title: "AJS Partner", desc: "Collaborating with AJS to deliver high-quality web solutions for international clients." },
@@ -19,9 +19,9 @@ const content = {
   FR: {
     label: "Profil",
     title: "Dieudonné — Ingénieur Full-Stack & UI Designer",
-    bio: "Je conçois des produits digitaux haute performance, avec un focus sur la vitesse, l'architecture robuste et la précision visuelle. Basé au Bénin, disponible à distance.",
+    bio: "Ingénieur Frontend spécialisé dans la création d'interfaces performantes et de produits web scalables. Actuellement en expansion vers le développement mobile avec React Native.",
     journey: [
-      { period: "26—Pr", title: "Programme Entrepreneurial - Epitech", desc: "Programme d’excellence axé sur l’innovation technologique, la R&D et la création de solutions prêtes pour la production." },
+      { period: "26—Pr", title: "Programme Entrepreneurial - Epitech", desc: "Un programme axé sur la création de produits numériques. De la recherche utilisateur à la conception, jusqu'au développement et au déploiement en utilisant la méthodologie Agile." },
       { period: "24—Pr", title: "Développeur Full-Stack", desc: "Architecture d'applications web évolutives et de plateformes SaaS modernes avec Next.js, NestJS et Laravel." },
       { period: "22—24", title: "Développeur Frontend", desc: "Création d'interfaces utilisateur premium pixel-perfect, de landing pages haute conversion et optimisation SEO globale." },
       { period: "2023", title: "AJS Partner", desc: "Collaboration avec AJS pour livrer des solutions web de qualité supérieure pour divers clients." },

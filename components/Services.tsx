@@ -7,180 +7,98 @@ import { useLanguage } from "../components/Languagecontext";
 const content = {
 
     EN: {
-
         label: "What I do",
-
-        title: "Services.",
+        title: "Services that grow your business.",
 
         services: [
-
             {
-
                 num: "01",
-
-                title: "Landing Pages",
-
-                desc: "High-converting, pixel-perfect landing pages built to turn visitors into customers. Fast, SEO-ready, and mobile-first.",
-
-                tags: ["Next.js", "Tailwind", "SEO", "Framer Motion", "HTML", "CSS", "JavaScript"],
-
+                title: "Business Websites",
+                desc: "Modern websites designed to help your business attract clients, build trust and increase sales.",
+                tags: ["Next.js", "React", "SEO", "Responsive"],
             },
-
             {
-
                 num: "02",
-
-                title: "Web Applications",
-
-                desc: "Full-featured web apps and admin dashboards — clean architecture, scalable code, intuitive UX.",
-
-                tags: ["React", "Next.js", "TypeScript", "API Integration"],
-
+                title: "Landing Pages that Convert",
+                desc: "High-performance landing pages focused on turning visitors into paying customers.",
+                tags: ["Conversion", "UI/UX", "Tailwind", "Speed"],
             },
-
             {
-
                 num: "03",
-
-                title: "UI/UX Design & Integration",
-
-                desc: "From Figma to production — pixel-perfect integration with attention to every detail, animation, and interaction.",
-
-                tags: ["Figma", "Design System", "Responsive", "Animations"],
-
+                title: "Web Applications",
+                desc: "Custom web apps and dashboards to manage your business and automate processes.",
+                tags: ["React", "Next.js", "Laravel", "API"],
             },
-
             {
-
                 num: "04",
-
-                title: "API & Third-party Integration",
-
-                desc: "Connect your product to any service — payment gateways, CRMs, maps, analytics, authentication providers.",
-
-                tags: ["REST API", "Stripe", "Google Maps", "Auth", "Webhooks"],
-
-            },
-
-            {
-
-                num: "05",
-
-                title: "Performance Audit",
-
-                desc: "I diagnose and fix what's slowing down your site — Core Web Vitals, image optimization, Lighthouse 90+.",
-
-                tags: ["Lighthouse", "Core Web Vitals", "WebP", "Caching"],
-
-            },
-
-            {
-
-                num: "06",
-
                 title: "Website Redesign",
-
-                desc: "Transform an outdated interface into a modern, fast, and conversion-focused digital product.",
-
-                tags: ["UX Audit", "Redesign", "Migration", "Performance"],
-
+                desc: "Transform your old website into a modern, fast and professional digital product.",
+                tags: ["UX", "Redesign", "Performance"],
             },
-
+            {
+                num: "05",
+                title: "Performance Optimization",
+                desc: "I make your website faster, smoother and optimized for Google ranking.",
+                tags: ["Lighthouse", "SEO", "Speed"],
+            },
+            {
+                num: "06",
+                title: "API & Integrations",
+                desc: "Connect your website to payment systems, CRMs, maps and external services.",
+                tags: ["Stripe", "Auth", "REST API"],
+            },
         ],
 
-        cta: "Start a project",
-
+        cta: "Start your project",
         wa: "https://wa.me/2290166374586",
-
     },
 
     FR: {
-
         label: "Ce que je fais",
-
-        title: "Services.",
+        title: "Des services qui font grandir votre business.",
 
         services: [
-
             {
-
                 num: "01",
-
-                title: "Landing Pages",
-
-                desc: "Des landing pages pixel-perfect et orientées conversion — rapides, SEO-ready et mobile-first.",
-
-                tags: ["Next.js", "Tailwind", "SEO", "Framer Motion", "HTML", "CSS", "JavaScript"],
-
+                title: "Sites Web professionnels",
+                desc: "Des sites modernes conçus pour attirer des clients, renforcer votre crédibilité et augmenter vos ventes.",
+                tags: ["Next.js", "React", "SEO", "Responsive"],
             },
-
             {
-
                 num: "02",
-
-                title: "Applications Web",
-
-                desc: "Apps web complètes et dashboards admin — architecture propre, code scalable, UX intuitive.",
-
-                tags: ["React", "Next.js", "TypeScript", "Intégration API"],
-
+                title: "Landing Pages qui convertissent",
+                desc: "Des pages optimisées pour transformer vos visiteurs en clients payants.",
+                tags: ["Conversion", "UI/UX", "Tailwind", "Performance"],
             },
-
             {
-
                 num: "03",
-
-                title: "Design UI/UX & Intégration",
-
-                desc: "De Figma à la production — intégration pixel-perfect avec attention aux détails, animations et interactions.",
-
-                tags: ["Figma", "Design System", "Responsive", "Animations"],
-
+                title: "Applications Web",
+                desc: "Applications web et dashboards sur mesure pour gérer et automatiser votre activité.",
+                tags: ["React", "Next.js", "Laravel", "API"],
             },
-
             {
-
                 num: "04",
-
-                title: "Intégration API & Services Tiers",
-
-                desc: "Connectez votre produit à n'importe quel service — paiement, CRM, maps, analytics, authentification.",
-
-                tags: ["REST API", "Stripe", "Google Maps", "Auth", "Webhooks"],
-
+                title: "Refonte de site web",
+                desc: "Transformez votre ancien site en une plateforme moderne, rapide et professionnelle.",
+                tags: ["UX", "Refonte", "Performance"],
             },
-
             {
-
                 num: "05",
-
-                title: "Audit de Performance",
-
-                desc: "Je diagnostique et corrige ce qui ralentit votre site — Core Web Vitals, images, Lighthouse 90+.",
-
-                tags: ["Lighthouse", "Core Web Vitals", "WebP", "Cache"],
-
+                title: "Optimisation de performance",
+                desc: "J’améliore la vitesse et le référencement de votre site pour plus de visibilité.",
+                tags: ["Lighthouse", "SEO", "Speed"],
             },
-
             {
-
                 num: "06",
-
-                title: "Refonte de Site",
-
-                desc: "Transformez une interface obsolète en produit digital moderne, rapide et orienté conversion.",
-
-                tags: ["Audit UX", "Refonte", "Migration", "Performance"],
-
+                title: "Intégration API",
+                desc: "Connexion de votre site à des services externes : paiement, CRM, maps, etc.",
+                tags: ["Stripe", "Auth", "REST API"],
             },
-
         ],
 
         cta: "Démarrer un projet",
-
         wa: "https://wa.me/2290166374586",
-
-    },
+    }
 
 };
 export default function Services() {
@@ -197,7 +115,7 @@ export default function Services() {
                             {t.label}
                         </p>
                         <h2 style={{ fontFamily: "'Syne', sans-serif" }}
-                            className="text-6xl md:text-8xl font-bold text-black leading-tight tracking-tighter">
+                            className="text-5xl md:text-6xl font-bold text-black leading-tight tracking-tighter">
                             {t.title}
                         </h2>
                     </div>

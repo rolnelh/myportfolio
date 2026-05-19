@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Syne, Poppins } from "next/font/google";
 import "./globals.css";
 import { Analytics } from '@vercel/analytics/next';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const syne = Syne({
   subsets: ["latin"],
@@ -126,6 +127,7 @@ export default function RootLayout({
               <div className="max-w-7xl mx-auto">
                 {children}
                 <Analytics />
+                <GoogleAnalytics gaId="G-KBCJF0W9HX" />
               </div>
             </main>
           </div>
