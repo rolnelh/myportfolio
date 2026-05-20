@@ -44,9 +44,10 @@ const Hero = () => {
 
             <div className="w-full max-w-4xl space-y-8">
 
-                {/* Rôle / Statut minimaliste */}
                 <motion.div
-                    {...fadeUp(0.1)}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
                     className="flex items-center gap-3"
                 >
                     <span className="relative flex h-2 w-2">
@@ -58,26 +59,30 @@ const Hero = () => {
                     </p>
                 </motion.div>
 
-                {/* Titre Typographique Puissant */}
                 <motion.h1
-                    {...fadeUp(0.2)}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                     className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight text-zinc-900 dark:text-white"
                     style={{ fontFamily: "'Syne', sans-serif" }}
                 >
                     {t.title}
                 </motion.h1>
 
-                {/* Description allégée (Focus Client) */}
                 <motion.p
-                    {...fadeUp(0.3)}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     className="text-zinc-500 dark:text-zinc-400 text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl font-normal"
                 >
                     {t.offer}
                 </motion.p>
 
-                
+
                 <motion.div
-                    {...fadeUp(0.4)}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     className="flex flex-col sm:flex-row gap-4 pt-4 w-full sm:w-auto"
                 >
                     <a
