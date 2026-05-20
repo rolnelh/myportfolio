@@ -17,14 +17,14 @@ const articles = [
         category: "Performance"
     },
     {
-        slug: "premium-ui-ux-engineering-principles",
-        title: "The Core Principles of Premium UI/UX Engineering for Freelancers",
-        description: "How to move beyond basic templates and build high-converting, micro-animated interfaces using Tailwind CSS and Framer Motion.",
-        date: "May 12, 2026",
+        slug: "why-minimalist-ui-converts-b2b-startups",
+        title: "Why Minimalist UI is the Ultimate Conversion Lever for B2B Startups",
+        description: "How stripping away visual noise, mastering negative space, and prioritizing performance directly impacts your business bottom line.",
+        date: "May 20, 2026", 
         readingTime: "4 min read",
         category: "Design"
     }
-]
+];
 
 export default function BlogPage() {
     return (
