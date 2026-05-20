@@ -6,7 +6,6 @@ export const metadata: Metadata = {
     description: "Deep dives into frontend engineering, performance optimization, and modern UI/UX design.",
 }
 
-// Données fictives pour structurer ton premier article (et les suivants)
 const articles = [
     {
         slug: "how-to-optimize-nextjs-15-vercel",

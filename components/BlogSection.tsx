@@ -11,15 +11,14 @@ const articles = [
         category: "Performance"
     },
     {
-        slug: "premium-ui-ux-engineering-principles",
-        title: "The Core Principles of Premium UI/UX Engineering for Freelancers",
-        description: "How to move beyond basic templates and build high-converting, micro-animated interfaces using Tailwind CSS.",
-        date: "May 12, 2026",
+        slug: "why-minimalist-ui-converts-b2b-startups",
+        title: "Why Minimalist UI is the Ultimate Conversion Lever for B2B Startups",
+        description: "How stripping away visual noise, mastering negative space, and prioritizing performance directly impacts your business bottom line.",
+        date: "May 20, 2026",
         readingTime: "4 min read",
-        category: "Design",
-        comingSoon: true // Pour marquer qu'il n'est pas encore cliquable
+        category: "Design"
     }
-]
+];
 
 export default function BlogSection() {
     return (
@@ -39,7 +38,6 @@ export default function BlogSection() {
                     </p>
                 </div>
 
-                {/* Grille des articles */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {articles.map((article) => (
                         <div
@@ -50,15 +48,20 @@ export default function BlogSection() {
                             <div>
                                 {/* Meta */}
                                 <div className="flex items-center gap-3 text-xs text-slate-400 dark:text-slate-500 mb-4">
-                                    <span className="font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
-                                        {article.category}
+                                    <span className="font-semibold text-zinc-900 dark:text-white uppercase tracking-wider">
+                                        {/* Traduction à la volée de la catégorie si nécessaire */}
+                                        {isFr && article.category === "Design" ? "Design" : isFr && article.category === "Performance" ? "Performance" : article.category}
                                     </span>
                                     <span>•</span>
-                                    <time>{article.date}</time>
+                                    <time>
+                                        {/* Adaptation de la date selon la langue */}
+                                        {isFr ? article.date.replace("May", "Mai") : article.date}
+                                    </time>
                                 </div>
 
                                 {/* Titre */}
-                                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight group-hover:text-blue-600">
+                                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">
+                                    {/* Si tu as séparé ton tableau avec des objets { fr, en }, utilise article.title[lang] */}
                                     {article.title}
                                 </h3>
 
@@ -71,14 +74,14 @@ export default function BlogSection() {
                             {/* Actions conditional rendering */}
                             {article.comingSoon ? (
                                 <span className="text-xs text-slate-400 dark:text-slate-500 italic font-medium">
-                                    Coming soon...
+                                    {isFr ? "Bientôt disponible..." : "Coming soon..."}
                                 </span>
                             ) : (
                                 <Link
                                     href={`/blog/${article.slug}`}
-                                    className="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 inline-flex items-center gap-1 group"
+                                    className="text-sm font-semibold text-zinc-900 dark:text-white hover:text-zinc-600 dark:hover:text-zinc-300 inline-flex items-center gap-1 group transition-colors"
                                 >
-                                    Read full article
+                                    {isFr ? "Lire l'article complet" : "Read full article"}
                                     <span className="transition-transform group-hover:translate-x-1">→</span>
                                 </Link>
                             )}
