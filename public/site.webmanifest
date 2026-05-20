@@ -1,14 +1,14 @@
 {
-  "name": "Dieudonné Houndagnon | Développeur Web Full-Stack",
+  "name": "Dieudonné Houndagnon | Frontend Engineer & UI/UX Specialist",
   "short_name": "Dieudonné",
-  "description": "Développeur Web Full-Stack spécialisé en Next.js, React et Laravel. Création de sites web modernes, rapides et optimisés SEO pour startups et entreprises.",
+  "description": "Premium Frontend Engineer specializing in high-performance Next.js apps, Vercel deployments, and modern UI/UX design worldwide.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#F8FAFC",
   "theme_color": "#000000",
-  "lang": "fr-FR",
+  "lang": "en-US",
   "dir": "ltr",
   "prefer_related_applications": false,
   "categories": [
@@ -53,10 +53,10 @@
   ],
   "shortcuts": [
     {
-      "name": "Projets",
-      "short_name": "Projets",
+      "name": "Projects",
+      "short_name": "Projects",
       "url": "/#projects",
-      "description": "Voir mes dernières réalisations",
+      "description": "View my latest web development and UI/UX projects",
       "icons": [
         {
           "src": "/images/icons/icons8-google-code-ios-17-glyph-96.png",

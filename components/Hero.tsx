@@ -8,7 +8,7 @@ import { useLanguage } from "../components/Languagecontext";
 const content = {
     EN: {
         intro:
-            "Frontend Engineer — React & Next.js & Tailwind CSS",
+            "Building fast, modern websites | React & Next.js Developer",
 
         title1:
             "I build fast, scalable web interfaces.",
@@ -28,7 +28,7 @@ const content = {
 
     FR: {
         intro:
-            "Frontend Engineer — React & Next.js & Tailwind CSS",
+            "Création de site web rapide et moderne | Développeur React & Next.js",
 
         title1:
             "Je conçois des interfaces web rapides et scalables.",

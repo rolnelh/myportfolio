@@ -22,68 +22,87 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://dieudonne-dev.vercel.app/'),
-  title: " Dieudonné Houndagnon | Full-Stack Developer & UI/UX Designer ",
-  description: "Premium Next.js, React, and Laravel developer crafting high-performance digital solutions worldwide. Specializing in high-converting landing pages, website redesigns, and custom SaaS platforms.",
+  title: "Dieudonné Houndagnon | Frontend Engineer & UI/UX Specialist",
+  description: "Premium Next.js, React, and modern UI/UX developer crafting high-performance digital solutions worldwide. Specializing in conversion-focused landing pages, website redesigns, and custom SaaS products.",
   manifest: "/site.webmanifest",
   keywords: [
-
+    // 1. Intentions d'achat (Clients internationaux & locaux)
     "High-converting landing page",
     "Création landing page freelance",
     "Website redesign specialist",
     "Refonte de site internet",
     "Refonte de site web premium",
     "UI/UX modern website redesign",
+    "Custom SaaS platform development",
 
-    "Remote Full-Stack Developer",
+    // 2. Ton profil / Métier (Cohérent avec ton titre)
+    "Remote Frontend Engineer",
     "Freelance Next.js developer",
-    "Frontend developer",
     "React developer freelance",
     "Remote Web Developer",
     "Premium UI/UX Designer",
-
+    "Développeur web freelance",
     "Développeur freelance ComeUp",
     "Freelance Laravel developer",
-    "Développeur web freelance",
-    "Full-stack Web Developer",
 
+    // 3. Stack Technique & Performance (Ce qui fait ta force)
     "Next.js 15",
     "HTML5 & CSS3 expert",
     "Responsive web design",
     "Core web vitals optimization",
-    "Next.js 15",
-    "Next.js 15",
     "Tailwind CSS specialist",
-    "Framer Motion animations",
-    "Web performance optimization",
     "Shadcn UI developer",
+    "Framer Motion animations",
+    "Core web vitals optimization",
+    "Web performance optimization",
+    "Responsive web design",
+    "Vercel deployment expert",
+    "Hébergement Vercel freelance",
+    "Next.js Vercel optimization",
+    "Vercel serverless configuration",
 
+    // 4. Ciblage Géographique Local
     "Développeur web Cotonou",
-    "Développeur web Frontend",
-    "Développeur web Bénin"
+    "Développeur web Bénin",
+    "Développeur frontend Bénin"
   ],
 
   openGraph: {
-    title: "Full-Stack Developer & UI/UX Designer | Dieudonné",
-    description: "Crafting fast landing pages, premium website redesigns, and high-performance digital solutions with Next.js and Laravel worldwide.",
+    // 1. Titre : Un titre clair et orienté "résultats" en anglais, universel.
+    title: "Dieudonné Houndagnon | Frontend Engineer & UI/UX Specialist",
+
+    // 2. Description : En anglais pour capter le marché mondial.
+    description: "Building high-performance digital experiences and premium web interfaces. Specialized in Next.js, React, and modern UI/UX design. Let's build your next project together.",
+
     url: 'https://dieudonne-dev.vercel.app/',
-    siteName: 'Dieudonné Houndagnon | Portfolio',
+    siteName: 'Dieudonné Houndagnon | Frontend Engineering',
+
     images: [
       {
         url: '/images/og-image.webp',
         width: 1200,
         height: 630,
-        alt: 'Dieudonné Houndagnon - Remote Full-Stack Developer Portfolio',
+        alt: 'Dieudonné Houndagnon - Frontend Engineer Portfolio',
       },
     ],
+
     locale: 'en_US',
     type: 'website',
   },
 
   twitter: {
     card: 'summary_large_image',
-    title: "Full-Stack Developer & UI/UX Designer",
-    description: "High-converting landing pages and premium website redesigns optimized for extreme speed and SEO.",
-    images: ['/images/og-image.webp'],
+    // On garde la cohérence avec le titre OG pour renforcer l'identité
+    title: "Dieudonné Houndagnon | Frontend Engineer & UI/UX Specialist",
+
+    // Description courte, punchy et axée sur la valeur technique
+    description: "Building high-performance digital experiences. Next.js, React & modern UI/UX design. Let's scale your web presence.",
+
+    // Assure-toi que le chemin est correct
+    images: ['https://dieudonne-dev.vercel.app/images/og-image.webp'],
+
+    // Ajoute ton handle Twitter si tu en as un, c'est crucial pour le branding
+    creator: '@Dsquare_15',
   },
 
   verification: {
@@ -141,13 +160,24 @@ export default function RootLayout({
               "@type": "Person",
               "name": "Dieudonné Houndagnon",
               "url": "https://dieudonne-dev.vercel.app/",
-              "image": "https://dieudonne-dev.vercel.app/images/profil.png",
-              "jobTitle": "Freelance Full-Stack Developer & UI/UX Designer", 
-              "description": "Remote web developer specializing in premium landing pages, website redesigns, Next.js, and Laravel.",
-              "alumniOf": {
-                "@type": "EducationalOrganization",
-                "name": "EIG-Bénin"
-              },
+              "image": "https://dieudonne-dev.vercel.app/images/profil.webp",
+              "jobTitle": "Frontend Engineer & UI/UX Specialist",
+              "description": "Remote frontend engineer specializing in premium web interfaces, high-performance website redesigns, and Next.js applications custom-built for global clients.",
+              // 2. Ajout de ton parcours académique complet
+              "alumniOf": [
+                {
+                  "@type": "EducationalOrganization",
+                  "name": "EIG-Bénin"
+                },
+                {
+                  "@type": "EducationalOrganization",
+                  "name": "Epitech"
+                },
+                {
+                  "@type": "EducationalOrganization",
+                  "name": "Université d'Abomey-Calavi (FASEG-UAC)"
+                }
+              ],
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Cotonou",
@@ -159,21 +189,23 @@ export default function RootLayout({
                 "https://github.com/rolnelh",
                 "https://comeup.com/fr/@dieudonne-dev"
               ],
+
               "knowsAbout": [
                 "Next.js",
-                "React.js",
-                "Laravel",
+                "React",
+                "React Native",
+                "Vercel Deployment & Optimization",
                 "Tailwind CSS",
                 "Framer Motion",
                 "UI/UX Design",
-                "Website Redesign",
-                "Landing Page Optimization",
                 "TypeScript",
-                "Web Performance Optimization"
+                "Website Redesign",
+                "Web Performance Optimization",
+                "Laravel"
               ],
-              "offers": { 
+              "offers": {
                 "@type": "Offer",
-                "description": "Premium Web Development, Website Redesign, and High-Converting Landing Pages",
+                "description": "Premium Frontend Engineering, Modern Website Redesign, and Conversion-Focused Landing Pages",
                 "availability": "https://schema.org/InStock"
               }
             })
