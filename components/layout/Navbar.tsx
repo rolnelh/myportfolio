@@ -9,12 +9,14 @@ const links = {
         { label: "Work", href: "#projects" },
         { label: "Services", href: "#services" },
         { label: "About", href: "#about" },
+        { label: "Blog", href: "#blog" }, 
         { label: "Contact", href: "#contact" },
     ],
     FR: [
         { label: "Projets", href: "#projects" },
         { label: "Services", href: "#services" },
         { label: "À propos", href: "#about" },
+        { label: "Articles", href: "#blog" }, 
         { label: "Contact", href: "#contact" },
     ],
 };

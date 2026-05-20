@@ -5,172 +5,105 @@ import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "../components/Languagecontext";
 
 const content = {
-
     EN: {
         label: "What I do",
-        title: "Services that grow your business.",
-
+        title: "Services designed to grow your business.",
         services: [
-            {
-                num: "01",
-                title: "Business Websites",
-                desc: "Modern websites designed to help your business attract clients, build trust and increase sales.",
-                tags: ["Next.js", "React", "SEO", "Responsive"],
-            },
-            {
-                num: "02",
-                title: "Landing Pages that Convert",
-                desc: "High-performance landing pages focused on turning visitors into paying customers.",
-                tags: ["Conversion", "UI/UX", "Tailwind", "Speed"],
-            },
-            {
-                num: "03",
-                title: "Web Applications",
-                desc: "Custom web apps and dashboards to manage your business and automate processes.",
-                tags: ["React", "Next.js", "Laravel", "API"],
-            },
-            {
-                num: "04",
-                title: "Website Redesign",
-                desc: "Transform your old website into a modern, fast and professional digital product.",
-                tags: ["UX", "Redesign", "Performance"],
-            },
-            {
-                num: "05",
-                title: "Performance Optimization",
-                desc: "I make your website faster, smoother and optimized for Google ranking.",
-                tags: ["Lighthouse", "SEO", "Speed"],
-            },
-            {
-                num: "06",
-                title: "API & Integrations",
-                desc: "Connect your website to payment systems, CRMs, maps and external services.",
-                tags: ["Stripe", "Auth", "REST API"],
-            },
+            { num: "01", title: "Business Websites", desc: "Modern websites built to attract clients, secure trust, and drive revenue.", tags: ["Next.js", "SEO", "Responsive"] },
+            { num: "02", title: "Conversion Landing Pages", desc: "High-performance landing pages engineered to transform traffic into sales.", tags: ["UI/UX", "Tailwind", "Speed"] },
+            { num: "03", title: "Web Applications", desc: "Custom software, SaaS platforms, and internal dashboards tailored to your processes.", tags: ["React", "Laravel", "APIs"] },
+            { num: "04", title: "Premium Redesigns", desc: "Turning outdated websites into fast, modern, and beautiful digital products.", tags: ["UX Refonte", "Performance"] },
+            { num: "05", title: "Speed Optimization", desc: "Fine-tuning architecture to unlock peak Lighthouse scores and clean Google positioning.", tags: ["Lighthouse", "Core Vitals"] },
+            { num: "06", title: "Integrations & APIs", desc: "Connecting ecosystems with secure payment bridges, automation, and CRMs.", tags: ["Stripe", "Auth", "REST"] },
         ],
-
-        cta: "Start your project",
+        cta: "Start a project",
         wa: "https://wa.me/2290166374586",
     },
-
     FR: {
         label: "Ce que je fais",
-        title: "Des services qui font grandir votre business.",
-
+        title: "Des services conçus pour faire grandir votre activité.",
         services: [
-            {
-                num: "01",
-                title: "Sites Web professionnels",
-                desc: "Des sites modernes conçus pour attirer des clients, renforcer votre crédibilité et augmenter vos ventes.",
-                tags: ["Next.js", "React", "SEO", "Responsive"],
-            },
-            {
-                num: "02",
-                title: "Landing Pages qui convertissent",
-                desc: "Des pages optimisées pour transformer vos visiteurs en clients payants.",
-                tags: ["Conversion", "UI/UX", "Tailwind", "Performance"],
-            },
-            {
-                num: "03",
-                title: "Applications Web",
-                desc: "Applications web et dashboards sur mesure pour gérer et automatiser votre activité.",
-                tags: ["React", "Next.js", "Laravel", "API"],
-            },
-            {
-                num: "04",
-                title: "Refonte de site web",
-                desc: "Transformez votre ancien site en une plateforme moderne, rapide et professionnelle.",
-                tags: ["UX", "Refonte", "Performance"],
-            },
-            {
-                num: "05",
-                title: "Optimisation de performance",
-                desc: "J’améliore la vitesse et le référencement de votre site pour plus de visibilité.",
-                tags: ["Lighthouse", "SEO", "Speed"],
-            },
-            {
-                num: "06",
-                title: "Intégration API",
-                desc: "Connexion de votre site à des services externes : paiement, CRM, maps, etc.",
-                tags: ["Stripe", "Auth", "REST API"],
-            },
+            { num: "01", title: "Sites Web Professionnels", desc: "Des architectures modernes pour attirer des clients, inspirer confiance et générer des ventes.", tags: ["Next.js", "SEO", "Responsive"] },
+            { num: "02", title: "Landing Pages de Conversion", desc: "Des interfaces optimisées pour transformer efficacement vos visiteurs en clients payants.", tags: ["UI/UX", "Tailwind", "Performance"] },
+            { num: "03", title: "Applications Web", desc: "Des outils métiers, plateformes SaaS et dashboards sur mesure pour automatiser votre gestion.", tags: ["React", "Laravel", "APIs"] },
+            { num: "04", title: "Refontes Premium", desc: "Métamorphosez vos interfaces existantes en produits digitaux rapides, fluides et esthétiques.", tags: ["UX", "Refonte", "Vercel"] },
+            { num: "05", title: "Optimisation de Performance", desc: "Ajustements techniques pointus pour flirter avec les 100/100 Lighthouse et maximiser le SEO.", tags: ["Lighthouse", "Core Vitals"] },
+            { num: "06", title: "Intégrations & APIs", desc: "Interconnexion sécurisée avec des passerelles de paiement, systèmes CRM et automatisations.", tags: ["Stripe", "Auth", "REST"] },
         ],
-
         cta: "Démarrer un projet",
         wa: "https://wa.me/2290166374586",
     }
-
 };
+
 export default function Services() {
     const { language } = useLanguage();
     const t = content[language];
 
     return (
-        <section id="services" className="bg-white py-16 px-6 md:px-10">
-            <div className="max-w-[1400px] mx-auto">
+        <section id="services" className="bg-white dark:bg-[#09090B] py-28 px-6 md:px-12 border-t border-slate-100 dark:border-zinc-900 max-w-6xl mx-auto">
+            <div className="w-full max-w-4xl mx-auto">
 
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-24 border-b border-black/[0.05] pb-12">
-                    <div className="max-w-2xl">
-                        <p className="text-black/40 text-[10px] font-bold uppercase tracking-[0.3em] mb-6">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-24">
+                    <div className="max-w-xl">
+                        <p className="text-zinc-400 dark:text-zinc-500 text-[11px] font-semibold uppercase tracking-[0.25em] mb-4">
                             {t.label}
                         </p>
                         <h2 style={{ fontFamily: "'Syne', sans-serif" }}
-                            className="text-5xl md:text-6xl font-bold text-black leading-tight tracking-tighter">
+                            className="text-4xl md:text-4xl font-bold text-zinc-900 dark:text-white tracking-tight leading-none">
                             {t.title}
                         </h2>
                     </div>
 
                     <motion.a
-                        whileHover={{ scale: 1.02, backgroundColor: "#000", color: "#fff" }}
+                        whileHover={{ y: -2 }}
                         whileTap={{ scale: 0.98 }}
-                        href={t.wa} target="_blank" rel="noopener noreferrer"
-                        className="flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-white bg-black px-8 py-4 rounded-full transition-all w-fit shadow-xl shadow-black/5"
+                        href={t.wa}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-800 px-6 py-3 rounded-full hover:bg-zinc-950 hover:text-white dark:hover:bg-white dark:hover:text-zinc-950 transition-colors duration-300 w-fit"
                     >
-                        {t.cta} <ArrowUpRight size={14} strokeWidth={3} />
+                        {t.cta} <ArrowUpRight size={14} />
                     </motion.a>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16">
                     {t.services.map((s, i) => (
-                        <motion.div key={i}
-                            initial={{ opacity: 0, y: 30 }}
+                        <motion.div
+                            key={i}
+                            initial={{ opacity: 0, y: 16 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: i * 0.1, ease: [0.215, 0.61, 0.355, 1] }}
-                            className="relative bg-[#f9f9f9] border border-black/[0.03] p-10 flex flex-col gap-4 group overflow-hidden rounded-3xl hover:shadow-2xl hover:shadow-black/[0.02] transition-all duration-500"
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ duration: 0.5, delay: i * 0.05 }}
+                            className="group flex flex-col items-start border-b border-zinc-100 dark:border-zinc-900 pb-8 relative"
                         >
-
-                            <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                            <div className="flex items-start justify-between relative z-10">
-                                <span className="text-black/[0.05] font-bold text-5xl tracking-tighter" style={{ fontFamily: "'Syne', sans-serif" }}>
+                            <div className="flex items-baseline gap-4 mb-3 w-full">
+                                <span className="text-zinc-300 dark:text-zinc-700 font-medium text-sm font-mono">
                                     {s.num}
                                 </span>
-                                <div className="p-2 rounded-full border border-black/[0.05] group-hover:border-black/10 transition-colors">
-                                    <ArrowUpRight size={18} className="text-black/20 group-hover:text-black transition-transform duration-500 group-hover:rotate-45" />
-                                </div>
-                            </div>
-
-                            <div className="relative z-10">
-                                <h3 style={{ fontFamily: "'Syne', sans-serif" }}
-                                    className="text-black text-2xl font-bold mb-4 tracking-tight">
+                                <h3 className="text-zinc-900 dark:text-zinc-100 text-xl font-semibold tracking-tight transition-colors duration-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">
                                     {s.title}
                                 </h3>
-                                <p className="text-black/50 text-sm leading-relaxed font-medium">
-                                    {s.desc}
-                                </p>
+                                <ArrowUpRight
+                                    size={16}
+                                    className="ml-auto text-zinc-300 dark:text-zinc-700 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-blue-600 dark:group-hover:text-blue-400"
+                                />
                             </div>
 
-                            <div className="flex flex-wrap gap-2 mt-auto pt-2 relative z-10">
+                            <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed max-w-md mb-4">
+                                {s.desc}
+                            </p>
+
+                            <div className="flex flex-wrap gap-x-3 gap-y-1 mt-auto">
                                 {s.tags.map((tag, ti) => (
-                                    <span key={ti} className="text-[9px] font-bold uppercase tracking-[0.15em] text-black/40 bg-black/[0.03] border border-black/[0.05] px-3 py-1.5 rounded-lg">
-                                        {tag}
+                                    <span key={ti} className="text-[10px] font-medium text-zinc-400 dark:text-zinc-500 tracking-wide">
+                                        #{tag.toLowerCase()}
                                     </span>
                                 ))}
                             </div>
                         </motion.div>
                     ))}
                 </div>
+
             </div>
         </section>
     );

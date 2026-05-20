@@ -23,41 +23,37 @@ const Footer = () => {
     const t = content[language];
 
     return (
-        <footer className="max-w-7xl mx-auto px-6 py-16 mt-12 border-t border-gray-100">
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <footer className="max-w-6xl mx-auto px-6 md:px-12 py-16 mt-20 border-t border-zinc-100 dark:border-zinc-900">
+
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-12">
                 <div>
-                    <p
-                        style={{ fontFamily: "'Syne', sans-serif" }}
-                        className="text-2xl font-bold text-black mb-1"
+                    <p style={{ fontFamily: "'Syne', sans-serif" }}
+                        className="text-xl font-bold text-zinc-900 dark:text-white tracking-tight mb-2"
                     >
                         Dieudonné Houndagnon
                     </p>
-                    <p className="text-gray-500 text-sm">{t.tagline}</p>
-                    <p className="text-gray-400 text-xs mt-1">{t.remote}</p>
+                    <p className="text-zinc-500 dark:text-zinc-400 text-sm font-medium">{t.tagline}</p>
+                    <p className="text-zinc-400 dark:text-zinc-500 text-[11px] font-medium tracking-wide mt-1">{t.remote}</p>
                 </div>
 
-                <div className="flex items-center gap-4">
-                    <a
-                        href="https://www.linkedin.com/in/dieudonn%C3%A9-houndagnon-093387250"
+                <div className="flex items-center gap-6 text-zinc-400 dark:text-zinc-600">
+                    <a href="https://www.linkedin.com/in/dieudonn%C3%A9-houndagnon-093387250"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-black hover:border-black transition-all"
+                        className="hover:text-zinc-950 dark:hover:text-white transition-colors p-1"
                     >
                         <Linkedin size={16} />
                     </a>
-                    <a
-                        href="https://github.com/rolnelh"
+                    <a href="https://github.com/rolnelh"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-black hover:border-black transition-all"
+                        className="hover:text-zinc-950 dark:hover:text-white transition-colors p-1"
                     >
                         <Github size={16} />
                     </a>
-                    
                 </div>
             </div>
 
-            <p className="text-gray-400 text-xs mt-10 text-center md:text-left">{t.copy}</p>
         </footer>
     );
 };
