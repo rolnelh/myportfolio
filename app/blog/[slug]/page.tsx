@@ -70,9 +70,8 @@ export default async function ArticlePage({ params }: Props) {
 
     // 💡 Détection automatique de la langue. 
     // Si tu utilises Next-Intl ou un middleware, adapte cette ligne (ex: récupérer depuis le contexte ou les cookies)
-    const lang: "fr" | "en" = "en" // Par défaut à "en", passe à "fr" selon ton gestionnaire d'état ou d'URL
-
-    const isFr = lang === "fr"
+    const lang: string = "en";
+    const isFr = lang === "fr";
 
     // ------------------------------------------
     // ARTICLE 1 : Next.js 15 & Vercel
