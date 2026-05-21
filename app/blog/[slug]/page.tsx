@@ -5,9 +5,7 @@ type Props = {
     params: Promise<{ slug: string }>
 }
 
-// ==========================================
-// 1. DCTIONNAIRE DE CONTENU BILINGUE
-// ==========================================
+
 const articlesContent: Record<string, {
     title: { fr: string; en: string };
     description: { fr: string; en: string };
@@ -43,9 +41,7 @@ const articlesContent: Record<string, {
     }
 }
 
-// ==========================================
-// 2. LE SEO DYNAMIQUE
-// ==========================================
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { slug } = await params
     const article = articlesContent[slug]
@@ -62,14 +58,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
 }
 
-// ==========================================
-// 3. LE COMPOSANT DE PAGE PRINCIPAL
-// ==========================================
 export default async function ArticlePage({ params }: Props) {
     const { slug } = await params
 
-    // 💡 Détection automatique de la langue. 
-    // Si tu utilises Next-Intl ou un middleware, adapte cette ligne (ex: récupérer depuis le contexte ou les cookies)
     const lang: string = "en";
     const isFr = lang === "fr";
 
@@ -185,15 +176,20 @@ export default function ProfileHero() {
     if (slug === "why-minimalist-ui-converts-b2b-startups") {
         return (
             <main className="relative max-w-3xl mx-auto px-4 sm:px-6 pt-32 pb-24 text-slate-800 dark:text-slate-200">
-                <Link href="/#blog" className="mb-8 md:mb-0 md:absolute md:top-16 md:left-6 flex items-center gap-1.5 text-xs text-slate-400 dark:text-slate-500 hover:text-zinc-900 dark:hover:text-white transition-colors duration-200 tracking-tight group">
+                {/* Bouton Retour - Optimisé pour mobile (Devient un bloc au-dessus sur mobile pour ne pas écraser le titre) */}
+                <Link
+                    href="/#blog"
+                    className="mb-8 md:mb-0 md:absolute md:top-16 md:left-6 flex items-center gap-1.5 text-xs text-slate-400 dark:text-slate-500 hover:text-zinc-900 dark:hover:text-white transition-colors duration-200 tracking-tight group"
+                >
                     <svg className="h-3 w-3 stroke-current transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7.75 9.75L4 6L7.75 2.25" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                     {isFr ? "Retour au Portfolio" : "Back to Portfolio"}
                 </Link>
 
-                <article className="prose dark:prose-invert max-w-none">
-                    <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4 text-slate-900 dark:text-white leading-tight">
+                {/* Balise Article - Ajout de break-words pour casser les mots longs sur mobile (ex: B2B, micro-interactions) */}
+                <article className="prose dark:prose-invert max-w-none break-words overflow-hidden">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-4 text-slate-900 dark:text-white leading-tight">
                         {isFr ? articlesContent[slug].title.fr : articlesContent[slug].title.en}
                     </h1>
                     <p className="text-slate-400 text-sm mb-8">{isFr ? "Publié le 20 mai 2026" : "Published on May 20, 2026"}</p>
@@ -218,25 +214,27 @@ export default function ProfileHero() {
                         </>
                     )}
 
-                    <h2 className="text-xl sm:text-2xl font-bold mt-12 mb-4 text-slate-900 dark:text-white">
+                    <h2 className="text-lg sm:text-xl md:text-2xl font-bold mt-12 mb-4 text-slate-900 dark:text-white">
                         {isFr ? "1. La règle des 3 secondes et la friction cognitive" : "1. The 3-Second Rule & Cognitive Friction"}
                     </h2>
-                    <p className="mb-6 text-slate-700 dark:text-slate-300 leading-relaxed">
+                    <p className="mb-6 text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
                         {isFr ? "Lorsqu&apos;un décideur atterrit sur votre site, il fait un choix inconscient en moins de trois secondes : Puis-je faire confiance à cet outil ? Chaque icône inutile augmente la friction." : "When a decision-maker lands on your web product, they make a subconscious choice in under three seconds: Can I trust this tool, and do I understand what it does? Every unnecessary icon or decorative shape increases cognitive friction."}
                     </p>
 
-                    <blockquote className="border-l-4 border-zinc-400 dark:border-zinc-600 pl-4 italic text-slate-600 dark:text-slate-400 my-6">
+                    <blockquote className="border-l-4 border-zinc-400 dark:border-zinc-600 pl-4 italic text-slate-600 dark:text-slate-400 my-6 text-sm sm:text-base">
                         <strong>{isFr ? "La règle minimaliste :" : "The Minimalist Rule:"}</strong> {isFr ? "Si un élément n&apos;aide pas activement l&apos;utilisateur à accomplir une tâche, il ne devrait pas exister." : "If an element doesn&apos;t actively help the user complete a task or understand a value proposition, it shouldn&apos;t exist."}
                     </blockquote>
 
-                    <h2 className="text-xl sm:text-2xl font-bold mt-10 mb-4 text-slate-900 dark:text-white">
+                    <h2 className="text-lg sm:text-xl md:text-2xl font-bold mt-10 mb-4 text-slate-900 dark:text-white">
                         {isFr ? "2. Les trois piliers du design minimaliste premium" : "2. The Three Pillars of Premium Minimalist Design"}
                     </h2>
-                    <ul className="list-disc pl-5 sm:pl-6 mb-6 space-y-3 text-slate-700 dark:text-slate-300">
+
+                    {/* Liste à puces : Nettoyage du padding mobile pour éviter l'overflow */}
+                    <ul className="list-disc pl-4 sm:pl-6 mb-6 space-y-3 text-slate-700 dark:text-slate-300 text-sm sm:text-base">
                         {isFr ? (
                             <>
                                 <li><strong>Typographie dominante :</strong> Elle incarne la voix de votre interface (ex: Syne, Inter). Un choix fort donne une autorité immédiate.</li>
-                                <li><strong>Maîtrise de l&apos;espace négatif :</strong> Le "White Space" n&apos;est pas vide, c&apos;est une fonctionnalité qui laisse respirer le produit.</li>
+                                <li><strong>Maîtrise de l&apos;espace négatif :</strong> Le &quot;White Space&quot; n&apos;est pas vide, c&apos;est une fonctionnalité qui laisse respirer le produit.</li>
                                 <li><strong>Micro-interactions subtiles :</strong> Un effet de survol millimétré ou une apparition fluide indique un travail d&apos;artisan d&apos;élite.</li>
                             </>
                         ) : (
@@ -248,10 +246,10 @@ export default function ProfileHero() {
                         )}
                     </ul>
 
-                    <h2 className="text-xl sm:text-2xl font-bold mt-10 mb-4 text-slate-900 dark:text-white">
+                    <h2 className="text-lg sm:text-xl md:text-2xl font-bold mt-10 mb-4 text-slate-900 dark:text-white">
                         {isFr ? "3. Chaîne de performance : Interface épurée → Code propre → Conversion élevée" : "3. The Performance Chain: Clean UI → Clean Code → High Conversion"}
                     </h2>
-                    <p className="mb-6 text-slate-700 dark:text-slate-300">
+                    <p className="mb-6 text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
                         {isFr ? "Une interface épurée signifie moins de scripts lourds, des Core Web Vitals parfaits (100/100) et un rendu instantané partout dans le monde, y compris sur les réseaux mobiles." : "There is a direct correlation between how clean an interface looks and how well it performs under the hood. Dropping heavy decorations means fewer scripts, perfect Core Web Vitals, and flawless rendering on any mobile network worldwide."}
                     </p>
                 </article>
