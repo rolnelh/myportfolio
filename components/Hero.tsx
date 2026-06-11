@@ -2,23 +2,23 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, MoveDown } from "lucide-react";
+import { ArrowRight, MoveDown, Github, Linkedin, Twitter } from "lucide-react";
 import { useLanguage } from "../components/Languagecontext";
 
 const content = {
     EN: {
         intro: "Frontend Engineer · Based in Benin",
-        title: "Building performant interfaces & web products built to last.",
-        offer: "Helping startups and businesses launch ultra-fast, beautiful websites designed to grow smoothly as their business expands.",
-        cta1: "Get in touch",
-        cta2: "View work",
+        title: "Need a modern website for your business?",
+        offer: "I design and build modern websites that help your business stand out and grow.",
+        cta1: "Start a Project",
+        cta2: "View My Work",
     },
     FR: {
-        intro: "Ingénieur Frontend · Basé au Bénin",
-        title: "Je conçois des interfaces rapides et des sites web bâtis pour durer.",
-        offer: "J'aide les startups et les entreprises à lancer des sites web ultra-rapides, magnifiques et faciles à faire évoluer avec leur croissance.",
-        cta1: "Me contacter",
-        cta2: "Voir mes projets",
+        intro: "Frontend Engineer · Basé au Bénin",
+        title: "Besoin d'un site web moderne pour votre entreprise ?",
+        offer: "Je conçois et développe des sites web modernes qui aident votre entreprise à se démarquer et à croître.",
+        cta1: "Démarrer un projet",
+        cta2: "Voir mes réalisations",
     },
 };
 
@@ -44,7 +44,7 @@ const Hero = () => {
 
             <div className="w-full max-w-4xl space-y-8">
 
-                <motion.div
+                {/* <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
@@ -57,7 +57,7 @@ const Hero = () => {
                     <p className="text-zinc-500 dark:text-zinc-400 text-xs font-semibold uppercase tracking-[0.2em]">
                         {t.intro}
                     </p>
-                </motion.div>
+                </motion.div> */}
 
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
@@ -77,6 +77,19 @@ const Hero = () => {
                 >
                     {t.offer}
                 </motion.p>
+
+
+                <div className="flex flex-row gap-4">
+                    <a href="https://github.com/rolnelh" target="_blank" rel="noopener noreferrer" className="bg-white border border-zinc-900/10 dark:border-zinc-800 hover:text-white hover:bg-zinc-900 dark:hover:text-white dark:hover:bg-white transition-colors duration-300 rounded-full p-3">
+                        <Github size={20} />
+                    </a>
+                    <a href="https://www.linkedin.com/in/dieudonn%C3%A9-houndagnon-093387250" target="_blank" rel="noopener noreferrer" className="bg-white border border-zinc-900/10 dark:border-zinc-800 hover:text-white hover:bg-zinc-900 dark:hover:text-white dark:hover:bg-white transition-colors duration-300 rounded-full p-3">
+                        <Linkedin size={20} />
+                    </a>
+                    <a href="https://x.com/Dsquare_15" target="_blank" rel="noopener noreferrer" className="bg-white border border-zinc-900/10 dark:border-zinc-800 hover:text-white hover:bg-zinc-900 dark:hover:text-white dark:hover:bg-white transition-colors duration-300 rounded-full p-3">
+                        <Twitter size={20} />
+                    </a>
+                </div>
 
 
                 <motion.div

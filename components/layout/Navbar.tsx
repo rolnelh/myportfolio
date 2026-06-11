@@ -9,14 +9,14 @@ const links = {
         { label: "Work", href: "#projects" },
         { label: "Services", href: "#services" },
         { label: "About", href: "#about" },
-        { label: "Blog", href: "#blog" }, 
+        // { label: "Blog", href: "#blog" },
         { label: "Contact", href: "#contact" },
     ],
     FR: [
         { label: "Projets", href: "#projects" },
         { label: "Services", href: "#services" },
         { label: "À propos", href: "#about" },
-        { label: "Articles", href: "#blog" }, 
+        // { label: "Articles", href: "#blog" },
         { label: "Contact", href: "#contact" },
     ],
 };
@@ -71,7 +71,7 @@ export default function Navbar() {
                             </button>
 
                             <a href="#contact"
-                                className="text-[10px] font-black uppercase tracking-[0.2em] text-white bg-blue-600 hover:bg-black px-6 py-3 rounded-full transition-all duration-300 shadow-lg shadow-blue-600/10 hover:shadow-none">
+                                className="text-[10px] font-black uppercase tracking-[0.2em] text-white bg-zinc-950 hover:bg-black px-6 py-3 rounded-full transition-all duration-300 shadow-lg shadow-blue-600/10 hover:shadow-none">
                                 {language === "EN" ? "Let's talk" : "Discutons"}
                             </a>
                         </div>

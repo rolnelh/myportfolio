@@ -90,7 +90,7 @@ export default function Contact() {
 
             <div className="pt-6 border-t border-zinc-100 dark:border-zinc-900 space-y-3 max-w-sm">
               <a href={t.waNum} target="_blank" rel="noopener noreferrer"
-                className="group flex items-center justify-between text-xs font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-1"
+                className="group flex items-center justify-between text-xs font-bold tracking-wider text-zinc-800 dark:text-zinc-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-1"
               >
                 <span className="flex items-center gap-2.5">
                   <MessageSquare size={14} className="text-zinc-400" />
@@ -100,7 +100,7 @@ export default function Contact() {
               </a>
 
               <a href={`mailto:${t.email}`}
-                className="group flex items-center justify-between text-xs font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-1"
+                className="group flex items-center justify-between text-xs font-bold tracking-wider text-zinc-800 dark:text-zinc-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-1"
               >
                 <span className="flex items-center gap-2.5">
                   <Mail size={14} className="text-zinc-400" />

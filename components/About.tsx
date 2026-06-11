@@ -6,26 +6,24 @@ import { useLanguage } from "../components/Languagecontext";
 const content = {
   EN: {
     label: "Background",
-    title: "Dieudonné — Full-Stack Engineer & UI Designer",
+    title: "Dieudonné — Frontend Engineer & UI Designer",
     bio: "Frontend Engineer focused on building performant interfaces and scalable web products. Currently expanding expertise in mobile development with React Native.",
     journey: [
-      { period: "26—Now", title: "Entrepreneurial Tech Program", desc: "A program focused on building digital products from scratch. Encompasses user research, product design, architecture, and deployment using Agile methodologies." },
+      { period: "June", title: "Founders Live Winner", desc: "Won the startup competition with the Vibe & Go team." },
+      { period: "26—Now", title: "Entrepreneurial Tech Program", desc: "Building digital products from scratch: user research, product design, architecture, and Agile deployment." },
       { period: "24—Now", title: "Full-Stack Developer", desc: "Architecting scalable web applications and premium SaaS products using Next.js, NestJS, and Laravel." },
       { period: "22—24", title: "Frontend Developer", desc: "Crafting pixel-perfect responsive interfaces, high-converting landing pages, and advanced SEO optimization." },
-      { period: "2023", title: "AJS Partner", desc: "Collaborating with AJS to deliver high-quality web solutions for international clients." },
-      { period: "19—21", title: "FASEG - UAC", desc: "Foundational academic background in Economics and Management before transitioning into technology." },
     ],
   },
   FR: {
     label: "Profil",
-    title: "Dieudonné — Ingénieur Full-Stack & UI Designer",
-    bio: "Ingénieur Frontend spécialisé dans la création d'interfaces performantes et de produits web scalables. Actuellement en expansion vers le développement mobile avec React Native.",
+    title: "Dieudonné — Frontend Engineer & UI Designer",
+    bio: "Développeur Frontend spécialisé dans la création d'interfaces performantes et de produits web scalables. Actuellement en expansion vers le développement mobile avec React Native.",
     journey: [
-      { period: "26—Pr", title: "Programme Entrepreneurial - Epitech", desc: "Un programme axé sur la création de produits numériques. De la recherche utilisateur à la conception, jusqu'au développement et au déploiement en utilisant la méthodologie Agile." },
+      { period: "Juin 2026", title: "Vainqueur Founders Live", desc: "Lauréats de la compétition startup avec l'équipe Vibe & Go." },
+      { period: "26—Pr", title: "Programme Entrepreneurial", desc: "Création de produits numériques de A à Z : recherche utilisateur, design, architecture et déploiement Agile." },
       { period: "24—Pr", title: "Développeur Full-Stack", desc: "Architecture d'applications web évolutives et de plateformes SaaS modernes avec Next.js, NestJS et Laravel." },
-      { period: "22—24", title: "Développeur Frontend", desc: "Création d'interfaces utilisateur premium pixel-perfect, de landing pages haute conversion et optimisation SEO globale." },
-      { period: "2023", title: "AJS Partner", desc: "Collaboration avec AJS pour livrer des solutions web de qualité supérieure pour divers clients." },
-      { period: "19—21", title: "FASEG - UAC", desc: "Cursus en Sciences Économiques et de Gestion, une base analytique solide avant ma transition vers l'ingénierie logicielle." },
+      { period: "22—24", title: "Développeur Frontend", desc: "Création d'interfaces utilisateur premium pixel-perfect, landing pages haute conversion et optimisation SEO." },
     ],
   }
 };
@@ -56,12 +54,11 @@ export default function About() {
           </div>
 
           <div className="md:col-span-8 flex flex-col justify-between py-2">
-
             <div className="space-y-8">
               <h2 className="text-xl font-medium tracking-tight text-black leading-tight" style={{ fontFamily: "'Syne', sans-serif" }}>
                 {t.title}
               </h2>
-              <p className="text-sm md:text-base text-black/50 leading-relaxed font-normal max-w-md">
+              <p className="text-sm md:text-base text-black/60 leading-relaxed font-normal max-w-md">
                 {t.bio}
               </p>
             </div>
@@ -71,8 +68,11 @@ export default function About() {
                 <div key={i} className="flex items-baseline gap-6 border-b border-black/[0.04] pb-5 last:border-none">
                   <span className="text-[10px] font-bold tracking-wider text-black/30 w-16 shrink-0">{item.period}</span>
                   <div className="flex flex-col gap-1">
-                    <span className="text-[10px] font-black text-black/80 uppercase tracking-[0.15em]">
+                    <span className="text-[10px] font-black text-black/80 uppercase tracking-[0.15em] flex items-center gap-2">
                       {item.title}
+                      {item.title.includes("Winner") || item.title.includes("Vainqueur") ? (
+                        <span className="px-1.5 py-0.5 rounded-full bg-black text-[8px] text-white">★</span>
+                      ) : null}
                     </span>
                     <span className="text-xs md:text-sm font-normal text-black/50 leading-relaxed">
                       {item.desc}
@@ -86,7 +86,6 @@ export default function About() {
               Get in touch —
             </a>
           </div>
-
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, Plus, Github } from "lucide-react";
+import { ArrowUpRight, Plus, Github, X, ExternalLink } from "lucide-react";
 import { useLanguage } from "../components/Languagecontext";
 
 interface Project {
@@ -241,20 +241,17 @@ export default function Projects() {
     const { language } = useLanguage();
     const projects = projectsData[language === "EN" ? "EN" : "FR"];
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
     return (
         <section id="projects" className="py-24 px-6 bg-[#FDFDFD] dark:bg-[#09090B] transition-colors duration-300">
             <div className="max-w-5xl mx-auto">
-
-                {/* En-tête de section minimaliste */}
+                {/* En-tête de section */}
                 <div className="mb-20 space-y-3">
                     <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-500">
                         {language === "EN" ? "Selected Work" : "Projets Sélectionnés"}
                     </span>
-                    <h2
-                        className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-900 dark:text-white"
-                        style={{ fontFamily: "'Syne', sans-serif" }}
-                    >
+                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-900 dark:text-white" style={{ fontFamily: "'Syne', sans-serif" }}>
                         {language === "EN" ? "Digital Experiences." : "Expériences Digitales."}
                     </h2>
                 </div>
@@ -262,79 +259,88 @@ export default function Projects() {
                 {/* Liste des projets */}
                 <div className="border-t border-zinc-900/5 dark:border-zinc-850">
                     {projects.map((project, index) => (
-                        <motion.a
+                        <motion.button
                             key={index}
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            onClick={() => setSelectedProject(project)}
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
-                            className="group relative border-b border-zinc-900/5 dark:border-zinc-850 py-10 flex flex-col md:flex-row md:items-center justify-between gap-6 cursor-pointer overflow-hidden transition-colors duration-300"
+                            className="w-full group relative border-b border-zinc-900/5 dark:border-zinc-850 py-10 flex flex-col md:flex-row md:items-center justify-between gap-6 cursor-pointer overflow-hidden text-left transition-colors duration-300"
                         >
-
-                            {/* Colonne Gauche : Numéro & Titre */}
+                            {/* Même design qu'avant pour la liste */}
                             <div className="relative z-10 flex items-start gap-6 md:w-1/2">
                                 <span className="text-[11px] font-mono text-zinc-300 dark:text-zinc-600 pt-1.5">0{index + 1}</span>
                                 <div className="space-y-1">
-                                    <span className="text-[9px] font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-all duration-300 transform -translate-y-1 group-hover:translate-y-0 block">
+                                    <span className="text-[9px] font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-all duration-300">
                                         {project.outcome.split('·')[0]}
                                     </span>
-                                    <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-900 dark:text-white transition-transform duration-500 group-hover:translate-x-1">
+                                    <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-900 dark:text-white group-hover:translate-x-1 transition-transform duration-500">
                                         {project.title}
                                     </h3>
                                 </div>
                             </div>
 
-                            {/* Colonne Droite : Description & Bouton Action */}
                             <div className="relative z-10 flex items-center justify-between md:justify-end gap-8 md:w-1/2">
                                 <p className="text-[12px] md:text-[13px] text-zinc-400 dark:text-zinc-500 font-normal max-w-[280px] md:max-w-[240px] text-left md:text-right leading-relaxed">
                                     {project.description}
                                 </p>
-
-                                <div className="h-10 w-10 rounded-full border border-zinc-900/10 dark:border-zinc-800 flex items-center justify-center bg-transparent group-hover:bg-zinc-950 dark:group-hover:bg-white text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-950 transition-all duration-300 flex-shrink-0">
+                                <div className="h-10 w-10 rounded-full border border-zinc-900/10 dark:border-zinc-800 flex items-center justify-center bg-transparent group-hover:bg-zinc-950 dark:group-hover:bg-white text-zinc-900 dark:text-white transition-all duration-300">
                                     <Plus size={16} className={`transition-transform duration-500 ${hoveredIndex === index ? 'rotate-45' : ''}`} />
                                 </div>
                             </div>
-
-                            {/* Image flottante au survol (Cachée sur mobile, centrée avec élégance sur grand écran) */}
-                            <AnimatePresence>
-                                {hoveredIndex === index && (
-                                    <motion.div
-                                        initial={{ opacity: 0, scale: 0.85, x: -10, y: "-50%" }}
-                                        animate={{ opacity: 1, scale: 1, x: 0, y: "-50%" }}
-                                        exit={{ opacity: 0, scale: 0.85 }}
-                                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                                        className="absolute left-[45%] top-1/2 z-0 pointer-events-none hidden lg:block w-72 aspect-video rounded-xl overflow-hidden shadow-2xl shadow-zinc-950/10 dark:shadow-black/40 border border-zinc-900/5"
-                                    >
-                                        <img
-                                            src={project.image}
-                                            alt=""
-                                            className="w-full h-full object-cover transition-transform duration-700 scale-105 group-hover:scale-100"
-                                        />
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </motion.a>
+                        </motion.button>
                     ))}
                 </div>
-
-                {/* Bouton Archives d'architecture impeccable */}
-                <div className="mt-20 flex justify-center">
-                    <a
-                        href="https://github.com/rolnelh"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[10px] font-bold uppercase tracking-[0.25em] text-zinc-400 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-all flex items-center gap-3 group border border-zinc-900/10 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white rounded-full px-6 py-3.5 bg-transparent hover:bg-zinc-50 dark:hover:bg-zinc-900/50"
-                    >
-                        <Github size={14} className="transition-transform group-hover:scale-110 text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-white" />
-                        <span>{language === "EN" ? "View Archives" : "Voir les Archives"}</span>
-                        <ArrowUpRight
-                            size={12}
-                            className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform opacity-40 group-hover:opacity-100"
-                        />
-                    </a>
-                </div>
             </div>
+
+            {/* Modal Detail */}
+            <AnimatePresence>
+                {selectedProject && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+                        <motion.div
+                            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                            onClick={() => setSelectedProject(null)}
+                            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+                        />
+                        <motion.div
+                            initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }}
+                            className="bg-white dark:bg-[#111] p-8 md:p-12 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative z-10 shadow-2xl"
+                        >
+                            <button onClick={() => setSelectedProject(null)} className="absolute top-6 right-6 p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full transition-colors">
+                                <X size={20} className="dark:text-white" />
+                            </button>
+
+                            <h2 className="text-3xl font-bold mb-6 dark:text-white">{selectedProject.title}</h2>
+
+                            <div className="space-y-8">
+                                <div>
+                                    <h4 className="text-[10px] uppercase tracking-widest font-bold text-blue-500 mb-2">Problem</h4>
+                                    <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">{selectedProject.problem}</p>
+                                </div>
+                                <div>
+                                    <h4 className="text-[10px] uppercase tracking-widest font-bold text-blue-500 mb-2">Solution</h4>
+                                    <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">{selectedProject.solution}</p>
+                                </div>
+                                <div>
+                                    <h4 className="text-[10px] uppercase tracking-widest font-bold text-blue-500 mb-4">Results</h4>
+                                    <ul className="space-y-2">
+                                        {selectedProject.results.map((res, i) => (
+                                            <li key={i} className="flex gap-2 text-zinc-600 dark:text-zinc-400 text-sm">
+                                                <span>—</span> {res}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div className="pt-6 border-t dark:border-zinc-800">
+                                    <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-black dark:bg-white text-white dark:text-black px-6 py-3 rounded-full text-sm font-bold hover:scale-105 transition-transform">
+                                        Visit Live Site <ExternalLink size={14} />
+                                    </a>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
         </section>
     );
 }
