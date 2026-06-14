@@ -62,7 +62,6 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-20 items-start">
 
-          {/* COLONNE GAUCHE: Informations */}
           <div className="space-y-12">
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
@@ -91,7 +90,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* COLONNE DROITE: Formulaire */}
           <div className="bg-zinc-50 dark:bg-zinc-900/50 p-8 md:p-10 rounded-3xl border border-zinc-100 dark:border-zinc-800">
             <AnimatePresence mode="wait">
               {status === "ok" ? (

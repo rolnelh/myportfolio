@@ -64,7 +64,7 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
             link: "https://lexpo-gallery.vercel.app",
             technologies: ["React.js", "TypeScript", "Tailwind CSS"],
             role: "Frontend Developer & UX Designer",
-            problem: "African artisans and small creators had no simple way to create a professional digital catalog. Setting up a website or using complex tools like Shopify took hours and required technical knowledge most artisans didn't have.",
+            problem: "",
             solution: "I designed a streamlined flow where artisans can create a professional catalog in under 10 minutes — no technical knowledge required. The interface uses simple language, large touch targets, and a step-by-step guided process.",
             results: [
                 "Catalog creation time: 2 hours → 8 minutes",
@@ -115,7 +115,7 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
             link: "https://anip-eservices-redesign-koy3.vercel.app/dashboard",
             technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Dashboard Architecture"],
             role: "UI/UX Designer & Frontend Developer",
-            problem: "The ANIP platform was inaccessible on mobile, had confusing navigation, and required citizens to call support just to complete basic identification requests. The interface was designed for desktop in an era when 80%+ of users were on phones.",
+            problem: "",
             solution: "I redesigned the entire platform with a mobile-first approach. I simplified the service access flow, built a clean dashboard for tracking request status, and reduced the number of screens required to complete core tasks.",
             results: [
                 "Fully mobile-responsive redesign",
@@ -225,7 +225,7 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
             technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Dashboard Architecture"],
             role: "Designer UI/UX & Développeur Frontend",
             duration: "4 semaines",
-            problem: "La plateforme ANIP était inaccessible sur mobile, avait une navigation confuse, et obligeait les citoyens à appeler le support pour compléter des demandes basiques. L'interface était conçue pour desktop alors que 80%+ des utilisateurs étaient sur téléphone.",
+            problem: "",
             solution: "J'ai redesigné toute la plateforme en mobile-first. Simplifié l'accès aux services, construit un dashboard propre pour le suivi des demandes, et réduit le nombre d'écrans nécessaires pour les tâches essentielles.",
             results: [
                 "Refonte entièrement responsive mobile",
