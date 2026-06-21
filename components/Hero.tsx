@@ -2,130 +2,82 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, MoveDown, Github, Linkedin, Twitter } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Twitter } from "lucide-react";
 import { useLanguage } from "../components/Languagecontext";
 
 const content = {
     EN: {
-        intro: "Frontend Engineer · Based in Benin",
-        title: "Need a modern website for your business?",
-        offer: "I design and build modern websites that help your business stand out and grow.",
-        cta1: "Start a Project",
-        cta2: "View My Work",
+        status: "Available for work",
+        title: "Frontend Engineer.",
+        description: "Hi, I'm Dieudonné Houndagnon, a frontend engineer in Benin building fast, accessible web experiences. I focus on modern JavaScript frameworks and clean, scalable interfaces.",
+        cta1: "See my works",
+        cta2: "Contact Me"
     },
     FR: {
-        intro: "Frontend Engineer · Basé au Bénin",
-        title: "Besoin d'un site web moderne pour votre entreprise ?",
-        offer: "Je conçois et développe des sites web modernes qui aident votre entreprise à se démarquer et à croître.",
-        cta1: "Démarrer un projet",
-        cta2: "Voir mes réalisations",
-    },
+        status: "Disponible pour travailler",
+        title: "Frontend Engineer.",
+        description: "Salut, je suis Dieudonné Houndagnon, ingénieur frontend basé au Bénin, spécialisé dans la création d'expériences web rapides et accessibles. Je me concentre sur les frameworks JavaScript modernes et les interfaces épurées et scalables.",
+        cta1: "Voir mes réalisations",
+        cta2: "Me contacter"
+    }
 };
 
-const fadeUp = (delay: number) => ({
-    initial: { opacity: 0, y: 15 },
-    animate: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 0.8,
-            delay,
-            ease: [0.16, 1, 0.3, 1] // Custom ease out chic
-        }
-    }
-});
 
 const Hero = () => {
     const { language } = useLanguage();
     const t = content[language === "EN" ? "EN" : "FR"];
 
     return (
-        <section className="relative min-h-[90vh] flex flex-col justify-center px-6 md:px-12 max-w-6xl mx-auto bg-white dark:bg-[#09090B] transition-colors duration-300">
+        <section className="relative h-screen flex items-center px-6 md:px-12 max-w-6xl mx-auto pt-14 pb-10">
+            <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center w-full">
 
-            <div className="w-full max-w-4xl space-y-8">
+                <div className="space-y-8">
 
-                {/* <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    className="flex items-center gap-3"
-                >
-                    <span className="relative flex h-2 w-2">
-                        <span className="absolute inline-flex h-full w-full rounded-full bg-zinc-900/20 dark:bg-white/20 animate-ping" />
-                        <span className="relative inline-flex h-2 w-2 rounded-full bg-zinc-900 dark:bg-white" />
-                    </span>
-                    <p className="text-zinc-500 dark:text-zinc-400 text-xs font-semibold uppercase tracking-[0.2em]">
-                        {t.intro}
-                    </p>
-                </motion.div> */}
+                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-zinc-900/10 dark:border-zinc-800 w-fit">
 
-                <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight text-zinc-900 dark:text-white"
-                    style={{ fontFamily: "'Syne', sans-serif" }}
-                >
-                    {t.title}
-                </motion.h1>
+                        <span className="relative flex h-2 w-2 ">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+                        </span>
+                        <span className="text-[10px] font-medium uppercase tracking-widest text-zinc-600 dark:text-zinc-400">Available for work</span>
 
-                <motion.p
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-zinc-500 dark:text-zinc-400 text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl font-normal"
-                >
-                    {t.offer}
-                </motion.p>
+                    </motion.div>
 
+                    <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-5xl md:text-6xl font-normal leading-[1.05] tracking-tight text-white dark:text-white" style={{ fontFamily: "'Syne', sans-serif" }}>
+                        {t.title}
+                    </motion.h1>
 
-                <div className="flex flex-row gap-4">
-                    <a href="https://github.com/rolnelh" target="_blank" rel="noopener noreferrer" className="bg-white border border-zinc-900/10 dark:border-zinc-800 hover:text-white hover:bg-zinc-900 dark:hover:text-white dark:hover:bg-white transition-colors duration-300 rounded-full p-3">
-                        <Github size={20} />
-                    </a>
-                    <a href="https://www.linkedin.com/in/dieudonn%C3%A9-houndagnon-093387250" target="_blank" rel="noopener noreferrer" className="bg-white border border-zinc-900/10 dark:border-zinc-800 hover:text-white hover:bg-zinc-900 dark:hover:text-white dark:hover:bg-white transition-colors duration-300 rounded-full p-3">
-                        <Linkedin size={20} />
-                    </a>
-                    <a href="https://x.com/Dsquare_15" target="_blank" rel="noopener noreferrer" className="bg-white border border-zinc-900/10 dark:border-zinc-800 hover:text-white hover:bg-zinc-900 dark:hover:text-white dark:hover:bg-white transition-colors duration-300 rounded-full p-3">
-                        <Twitter size={20} />
-                    </a>
+                    <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-zinc-500 dark:text-zinc-400 text-lg leading-relaxed max-w-lg">
+                        {t.description}
+                    </motion.p>
+
+                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="flex flex-wrap gap-4">
+                        <a href="#contact" className="inline-flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm px-6 py-3 rounded-full hover:opacity-90 transition-all">
+                            {t.cta1} <ArrowRight size={16} />
+                        </a>
+                        <a href="#projects" className="inline-flex items-center border border-zinc-900/10 text-gray-900 font-bold text-sm px-6 py-3 rounded-full bg-zinc-100 transition-all">
+                            {t.cta2}
+                        </a>
+                    </motion.div>
                 </div>
 
 
-                <motion.div
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex flex-col sm:flex-row gap-4 pt-4 w-full sm:w-auto"
-                >
-                    <a
-                        href="#contact"
-                        className="group inline-flex items-center justify-center gap-2 bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 font-bold text-[11px] uppercase tracking-widest h-12 px-8 rounded-full hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all duration-300 w-full sm:w-auto"
-                    >
-                        <span>{t.cta1}</span>
-                        <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
-                    </a>
+                <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2, duration: 0.8 }} className="space-y-6">
 
-                    <a
-                        href="#projects"
-                        className="inline-flex items-center justify-center text-zinc-900 dark:text-white font-bold text-[11px] uppercase tracking-widest h-12 px-8 rounded-full border border-zinc-900/10 dark:border-zinc-800 hover:border-zinc-950 dark:hover:border-white transition-all duration-300 w-full sm:w-auto box-border"
-                    >
-                        {t.cta2}
-                    </a>
+                    <div className="aspect-square rounded-3xl overflow-hidden flex items-center justify-center">
+                        <img src="/images/cmp.jpeg" alt="Ton Avatar" className="w-[360px] h-[360px] object-cover rounded-3xl" />
+
+                    </div>
+
+                    {/* Stack Icons (Comme dans image_08afd7.png) */}
+                    <div className="flex gap-4 opacity-50">
+                        {/* Remplace par tes icônes de technos (Next, React, TS, etc) */}
+                        <div className="h-8 w-8 bg-zinc-200 dark:bg-zinc-800 rounded-lg"></div>
+                        <div className="h-8 w-8 bg-zinc-200 dark:bg-zinc-800 rounded-lg"></div>
+                        <div className="h-8 w-8 bg-zinc-200 dark:bg-zinc-800 rounded-lg"></div>
+                    </div>
                 </motion.div>
             </div>
-
-            {/* Indicateur de défilement discret en bas à droite */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.8, duration: 1 }}
-                className="absolute right-6 md:right-12 bottom-12 hidden sm:flex items-center gap-3 text-zinc-400 dark:text-zinc-600"
-            >
-                <span className="text-[10px] font-bold uppercase tracking-widest">{language === "EN" ? "Scroll" : "Défiler"}</span>
-                <MoveDown size={14} className="animate-bounce" />
-            </motion.div>
-
         </section>
     );
 };

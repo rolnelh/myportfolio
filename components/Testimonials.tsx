@@ -60,50 +60,54 @@ const Testimonials = () => {
     const t = content[language];
 
     return (
-        <section id="testimonials" className="bg-white dark:bg-[#09090B] py-28 px-6 md:px-12 border-t border-slate-100 dark:border-zinc-900">
+        <section id="testimonials" className="bg-[#09090B] py-28 px-6 md:px-12">
             <div className="max-w-6xl mx-auto">
-
-                <div className="mb-24">
-                    <p className="text-zinc-400 dark:text-zinc-500 text-[11px] font-semibold uppercase tracking-[0.25em] mb-4">
+                <div className="mb-20 text-center">
+                    <p className="text-zinc-500 text-[10px] font-bold uppercase tracking-[0.3em] mb-4">
                         {t.label}
                     </p>
                     <h2 style={{ fontFamily: "'Syne', sans-serif" }}
-                        className="text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white tracking-tight leading-none">
+                        className="text-4xl md:text-5xl font-bold text-white tracking-tight">
                         {t.heading}
                     </h2>
+                    <p className="text-zinc-400 mt-4 max-w-lg mx-auto text-sm">
+                        {language === "EN"
+                            ? "Words from people who've worked with me and experienced my process and results firsthand"
+                            : "Des retours de personnes ayant travaillé avec moi et expérimenté mon processus et mes résultats"}
+                    </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {t.testimonials.map((t_, i) => (
                         <motion.div
                             key={i}
-                            initial={{ opacity: 0, y: 16 }}
+                            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.5, delay: i * 0.05 }}
-                            className="group flex flex-col justify-between border-t border-zinc-100 dark:border-zinc-900 pt-8 relative"
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: i * 0.1 }}
+                            className="bg-[#111] border border-zinc-800 p-8 rounded-2xl flex flex-col hover:border-zinc-700 transition-colors duration-300 group"
                         >
-                            <Quote className="text-zinc-100 dark:text-zinc-900 absolute right-0 top-6 transition-colors duration-300 group-hover:text-blue-50 dark:group-hover:text-blue-950/30" size={32} strokeWidth={1} />
+                            {/* Icône de citation en haut à droite comme dans image_085222.png */}
+                            <div className="flex justify-between items-start mb-6">
+                                <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-500 font-bold text-xs">
+                                    {t_.name.split(' ').map(n => n[0]).join('')}
+                                </div>
+                                <Quote className="text-zinc-800 group-hover:text-zinc-700 transition-colors" size={32} />
+                            </div>
 
-                            <div className="relative z-10 mb-8">
-                                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm font-medium">
+                            <div className="flex-grow">
+                                <p className="text-zinc-400 leading-relaxed text-sm mb-6">
                                     “{t_.text}”
                                 </p>
                             </div>
 
-                            <div className="relative z-10 flex items-center justify-between mt-auto">
-                                <div>
-                                    <h4 style={{ fontFamily: "'Syne', sans-serif" }}
-                                        className="font-bold text-zinc-900 dark:text-zinc-100 text-base tracking-tight transition-colors duration-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">
-                                        {t_.name}
-                                    </h4>
-                                    <p className="text-zinc-400 dark:text-zinc-500 text-[11px] font-medium uppercase tracking-wider mt-0.5">
-                                        {t_.role}
-                                    </p>
-                                </div>
-                                <span className="text-lg grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-105">
-                                    {t_.country.split(' ')[0]}
-                                </span>
+                            <div>
+                                <h4 className="font-bold text-white text-sm">
+                                    {t_.name}
+                                </h4>
+                                <p className="text-zinc-500 text-[11px] uppercase tracking-wider mt-0.5">
+                                    {t_.role}
+                                </p>
                             </div>
                         </motion.div>
                     ))}
@@ -114,3 +118,4 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
+
