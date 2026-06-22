@@ -28,7 +28,7 @@ const Hero = () => {
     const t = content[language === "EN" ? "EN" : "FR"];
 
     return (
-        <section className="relative h-screen flex items-center px-6 md:px-12 max-w-6xl mx-auto pt-14 pb-10">
+        <section className="relative h-auto flex items-center px-6 md:px-12 max-w-6xl mx-auto pt-14 pb-10">
             <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center w-full">
 
                 <div className="space-y-8">
