@@ -79,7 +79,7 @@ export const metadata: Metadata = {
 
     images: [
       {
-        url: '/images/og-image.webp',
+        url: '/images/pp.webp',
         width: 1200,
         height: 630,
         alt: 'Dieudonné Houndagnon - Frontend Engineer Portfolio',
@@ -99,7 +99,7 @@ export const metadata: Metadata = {
     description: "Building high-performance digital experiences. Next.js, React & modern UI/UX design. Let's scale your web presence.",
 
     // Assure-toi que le chemin est correct
-    images: ['https://dieudonne-dev.vercel.app/images/og-image.webp'],
+    images: ['https://dieudonne-dev.vercel.app/images/pp.webp'],
 
     // Ajoute ton handle Twitter si tu en as un, c'est crucial pour le branding
     creator: '@Dsquare_15',
@@ -164,7 +164,7 @@ export default function RootLayout({
               "image": "https://dieudonne-dev.vercel.app/images/profil.webp",
               "jobTitle": "Frontend Engineer & UI/UX Specialist",
               "description": "Remote frontend engineer specializing in premium web interfaces, high-performance website redesigns, and Next.js applications custom-built for global clients.",
-              // 2. Ajout de ton parcours académique complet
+
               "alumniOf": [
                 {
                   "@type": "EducationalOrganization",
