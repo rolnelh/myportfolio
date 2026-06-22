@@ -47,7 +47,7 @@ const TechStack = () => {
   const t = content[language === "EN" ? "EN" : "FR"];
 
   return (
-    <section className="py-24 bg-[#09090B] border-t border-white/[0.05]">
+    <section className="py-24 bg-[#09090B] border-t border-white/[0.05]" id="techstack">
       <div className="max-w-4xl mx-auto px-6 text-center">
 
         <motion.div

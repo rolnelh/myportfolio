@@ -56,7 +56,7 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
         {
             title: "My Portfolio",
             description: "Minimalist, high-speed showcase — 100% Lighthouse score for SEO & Best Practices. I completely redesigned it with a conversion-first mindset. New headline focused on client benefit, added social proof, clear service packages, a direct contact flow, and bilingual support. Every section was built to answer the visitor's unspoken question: 'why should I hire you?'",
-            image: "/images/myportfolio.webp",
+            image: "/images/pp.webp",
             link: "https://dieudonne-dev.vercel.app/",
             technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion"],
         },
@@ -100,7 +100,7 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
         {
             title: "Mon Portfolio",
             description: "Vitrine minimaliste et rapide — score Lighthouse 100% en SEO & Bonnes Pratiques. J'ai entièrement redesigné avec une approche conversion-first. Nouveau titre axé sur le bénéfice du visiteur, preuve sociale, packs de services clairs, parcours de contact direct, et support bilingue EN/FR.",
-            image: "/images/myportfolio.webp",
+            image: "/images/pp.webp",
             link: "https://dieudonne-dev.vercel.app/",
             technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion"],
         },

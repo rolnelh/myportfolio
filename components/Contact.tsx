@@ -6,8 +6,8 @@ import { useLanguage } from "../components/Languagecontext";
 const content = {
   EN: {
     hero: {
-      title: "Let's Build Something Great",
-      sub: "Let's bring your ideas to life with thoughtful design and code.",
+      title: "Curious about what we can create together? ",
+      sub: "Let’s bring something extraordinary to life!",
       cta: "Contact Me"
     },
     profile: {
@@ -18,8 +18,8 @@ const content = {
   },
   FR: {
     hero: {
-      title: "Construisons ensemble",
-      sub: "Donnons vie à vos idées avec un design et un code réfléchis.",
+      title: "Curieux de ce que nous pouvons créer ensemble ? ",
+      sub: "Donnons vie à quelque chose d'extraordinaire !",
       cta: "Me contacter"
     },
     profile: {
@@ -30,12 +30,12 @@ const content = {
   }
 };
 
-export default function ContactCTA() {  
+export default function ContactCTA() {
   const { language } = useLanguage();
   const t = content[language === "EN" ? "EN" : "FR"];
 
   return (
-    <section className="bg-[#09090B] py-20 px-6">
+    <section className="bg-[#09090B] py-20 px-6" id="contact">
       <div className="max-w-6xl mx-auto">
         <div className="relative rounded-[32px] overflow-hidden border border-neutral-800 p-12 md:p-24 text-center">
 
@@ -47,8 +47,8 @@ export default function ContactCTA() {
 
           <div className="absolute inset-0 bg-black/30 backdrop-blur-[1px]" />
 
-          <div className="relative z-10 max-w-2xl mx-auto space-y-6">
-            <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
+          <div className="relative z-10 max-w-3xl mx-auto space-y-6">
+            <h2 className="text-4xl md:text-5xl font-normal text-white tracking-tight">
               {t.hero.title}
             </h2>
             <p className="text-neutral-300 text-lg md:text-xl">

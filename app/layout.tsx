@@ -138,6 +138,7 @@ export default function RootLayout({
     <html lang="fr" className={`${syne.variable} ${poppins.variable}`}>
       <body className="antialiased text-slate-900" style={{
         fontFamily: "'Syne', sans-serif",
+        scrollBehavior: "smooth",
       }}>
 
         <div className="flex h-screen">

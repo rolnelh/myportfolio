@@ -38,7 +38,6 @@ export default function Experience() {
     <section id="about" className="bg-[#09090B] py-24 px-6 text-white">
       <div className="max-w-3xl mx-auto">
 
-        {/* Header inspiré de image_0855a0.png */}
         <div className="text-center mb-16">
           <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-500 mb-4">
             {t.label}
@@ -51,14 +50,12 @@ export default function Experience() {
           </p>
         </div>
 
-        {/* Bio courte */}
         <div className="mb-12 p-6 rounded-2xl bg-white/[0.02] border border-white/[0.05]">
           <p className="text-zinc-300 leading-relaxed text-sm md:text-base">
             {t.bio}
           </p>
         </div>
 
-        {/* Liste des expériences (Cards) */}
         <div className="space-y-4">
           {t.journey.map((item, i) => (
             <div
@@ -79,7 +76,6 @@ export default function Experience() {
           ))}
         </div>
 
-        {/* Bouton CV */}
         <div className="mt-12 flex justify-center">
           <button className="flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full text-xs font-bold hover:bg-zinc-200 transition-colors">
             {language === "EN" ? "Download My CV" : "Télécharger mon CV"} <Download size={14} />

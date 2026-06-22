@@ -9,9 +9,9 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="bg-[#09090B] py-24 px-6">
+    <section className="bg-[#09090B] py-24 px-6" id="process">
       <div className="max-w-6xl mx-auto">
-        {/* En-tête */}
+
         <div className="flex flex-col items-center text-center mb-16 space-y-4">
           <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-800 bg-zinc-900 w-fit">
             <span className="text-zinc-400 text-xs font-medium tracking-wide">How it works</span>
@@ -20,7 +20,7 @@ export default function Process() {
           <p className="text-zinc-500 text-lg">Simple, streamlined process is what gets you results</p>
         </div>
 
-        {/* Grille des étapes */}
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {steps.map((step) => (
             <div key={step.id} className="group relative bg-zinc-900 p-8 rounded-3xl border border-zinc-800 hover:border-zinc-700 transition-all">
@@ -48,8 +48,8 @@ export default function Process() {
             </div>
           </div>
           <div className="flex gap-3">
-            <button className="px-6 py-3 rounded-full text-white font-medium hover:bg-zinc-800 transition-colors">See All Projects</button>
-            <button className="px-6 py-3 rounded-full bg-white text-black font-bold hover:bg-zinc-200 transition-all">Contact Now</button>
+            <button className="px-4 py-2 rounded-full text-white font-medium bg-zinc-800 hover:bg-zinc-600 transition-colors">See All Projects</button>
+            <button className="px-4 py-2 rounded-full bg-white text-black font-bold hover:bg-zinc-200 transition-all">Contact Now</button>
           </div>
         </div>
       </div>
