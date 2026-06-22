@@ -81,7 +81,7 @@ const Header = () => {
                 <div className="hidden md:flex items-center gap-4">
                     <button
                         onClick={toggleLanguage}
-                        className="text-[10px] font-bold uppercase tracking-widest text-white hover:text-white/30 transition-colors w-8"
+                        className="text-[10px] font-bold uppercase tracking-widest text-white transition-colors w-8"
                     >
                         {t.switchTo}
                     </button>
@@ -95,9 +95,22 @@ const Header = () => {
                     </a>
                 </div>
 
-                <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden text-white p-1">
-                    {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-                </button>
+                <div className="flex items-center gap-4">
+
+                    <button
+                        onClick={toggleLanguage}
+                        className="md:hidden text-[10px] font-bold uppercase tracking-widest text-white hover:text-white/30 transition-colors w-8"
+                    >
+                        {t.switchTo}
+                    </button>
+
+                    <button
+                        onClick={() => setMobileOpen(!mobileOpen)}
+                        className="md:hidden text-white p-1"
+                    >
+                        {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+                    </button>
+                </div>
             </div>
 
             <AnimatePresence>
