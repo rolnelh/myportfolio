@@ -1,85 +1,175 @@
 "use client";
-import React from "react";
+
+import { Zap, LayoutDashboard, Code2 } from "lucide-react";
 import { useLanguage } from "../components/Languagecontext";
-import { Download, ChevronDown } from "lucide-react";
 
 const content = {
   EN: {
-    label: "Experience",
-    title: "Where I've Worked",
-    subtitle: "A summary of my professional journey and the impact I've made",
-    bio: "I think in products, not just pages. Full-stack engineer who ships fast and measures impact — from startup MVPs to a national government platform serving an entire country.",
-    journey: [
-      { period: "June 2026", title: "Founders Live Winner", desc: "Won the startup competition with the Vibe & Go team — validated a product idea in front of investors and founders." },
-      { period: "2026—Now", title: "Entrepreneurial Tech Program", desc: "Building digital products end-to-end: user research, product design, architecture, and Agile shipping." },
-      { period: "2024—Now", title: "Full-Stack Engineer", desc: "Architected scalable web apps and SaaS products with Next.js, NestJS and Laravel — including a national e-services platform." },
-      { period: "2022—2024", title: "Frontend Developer", desc: "Built pixel-perfect, high-converting interfaces — laid the technical foundation now powering every product I ship." },
+    eyebrow: "Problems I solve",
+    title: "Great products fail when the experience gets in the way.",
+    description:
+      "Users rarely abandon a product because of its technology. They leave because it's slow, confusing or difficult to use.",
+
+    items: [
+      {
+        icon: Zap,
+        number: "01",
+        title: "Slow interfaces",
+        description:
+          "Slow loading times and sluggish interactions frustrate users and reduce engagement.",
+        solution:
+          "Performance optimization, smoother interactions and faster rendering.",
+      },
+      {
+        icon: LayoutDashboard,
+        number: "02",
+        title: "Complex user experiences",
+        description:
+          "Poor navigation and overloaded dashboards make products harder to adopt.",
+        solution:
+          "Clear information hierarchy and intuitive user flows.",
+      },
+      {
+        icon: Code2,
+        number: "03",
+        title: "Designs poorly implemented",
+        description:
+          "Great designs deserve pixel-perfect implementation across every device.",
+        solution:
+          "Modern frontend development with React, Next.js and Tailwind CSS.",
+      },
     ],
   },
+
   FR: {
-    label: "Expérience",
-    title: "Mon parcours professionnel",
-    subtitle: "Résumé de mon évolution et de l'impact généré",
-    bio: "Je pense produit, pas seulement code. Ingénieur full-stack qui livre vite et mesure l'impact — des MVP de startups à une plateforme gouvernementale utilisée à l'échelle nationale.",
-    journey: [
-      { period: "Juin 2026", title: "Vainqueur Founders Live", desc: "Lauréats de la compétition startup avec l'équipe Vibe & Go — idée produit validée devant investisseurs et fondateurs." },
-      { period: "2026—Pr", title: "Programme Entrepreneurial", desc: "Création de produits numériques de A à Z : recherche utilisateur, design, architecture et déploiement Agile." },
-      { period: "2024—Pr", title: "Ingénieur Full-Stack", desc: "Architecture d'applications web et de plateformes SaaS avec Next.js, NestJS et Laravel — dont un portail national d'e-services." },
-      { period: "2022—2024", title: "Développeur Frontend", desc: "Interfaces pixel-perfect et haute conversion — la base technique qui porte aujourd'hui chaque produit que je livre." },
+    eyebrow: "Les problèmes que je résous",
+    title:
+      "Un excellent produit peut échouer si son interface devient un obstacle.",
+    description:
+      "Les utilisateurs abandonnent rarement une solution à cause de sa technologie. Ils partent parce qu'elle est lente, complexe ou difficile à utiliser.",
+
+    items: [
+      {
+        icon: Zap,
+        number: "01",
+        title: "Interfaces lentes",
+        description:
+          "Des temps de chargement longs et des interactions peu réactives créent de la frustration.",
+        solution:
+          "Optimisation des performances et expérience plus fluide.",
+      },
+      {
+        icon: LayoutDashboard,
+        number: "02",
+        title: "Interfaces trop complexes",
+        description:
+          "Une navigation confuse ou un dashboard surchargé ralentit l'adoption du produit.",
+        solution:
+          "Hiérarchie claire et parcours utilisateur intuitif.",
+      },
+      {
+        icon: Code2,
+        number: "03",
+        title: "Des designs mal exécutés",
+        description:
+          "Une excellente maquette mérite une implémentation fidèle sur tous les écrans.",
+        solution:
+          "Développement frontend moderne avec React, Next.js et Tailwind.",
+      },
     ],
-  }
+  },
 };
 
-export default function Experience() {
+export default function ProblemsSection() {
   const { language } = useLanguage();
+
   const t = content[language === "EN" ? "EN" : "FR"];
 
   return (
-    <section id="about" className="bg-[#09090B] py-24 px-6 text-white">
-      <div className="max-w-3xl mx-auto">
+    <section className="py-32 bg-white">
+      <div className="max-w-6xl mx-auto px-6">
 
-        <div className="text-center mb-16">
-          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-500 mb-4">
-            {t.label}
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4" style={{ fontFamily: "'Syne', sans-serif" }}>
+        <div className="max-w-3xl">
+
+          <span className="text-xs uppercase tracking-[0.18em] text-neutral-400">
+            {t.eyebrow}
+          </span>
+
+          <h2 className="mt-5 text-4xl md:text-5xl tracking-tight font-medium text-neutral-950">
             {t.title}
           </h2>
-          <p className="text-zinc-400 text-sm md:text-base">
-            {t.subtitle}
+
+          <p className="mt-6 text-lg leading-8 text-neutral-500">
+            {t.description}
           </p>
+
         </div>
 
-        <div className="mb-12 p-6 rounded-2xl bg-white/[0.02] border border-white/[0.05]">
-          <p className="text-zinc-300 leading-relaxed text-sm md:text-base">
-            {t.bio}
-          </p>
-        </div>
+        <div className="mt-24 border-t border-neutral-200">
 
-        <div className="space-y-4">
-          {t.journey.map((item, i) => (
-            <div
-              key={i}
-              className="bg-[#111] border border-zinc-800 p-6 rounded-2xl hover:border-zinc-700 transition-colors duration-300"
-            >
-              <div className="flex justify-between items-start mb-3">
-                <h3 className="font-bold text-white">{item.title}</h3>
-                <span className="text-xs font-mono text-zinc-500">{item.period}</span>
+          {t.items.map((item) => {
+
+            const Icon = item.icon;
+
+            return (
+
+              <div
+                key={item.number}
+                className="
+                                    grid
+                                    md:grid-cols-12
+                                    gap-8
+                                    py-10
+                                    border-b
+                                    border-neutral-200
+                                    transition-colors
+                                    hover:bg-neutral-50/60
+                                "
+              >
+
+                <div className="md:col-span-2 flex items-center gap-4">
+
+                  <span className="text-neutral-400 text-sm w-8">
+                    {item.number}
+                  </span>
+
+                  <Icon
+                    size={18}
+                    className="text-neutral-500"
+                  />
+
+                </div>
+
+                <div className="md:col-span-4">
+
+                  <h3 className="text-xl font-medium text-neutral-950">
+                    {item.title}
+                  </h3>
+
+                </div>
+
+                <div className="md:col-span-4">
+
+                  <p className="text-neutral-600 leading-7">
+                    {item.description}
+                  </p>
+
+                </div>
+
+                <div className="md:col-span-2">
+
+                  <p className="text-sm text-neutral-400 leading-6">
+                    {item.solution}
+                  </p>
+
+                </div>
+
               </div>
-              <p className="text-sm text-zinc-400 leading-relaxed">
-                {item.desc}
-              </p>
-              <div className="mt-4 text-zinc-600">
-                <ChevronDown size={16} />
-              </div>
-            </div>
-          ))}
-        </div>
 
-        <div className="mt-12 flex justify-center">
-          <button className="flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full text-xs font-bold hover:bg-zinc-200 transition-colors">
-            {language === "EN" ? "Download My CV" : "Télécharger mon CV"} <Download size={14} />
-          </button>
+            );
+
+          })}
+
         </div>
 
       </div>

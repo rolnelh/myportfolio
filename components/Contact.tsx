@@ -1,19 +1,18 @@
 "use client";
 import React from "react";
-import { Github, Twitter, Linkedin, ArrowRight, Send } from "lucide-react";
+import { Github, Linkedin, Send } from "lucide-react";
 import { useLanguage } from "../components/Languagecontext";
 
 const content = {
   EN: {
     hero: {
       title: "Curious about what we can create together? ",
-      sub: "Let’s bring something extraordinary to life!",
+      sub: "Let's bring something extraordinary to life!",
       cta: "Contact Me"
     },
     profile: {
       name: "Dieudonné Houndagnon",
       bio: "I build fast, polished, and user-friendly products that deliver real value.",
-      links: ["Skills", "Projects", "Experience", "Testimonials"]
     }
   },
   FR: {
@@ -25,9 +24,14 @@ const content = {
     profile: {
       name: "Dieudonné Houndagnon",
       bio: "Je construis des produits rapides, soignés et conviviaux qui apportent une réelle valeur.",
-      links: ["Compétences", "Projets", "Expérience", "Témoignages"]
     }
   }
+};
+
+const socialLinks = {
+  github: "https://github.com/rolnelh",
+  // twitter: "https://twitter.com/ton-pseudo",
+  linkedin: "https://www.linkedin.com/in/dieudonn%C3%A9-houndagnon-093387250",
 };
 
 export default function ContactCTA() {
@@ -54,8 +58,8 @@ export default function ContactCTA() {
             <p className="text-neutral-300 text-lg md:text-xl">
               {t.hero.sub}
             </p>
-            <a
-              href="mailto:houndagnondieudonne4@gmail.com"
+
+            <a href="mailto:houndagnondieudonne4@gmail.com"
               className="inline-flex items-center gap-2 bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-neutral-200 transition-all duration-300"
             >
               {t.hero.cta} <Send size={18} />
@@ -63,7 +67,7 @@ export default function ContactCTA() {
           </div>
         </div>
 
-        <div className="mt-16 grid md:grid-cols-2 gap-12 items-start border-t border-neutral-900 pt-12">
+        <div className="mt-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6 border-t border-neutral-900 pt-12">
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-neutral-800" />
@@ -72,23 +76,16 @@ export default function ContactCTA() {
             <p className="text-neutral-500 max-w-sm text-sm">
               {t.profile.bio}
             </p>
-            <div className="flex gap-4 text-neutral-500 pt-2">
-              <Github size={18} className="hover:text-white cursor-pointer transition-colors" />
-              <Twitter size={18} className="hover:text-white cursor-pointer transition-colors" />
-              <Linkedin size={18} className="hover:text-white cursor-pointer transition-colors" />
-            </div>
           </div>
 
-          <div className="flex flex-col md:items-end gap-3">
-            {t.profile.links.map((link) => (
-              <a
-                key={link}
-                href={`#${link.toLowerCase()}`}
-                className="text-neutral-500 hover:text-white transition-colors text-sm font-medium"
-              >
-                {link}
-              </a>
-            ))}
+          <div className="flex gap-4 text-neutral-500">
+            <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <Github size={18} className="hover:text-white cursor-pointer transition-colors" />
+            </a>
+
+            <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <Linkedin size={18} className="hover:text-white cursor-pointer transition-colors" />
+            </a>
           </div>
         </div>
       </div>

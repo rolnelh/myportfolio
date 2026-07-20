@@ -40,14 +40,14 @@ const Footer = () => {
                     <a href="https://www.linkedin.com/in/dieudonn%C3%A9-houndagnon-093387250"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-zinc-950 dark:hover:text-white transition-colors p-1"
+                        className="hover:text-white dark:hover:text-white transition-colors p-1"
                     >
                         <Linkedin size={16} />
                     </a>
                     <a href="https://github.com/rolnelh"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-zinc-950 dark:hover:text-white transition-colors p-1"
+                        className="hover:text-white dark:hover:text-white transition-colors p-1"
                     >
                         <Github size={16} />
                     </a>

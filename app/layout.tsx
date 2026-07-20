@@ -23,7 +23,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL('https://dieudonne-dev.vercel.app/'),
   title: "Dieudonné Houndagnon | Frontend Engineer & UI/UX Specialist",
-  description: "Premium Next.js, React, and modern UI/UX developer crafting high-performance digital solutions worldwide. Specializing in conversion-focused landing pages, website redesigns, and custom SaaS products.",
+  description: "Premium Next.js, React, and modern UI/UX developer crafting high-performance digital solutions. Specializing in conversion-focused landing pages, website redesigns, and custom SaaS products.",
   manifest: "/site.webmanifest",
   keywords: [
     // 1. Intentions d'achat (Clients internationaux & locaux)
@@ -53,7 +53,6 @@ export const metadata: Metadata = {
     "Tailwind CSS specialist",
     "Shadcn UI developer",
     "Framer Motion animations",
-    "Core web vitals optimization",
     "Web performance optimization",
     "Responsive web design",
     "Vercel deployment expert",
@@ -68,10 +67,9 @@ export const metadata: Metadata = {
   ],
 
   openGraph: {
-    // 1. Titre : Un titre clair et orienté "résultats" en anglais, universel.
+
     title: "Dieudonné Houndagnon | Frontend Engineer & UI/UX Specialist",
 
-    // 2. Description : En anglais pour capter le marché mondial.
     description: "Building high-performance digital experiences and premium web interfaces. Specialized in Next.js, React, and modern UI/UX design. Let's build your next project together.",
 
     url: 'https://dieudonne-dev.vercel.app/',
@@ -86,22 +84,19 @@ export const metadata: Metadata = {
       },
     ],
 
-    locale: 'en_US',
+    locale: 'fr_FR',
     type: 'website',
   },
 
   twitter: {
     card: 'summary_large_image',
-    // On garde la cohérence avec le titre OG pour renforcer l'identité
+
     title: "Dieudonné Houndagnon | Frontend Engineer & UI/UX Specialist",
 
-    // Description courte, punchy et axée sur la valeur technique
     description: "Building high-performance digital experiences. Next.js, React & modern UI/UX design. Let's scale your web presence.",
 
-    // Assure-toi que le chemin est correct
     images: ['https://dieudonne-dev.vercel.app/images/pp.webp'],
 
-    // Ajoute ton handle Twitter si tu en as un, c'est crucial pour le branding
     creator: '@Dsquare_15',
   },
 
@@ -136,7 +131,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className={`${syne.variable} ${poppins.variable}`}>
-      <body className="antialiased text-slate-900" style={{
+      <body className="antialiased text-white" style={{
         fontFamily: "'Syne', sans-serif",
         scrollBehavior: "smooth",
       }}>
@@ -144,7 +139,7 @@ export default function RootLayout({
         <div className="flex h-screen">
           <div className="flex flex-col flex-1">
             <main className="flex-1 overflow-y-auto bg-black">
-              <div className="max-w-7xl mx-auto">
+              <div className="mx-auto">
                 {children}
                 <Analytics />
                 <GoogleAnalytics gaId="G-KBCJF0W9HX" />
@@ -163,7 +158,7 @@ export default function RootLayout({
               "url": "https://dieudonne-dev.vercel.app/",
               "image": "https://dieudonne-dev.vercel.app/images/profil.webp",
               "jobTitle": "Frontend Engineer & UI/UX Specialist",
-              "description": "Remote frontend engineer specializing in premium web interfaces, high-performance website redesigns, and Next.js applications custom-built for global clients.",
+              "description": "Développeur frontend, spécialisé dans les interfaces web modernes et performantes, avec Next.js et React, pour des produits et plateformes.",
 
               "alumniOf": [
                 {
@@ -204,11 +199,7 @@ export default function RootLayout({
                 "Web Performance Optimization",
                 "Laravel"
               ],
-              "offers": {
-                "@type": "Offer",
-                "description": "Premium Frontend Engineering, Modern Website Redesign, and Conversion-Focused Landing Pages",
-                "availability": "https://schema.org/InStock"
-              }
+              
             })
           }}
         />

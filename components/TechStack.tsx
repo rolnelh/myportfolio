@@ -1,92 +1,66 @@
 "use client";
+
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  SiNextdotjs,
-  SiReact,
-  SiExpo,
-  SiLaravel,
-  SiTailwindcss,
-  SiTypescript,
-  SiMysql,
-  SiHtml5,
-  SiCss,
-  SiOpenai,
-  SiFigma
-} from "react-icons/si";
+import { ArrowRight, Github, Linkedin, Twitter } from "lucide-react";
 import { useLanguage } from "../components/Languagecontext";
 
-const technologies = [
-  { name: "Next.js", icon: <SiNextdotjs size={16} /> },
-  { name: "React Native", icon: <SiReact size={16} /> },
-  { name: "Expo", icon: <SiExpo size={16} /> },
-  { name: "Laravel", icon: <SiLaravel size={16} /> },
-  { name: "Tailwind", icon: <SiTailwindcss size={16} /> },
-  { name: "TypeScript", icon: <SiTypescript size={16} /> },
-  { name: "MySQL", icon: <SiMysql size={16} /> },
-  { name: "React", icon: <SiReact size={16} /> },
-  { name: "HTML5", icon: <SiHtml5 size={16} /> },
-  { name: "CSS3", icon: <SiCss size={16} /> },
-  { name: "OpenAI", icon: <SiOpenai size={16} /> },
-  { name: "Figma", icon: <SiFigma size={16} /> },
-];
-
 const content = {
-  EN: {
-    title: "Tools I Build With",
-    subtitle: "A curated set of technologies I rely on to build modern web experiences",
-  },
-  FR: {
-    title: "Ma stack technique",
-    subtitle: "Un ensemble de technologies que j'utilise pour concevoir des expériences web modernes",
-  },
+    EN: {
+        status: "Available for work",
+        title: "I turn slow and frustrating interfaces into fast, smooth, and delightful experiences.",
+        description: "I specialize in B2B frontend development — dashboards, internal tools, landing pages, and redesigns.",
+        cta1: "See my projects in detail",
+        cta2: "Contact Me"
+    },
+    FR: {
+        status: "Disponible pour travailler",
+        title: "Je transforme vos interfaces lentes et frustrantes en expériences rapides, fluides et agréables à utiliser.",
+        description: "Spécialisé en développement frontend B2B — dashboards, outils internes, landing pages et refontes",
+        cta1: "Voir mes projets en détail",
+        cta2: "Me contacter"
+    }
 };
 
-const TechStack = () => {
-  const { language } = useLanguage();
-  const t = content[language === "EN" ? "EN" : "FR"];
 
-  return (
-    <section className="py-24 bg-[#09090B] border-t border-white/[0.05]" id="techstack">
-      <div className="max-w-4xl mx-auto px-6 text-center">
+const Hero = () => {
+    const { language } = useLanguage();
+    const t = content[language === "EN" ? "EN" : "FR"];
 
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
-        >
-          <h2 className="text-3xl font-bold text-white mb-4" style={{ fontFamily: "'Syne', sans-serif" }}>
-            {t.title}
-          </h2>
-          <p className="text-zinc-400 text-sm md:text-base max-w-lg mx-auto">
-            {t.subtitle}
-          </p>
-        </motion.div>
+    return (
+        <section className="relative h-full flex items-center px-4 md:px-12 max-w-6xl mx-auto pt-14 pb-10">
+            <div className="flex flex-col items-center text-center space-y-8 w-full">
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="flex flex-wrap justify-center gap-3"
-        >
-          {technologies.map((tech, index) => (
-            <div
-              key={index}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05] hover:bg-white/[0.08] transition-colors duration-300"
-            >
-              <div className="text-white/70">{tech.icon}</div>
-              <span className="text-xs font-medium text-white/80">
-                {tech.name}
-              </span>
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-zinc-900/10 dark:border-zinc-800 w-fit mx-auto">
+
+                    <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+                    </span>
+                    <span className="text-[10px] font-medium uppercase tracking-widest text-zinc-600 dark:text-zinc-400">{t.status}</span>
+
+                </motion.div>
+
+                <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-5xl md:text-6xl font-normal leading-[1.08] tracking-tight text-white dark:text-white max-w-4xl mx-auto" style={{ fontFamily: "'Syne', sans-serif" }}>
+                    {t.title}
+                </motion.h1>
+
+                <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-zinc-500 dark:text-zinc-400 text-lg leading-relaxed max-w-2xl mx-auto">
+                    {t.description}
+                </motion.p>
+
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="flex flex-wrap gap-4 justify-center">
+                    <a href="#projects" className="inline-flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm px-6 py-3 rounded-full hover:opacity-90 transition-all">
+                        {t.cta1} <ArrowRight size={16} />
+                    </a>
+                    <a href="#contact" className="inline-flex items-center border border-zinc-900/10 text-gray-900 font-bold text-sm px-6 py-3 rounded-full bg-zinc-100 transition-all">
+                        {t.cta2}
+                    </a>
+                </motion.div>
+
             </div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 };
 
-export default TechStack;
+export default Hero;

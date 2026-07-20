@@ -1,13 +1,14 @@
 import { LanguageProvider } from "../components/Languagecontext";
 import Navbar from "@/components/layout/Navbar";
 import Hero from "../components/Hero";
-import TechStack from "../components/TechStack";
+// import TechStack from "../components/ProcessSteps";
 import About from "../components/About";
 import Projects from "../components/Projects";
 import Services from "../components/Services";
 import Testimonials from "../components/Testimonials";
 import Contact from "../components/Contact";
-import Process from "@/components/Process";
+// import Process from "@/components/Process";
+import ProcessSteps from "../components/ProcessSteps";
 // import Footer from "../components/Footer";
 export default function Home() {
   return (
@@ -16,12 +17,12 @@ export default function Home() {
         <Navbar />
         <div className="pt-16">
           <Hero />
-          <TechStack />
           <About />
+          <ProcessSteps />
           <Projects />
           <Services />
           <Testimonials />
-          <Process />
+          {/* <Process /> */}
           <Contact />
           {/* <Footer /> */}
         </div>
