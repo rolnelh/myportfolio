@@ -1,51 +1,83 @@
-# 🚀 Portfolio - Dieudonné
+# Portfolio — Dieudonné Houndagnon
 
-Bienvenue sur le dépôt de mon portfolio professionnel. Cette application est une vitrine moderne conçue pour présenter mes projets, mon expertise technique en développement **Web & Mobile**, et ma vision du design UI/UX.
+Portfolio personnel de **Dieudonné Houndagnon**, Frontend Developer basé à Cotonou (Bénin), spécialisé dans la conception d'interfaces web rapides, accessibles et orientées résolution de problèmes (dashboards, back-offices, plateformes internes, produits SaaS).
+
+🔗 **Live** : [dieudonne-dev.vercel.app](https://dieudonne-dev.vercel.app)
 
 ---
 
-## ✨ Caractéristiques
+## ✨ Aperçu
 
-* **Design Minimaliste & Premium** : Inspiré des meilleures créations Dribbble.
-* **Performance Optimisée** : Score Lighthouse élevé grâce à Next.js 15.
-* **Responsive Design** : Expérience fluide sur Desktop, Tablette et Mobile.
-* **Animations Fluides** : Utilisation de Framer Motion pour des transitions élégantes.
-* **Mode Sombre/Clair** : Support natif du thème utilisateur.
+Ce site présente mon parcours, mes compétences techniques et une sélection de projets réels avec un support bilingue complet FR / EN.
 
-## 🛠️ Stack Technique
+## 🛠️ Stack technique
 
-* **Framework** : [Next.js 15](https://nextjs.org/) (App Router)
-* **Langage** : [TypeScript](https://www.typescriptlang.org/)
-* **Styling** : [Tailwind CSS](https://tailwindcss.com/)
-* **Composants UI** : [Shadcn UI](https://ui.shadcn.com/) & [Lucide React](https://lucide.dev/)
-* **Animations** : [Framer Motion](https://www.framer.com/motion/)
-* **Déploiement** : [Vercel](https://vercel.com/)
+- **Framework** : [Next.js](https://nextjs.org/) (App Router)
+- **Langage** : TypeScript
+- **Style** : Tailwind CSS
+- **Animations** : Framer Motion
+- **Icônes** : Lucide React
+- **Déploiement** : Vercel
 
-## 🚀 Installation & Lancement
+## 📁 Structure du projet
 
-1.  **Cloner le projet** :
-  
+landing-page/
+├── app/
+│ ├── layout.tsx # Layout global, polices, metadata
+│ └── page.tsx # Assemblage des sections de la page
+├── components/
+│ ├── layout/
+│ │ └── Navbar.tsx
+│ ├── Hero.tsx
+│ ├── About.tsx
+│ ├── TechStack.tsx
+│ ├── ProcessSteps.tsx # Timeline du processus de travail
+│ ├── Contact.tsx
+│ ├── Footer.tsx
+│ └── Languagecontext.tsx # Contexte i18n FR / EN
+├── public/
+│ └── images/
+├── tailwind.config.ts
+├── tsconfig.json
+└── package.json
 
-2.  **Installer les dépendances** :
-    ```bash
-    npm install
-    ```
 
-3.  **Lancer en mode développement** :
-    ```bash
-    npm run dev
-    ```
+## 🌍 Internationalisation
 
-4.  **Builder pour la production** :
-    ```bash
-    npm run build
-    ```
+Le contenu FR / EN est géré via un contexte React custom (`useLanguage`), sans dépendance externe type `next-intl` — chaque composant définit son propre objet `content` avec les clés `FR` et `EN`, résolu dynamiquement selon la langue active.
 
-## 📂 Structure du Projet
+## 🚀 Lancer le projet en local
 
-```text
-├── app/              # Routes et Layouts (Next.js App Router)
-├── components/       # Composants UI réutilisables
-├── public/           # Assets statiques (Images, Icons, PDF)
-├── styles/           # Configurations CSS globales
-└── types/            # Définitions TypeScript
+```bash
+# Cloner le repo
+git clone https://github.com/rolnelh/landing-page.git
+cd landing-page
+
+# Installer les dépendances
+npm install
+
+# Lancer le serveur de développement
+npm run dev
+```
+
+Le site est accessible sur [http://localhost:3000](http://localhost:3000).
+
+## 📦 Build de production
+
+```bash
+npm run build
+npm run start
+```
+
+## 📬 Contact
+
+- **GitHub** : [github.com/rolnelh](https://github.com/rolnelh)
+- **LinkedIn** : [Dieudonné Houndagnon](https://www.linkedin.com/in/dieudonn%C3%A9-houndagnon-093387250)
+- **Email** : houndagnondieudonne4@gmail.com
+
+## 📄 Licence
+
+Ce projet est un portfolio personnel — le code est visible à titre de démonstration mais n'est pas destiné à être réutilisé tel quel sans autorisation.
+
+
+
