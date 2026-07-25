@@ -6,8 +6,9 @@ import { useLanguage } from "../components/Languagecontext";
 const content = {
   EN: {
     hero: {
-      title: "Curious about what we can create together? ",
-      sub: "Let's bring something extraordinary to life!",
+      badge: "Available For Work",
+      title: "Curious about what we can create together?",
+      sub: " Let’s bring something extraordinary to life! ",
       cta: "Contact Me"
     },
     profile: {
@@ -17,6 +18,7 @@ const content = {
   },
   FR: {
     hero: {
+      badge: "Disponible pour travailler",
       title: "Curieux de ce que nous pouvons créer ensemble ? ",
       sub: "Donnons vie à quelque chose d'extraordinaire !",
       cta: "Me contacter"
