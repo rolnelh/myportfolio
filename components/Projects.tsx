@@ -33,9 +33,9 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
             technologies: ["Laravel", "Tailwind CSS", "MySQL", "JavaScript"],
         },
         {
-            title: "L'Expo Platform",
-            description: "Digital showcase for African artisans enabling professional catalog creation in minutes. I designed a streamlined flow where artisans can create a professional catalog in under 10 minutes — no technical knowledge required. The interface uses simple language, large touch targets, and a step-by-step guided process.",
-            image: "/images/lexpo-deskop.png",
+            title: "L'Expo",
+            description: "A SaaS platform & digital showcase for African artisans and creators. It allows users to generate a professional, interactive, and optimized catalog in under 2 minutes, with no technical skills required. Designed with a guided, smooth, and responsive user journey.",
+            image: "/images/lexpo-desktop.png",
             link: "https://lexpo-gallery.vercel.app",
             technologies: ["React.js", "TypeScript", "Tailwind CSS"],
         },
@@ -77,11 +77,18 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
             technologies: ["Laravel", "Tailwind CSS", "MySQL", "JavaScript"],
         },
         {
-            title: "L'Expo Plateforme",
-            description: "Vitrine digitale pour artisans africains permettant la création d'un catalogue pro en quelques minutes. J'ai conçu un parcours simplifié où les artisans créent un catalogue professionnel en moins de 10 minutes — sans aucune compétence technique. Interface guidée étape par étape, en langage simple.",
-            image: "/images/lexpo-deskop.png",
+            title: "L'Expo",
+            description: "Plateforme SaaS & vitrine digitale dédiée aux artisans et créateurs africains. Elle permet de générer un catalogue professionnel interactif et optimisé en moins de 2 minutes, sans compétences techniques requises. Conçue avec un parcours utilisateur guidé, fluide et responsive.",
+            image: "/images/lexpo-desktop.png", 
             link: "https://lexpo-gallery.vercel.app",
-            technologies: ["React.js", "TypeScript", "Tailwind CSS"],
+            technologies: [
+                "React.js",
+                "Next.js",
+                "Tailwind CSS",
+                "Laravel",
+                "REST API",
+                "PostgreSQL"
+            ],
         },
         {
             title: "Gozem Web Experience",
