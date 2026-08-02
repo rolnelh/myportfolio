@@ -89,6 +89,7 @@ export default function ContactCTA() {
               <Linkedin size={18} className="hover:text-white cursor-pointer transition-colors" />
             </a>
           </div>
+          
         </div>
       </div>
     </section>

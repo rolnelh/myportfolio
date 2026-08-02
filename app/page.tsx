@@ -9,6 +9,7 @@ import Testimonials from "../components/Testimonials";
 import Contact from "../components/Contact";
 // import Process from "@/components/Process";
 import ProcessSteps from "../components/ProcessSteps";
+import TechStack from "@/components/TechStack";
 // import Footer from "../components/Footer";
 export default function Home() {
   return (
@@ -17,10 +18,10 @@ export default function Home() {
         <Navbar />
         <div className="pt-16">
           <Hero />
-          <About />
-          <ProcessSteps />
+          <TechStack />
           <Projects />
           <Services />
+          {/* <About /> */}
           <Testimonials />
           {/* <Process /> */}
           <Contact />

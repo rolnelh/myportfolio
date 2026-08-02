@@ -8,10 +8,10 @@ import { useLanguage } from "../Languagecontext";
 const content = {
     EN: {
         nav: [
-            { label: "About", href: "#about" },
+            // { label: "About", href: "#about" },
             { label: "Work", href: "#projects" },
             { label: "Services", href: "#services" },
-            { label: "Process", href: "#process" },
+            // { label: "Process", href: "#process" },
             { label: "Contact", href: "#contact" },
         ],
         cta: "Contact Me",
@@ -19,10 +19,10 @@ const content = {
     },
     FR: {
         nav: [
-            { label: "À propos", href: "#about" },
+            // { label: "À propos", href: "#about" },
             { label: "Projets", href: "#projects" },
             { label: "Services", href: "#services" },
-            { label: "Process", href: "#process" },
+            // { label: "Process", href: "#process" },
             { label: "Contact", href: "#contact" },
         ],
         cta: "Me contacter",

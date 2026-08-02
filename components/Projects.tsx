@@ -79,7 +79,7 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
         {
             title: "L'Expo",
             description: "Plateforme SaaS & vitrine digitale dédiée aux artisans et créateurs africains. Elle permet de générer un catalogue professionnel interactif et optimisé en moins de 2 minutes, sans compétences techniques requises. Conçue avec un parcours utilisateur guidé, fluide et responsive.",
-            image: "/images/lexpo-desktop.png", 
+            image: "/images/expo.webp", 
             link: "https://lexpo-gallery.vercel.app",
             technologies: [
                 "React.js",
@@ -93,7 +93,7 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
         {
             title: "Gozem Web Experience",
             description: "Modernisation et restructuration complète de l'interface web pour une expérience utilisateur fluide et premium. J'ai entièrement redesigné la plateforme en me concentrant sur une structure de sections logique et une responsivité pensée pour une audience majoritairement mobile. J'ai intégré une nouvelle hiérarchie typographique, des icônes réalistes pour améliorer l'immersion, et optimisé chaque composant pour garantir un rendu 'Pixel-Perfect'.",
-            image: "/images/goze.png",
+            image: "/images/zemgo.webp",
             link: "https://rolnelh.github.io/gozem-refonte/",
             technologies: ["React", "Tailwind CSS", "Figma", "UI Design"],
         },
@@ -126,7 +126,7 @@ export default function Projects() {
                     <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-500">
                         {language === "EN" ? "Portfolio" : "Projets"}
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight" style={{ fontFamily: "'Syne', sans-serif" }}>
+                    <h2 className="text-3xl font-bold tracking-tight" style={{ fontFamily: "'Syne', sans-serif" }}>
                         {language === "EN" ? "Projects I've Shipped" : "Mes Projets Réalisés"}
                     </h2>
                     <p className="text-zinc-400 max-w-lg mx-auto">

@@ -1,63 +1,124 @@
+"use client";
+
 import React from 'react';
-import Image from 'next/image';
-import { ArrowRight, Monitor, Code, Zap, Layers, Palette, Search } from 'lucide-react';
+import { Monitor, Layers, Code2, Rocket, Search, Smartphone } from 'lucide-react';
+import { useLanguage } from "../components/Languagecontext";
 
-const myServices = [
-    { icon: <Monitor className="w-6 h-6" />, title: "Business Websites", desc: "Modern websites built to attract clients, secure trust, and drive revenue." },
-    { icon: <Code className="w-6 h-6" />, title: "Web Applications", desc: "Custom software, SaaS platforms, and internal dashboards tailored to your processes." },
-    { icon: <Zap className="w-6 h-6" />, title: "Speed Optimization", desc: "Fine-tuning architecture to unlock peak Lighthouse scores and clean Google positioning." },
-    { icon: <Layers className="w-6 h-6" />, title: "Integrations & APIs", desc: "Connecting ecosystems with secure payment bridges, automation, and CRMs." },
-];
+const content = {
+  EN: {
+    title: "Services",
+    subtitle: "I help businesses and startups create modern, high-performance, and result-driven digital experiences.",
+    services: [
+      {
+        title: "Modern Websites",
+        description: "Creation of showcase sites, landing pages, and fast web experiences with React, Next.js, and Tailwind CSS."
+      },
+      {
+        title: "Interface Redesign",
+        description: "Modernization of existing sites to improve design, user experience, and conversion."
+      },
+      {
+        title: "Web Applications",
+        description: "Development of platforms, dashboards, and digital products tailored to business needs."
+      },
+      {
+        title: "UI Engineering",
+        description: "Transforming your Figma mockups into pixel-perfect, clean, and high-performance interfaces."
+      },
+      {
+        title: "SEO & Performance",
+        description: "Technical optimization to improve Google visibility, speed, and user experience."
+      },
+      {
+        title: "Mobile Applications",
+        description: "Creation of modern mobile applications with React Native and Expo."
+      }
+    ]
+  },
+  FR: {
+    title: "Services",
+    subtitle: "J'aide les entreprises et startups à créer des expériences digitales modernes, performantes et orientées résultats.",
+    services: [
+      {
+        title: "Sites Web Modernes",
+        description: "Création de sites vitrines, landing pages et expériences web rapides avec React, Next.js et Tailwind CSS."
+      },
+      {
+        title: "Refonte d'Interfaces",
+        description: "Modernisation de sites existants pour améliorer design, expérience utilisateur et conversion."
+      },
+      {
+        title: "Applications Web",
+        description: "Développement de plateformes, dashboards et produits digitaux adaptés aux besoins métier."
+      },
+      {
+        title: "UI Engineering",
+        description: "Transformation de vos maquettes Figma en interfaces pixel-perfect, propres et performantes."
+      },
+      {
+        title: "SEO & Performance",
+        description: "Optimisation technique pour améliorer visibilité Google, vitesse et expérience utilisateur."
+      },
+      {
+        title: "Applications Mobiles",
+        description: "Création d'applications mobiles modernes avec React Native et Expo."
+      }
+    ]
+  }
+};
 
-const tags = ["Next.js", "SEO", "Responsive", "UI/UX", "Tailwind", "Speed", "React", "Laravel", "APIs", "Lighthouse", "Stripe", "Auth"];
+const serviceIcons = [Monitor, Layers, Code2, Rocket, Search, Smartphone];
 
-export default function ServicesSection() {
-    return (
-        <section className="bg-neutral-950 py-24 px-6 text-neutral-200">
-            <div className="max-w-6xl mx-auto">
+export default function Services() {
+  // Correction : on extrait 'language' de l'objet renvoyé par le hook
+  const { language } = useLanguage();
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16 items-center">
-                    <div>
-                        <span className="text-white/50 text-sm font-medium uppercase tracking-wider mb-4 block">Design services</span>
-                        <h2 className="text-5xl font-bold text-white mb-6">Services</h2>
-                        <p className="text-neutral-400 text-lg mb-8 max-w-lg">
-                            Helping businesses standout with brand identity packaging that captivates and converts effectively.
-                        </p>
-                        <div className="flex gap-4">
-                            <button className="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-neutral-200 transition-all">Book a Free Call</button>
-                            <button className="border border-neutral-700 px-6 py-3 rounded-full font-bold hover:bg-neutral-800 transition-all">See Projects</button>
-                        </div>
-                    </div>
+  const langKey = language?.toUpperCase() === "EN" ? "EN" : "FR";
+  const t = content[langKey];
 
-                    <div className="relative h-80 bg-neutral-900 rounded-3xl border border-neutral-800 overflow-hidden">
-                        <Image
-                            src="/images/pp.webp"
-                            alt="Service Image"
-                            fill
-                            className="object-cover"
-                        />
-                    </div>
-                </div>
+  return (
+    <section
+      id="services"
+      className="bg-neutral-950 py-24 px-6 text-neutral-200"
+    >
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-14">
+          <h2 className="text-4xl md:text-5xl font-bold text-white">
+            {t.title}
+          </h2>
+          <p className="mt-4 text-neutral-400 max-w-xl text-lg">
+            {t.subtitle}
+          </p>
+        </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-                    {myServices.map((service, idx) => (
-                        <div key={idx} className="bg-neutral-900/50 p-8 rounded-3xl border border-neutral-800 hover:border-neutral-700 transition-all">
-                            <div className="text-white mb-4">{service.icon}</div>
-                            <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
-                            <p className="text-neutral-400 text-sm leading-relaxed">{service.desc}</p>
-                        </div>
-                    ))}
-                </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {t.services.map((service, index) => {
+            const Icon = serviceIcons[index];
 
-                {/* Tag Cloud */}
-                <div className="flex flex-wrap gap-3">
-                    {tags.map((tag, idx) => (
-                        <span key={idx} className="px-4 py-2 rounded-full border border-neutral-800 bg-neutral-900 text-neutral-400 text-sm hover:border-neutral-600 transition-colors cursor-pointer">
-                            {tag}
-                        </span>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
+            return (
+              <div
+                key={content.EN.services[index].title}
+                className="
+                  bg-neutral-900 
+                  border border-neutral-800
+                  rounded-3xl
+                  p-8
+                  hover:border-neutral-600
+                  transition-all
+                "
+              >
+                <Icon className="w-8 h-8 text-white mb-6" />
+                <h3 className="text-xl font-bold text-white mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-neutral-400 leading-relaxed text-sm">
+                  {service.description}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
 }
