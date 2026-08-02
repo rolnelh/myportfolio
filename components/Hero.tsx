@@ -51,10 +51,10 @@ const Hero = () => {
                     </motion.p>
 
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="flex flex-wrap gap-4">
-                        <a href="#contact" className="inline-flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm px-6 py-3 rounded-full hover:opacity-90 transition-all">
+                        <a href="#projects" className="inline-flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm px-6 py-3 rounded-full hover:opacity-90 transition-all">
                             {t.cta1} <ArrowRight size={16} />
                         </a>
-                        <a href="#projects" className="inline-flex items-center border border-zinc-900/10 dark:border-zinc-800 text-zinc-900 dark:text-white font-bold text-sm px-6 py-3 rounded-full bg-zinc-100 transition-all">
+                        <a href="#contact" className="inline-flex items-center border border-zinc-900/10 dark:border-zinc-800 text-black font-bold text-sm px-6 py-3 rounded-full bg-zinc-100 transition-all">
                             {t.cta2}
                         </a>
                     </motion.div>
