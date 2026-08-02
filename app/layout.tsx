@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Syne, Poppins } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Analytics } from '@vercel/analytics/next';
 import { GoogleAnalytics } from '@next/third-parties/google';
@@ -10,6 +11,12 @@ const syne = Syne({
   display: "swap",
   weight: ["400", "500"],
   preload: true,
+});
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"], // Choisissez les graisses dont vous avez besoin
+  variable: "--font-jakarta",
 });
 
 
@@ -130,9 +137,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className={`${syne.variable} ${poppins.variable}`}>
+    <html lang="fr" className={`${syne.variable} ${poppins.variable} ${plusJakarta.variable}`}>
       <body className="antialiased text-white" style={{
-        fontFamily: "'Syne', sans-serif",
+        fontFamily: "var(--font-jakarta), sans-serif",       
         scrollBehavior: "smooth",
       }}>
 
@@ -199,7 +206,7 @@ export default function RootLayout({
                 "Web Performance Optimization",
                 "Laravel"
               ],
-              
+
             })
           }}
         />

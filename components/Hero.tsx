@@ -42,7 +42,7 @@ const Hero = () => {
                         <span className="text-[15px] font-medium uppercase tracking-widest text-zinc-700 dark:text-zinc-400">Hello, Je suis Dieudonné Houndagnon</span>
                     </motion.div>
 
-                    <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight text-white" style={{ fontFamily: "'Syne', sans-serif" }}>
+                    <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight text-white">
                         {t.title}
                     </motion.h1>
 
