@@ -14,7 +14,7 @@ const content = {
             // { label: "Process", href: "#process" },
             { label: "Contact", href: "#contact" },
         ],
-        cta: "Contact Me",
+        cta: "Start a project",
         switchTo: "FR",
     },
     FR: {
