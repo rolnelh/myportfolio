@@ -8,18 +8,18 @@ import { useLanguage } from "../components/Languagecontext";
 
 const content = {
     EN: {
-        status: "Hi, I'm Dieudonné Houndagnon",
+        status: "Hi, I'm Dieudonné",
         title: "Frontend Engineer",
-        description: "I am a frontend engineer, I transform your slow and frustrating interfaces into fast, intuitive, and delightful experiences.",
+        description: "Digital product designer & frontend developer, I craft performant web architectures and intuitive user interfaces to convert your users, maximize performance, and support your business growth.",
         cta1: "See my works",
-        cta2: "Contact Me"
+        cta2: "Start a project"
     },
     FR: {
         status: "Salut, je suis Dieudonné Houndagnon",
         title: "Frontend Engineer",
-        description: "Je suis développeur front-end, Je transforme vos interfaces lentes et frustrantes en expériences rapides, intuitives et agréables à utiliser.",
+        description: "Développeur front-end & concepteur de produits digitaux, je conçois des architectures web performantes et des interfaces utilisateur intuitives pour convertir vos utilisateurs, maximiser les performances et accompagner la croissance de votre entreprise.",
         cta1: "Voir mes réalisations",
-        cta2: "Me contacter"
+        cta2: "Démarrer un projet"
     }
 };
 const Hero = () => {

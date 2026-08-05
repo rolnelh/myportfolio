@@ -25,7 +25,7 @@ const content = {
             // { label: "Process", href: "#process" },
             { label: "Contact", href: "#contact" },
         ],
-        cta: "Me contacter",
+        cta: "Démarrer un projet",
         switchTo: "EN",
     },
 };
