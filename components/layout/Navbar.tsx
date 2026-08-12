@@ -8,29 +8,26 @@ import { useLanguage } from "../Languagecontext";
 const content = {
     EN: {
         nav: [
-            // { label: "About", href: "#about" },
             { label: "Work", href: "#projects" },
             { label: "Services", href: "#services" },
-            // { label: "Process", href: "#process" },
             { label: "Contact", href: "#contact" },
         ],
-        cta: "Start a project",
+        cta: "Get in touch",
         switchTo: "FR",
     },
     FR: {
         nav: [
-            // { label: "À propos", href: "#about" },
             { label: "Projets", href: "#projects" },
             { label: "Services", href: "#services" },
-            // { label: "Process", href: "#process" },
             { label: "Contact", href: "#contact" },
         ],
-        cta: "Démarrer un projet",
+        cta: "Prendre contact",
         switchTo: "EN",
     },
 };
 
-const Header = () => {
+const Navbar = () => {
+    // Correction ici : on récupère aussi setLanguage depuis le hook
     const { language, setLanguage } = useLanguage();
 
     const lang = language === "EN" ? "EN" : "FR";
@@ -65,21 +62,20 @@ const Header = () => {
             className="fixed top-4 left-0 right-0 z-[9999] px-4"
         >
             <div
-                className={`max-w-7xl mx-auto transition-all duration-300 rounded-md border
+                className={`max-w-7xl mx-auto transition-all duration-300 rounded-2xl border
                 ${scrolled
-                        ? "bg-black/80 backdrop-blur-2xl border-white/10 shadow-2xl py-3"
-                        : "bg-black/40 backdrop-blur-xl border-white/5 py-4"
+                        ? "bg-white/90 backdrop-blur-md border-slate-200/80 shadow-lg shadow-slate-200/50 py-3 px-6"
+                        : "bg-white/70 backdrop-blur-sm border-slate-200/50 py-4 px-6"
                     }`}
             >
-                <div className="px-6 flex items-center justify-between">
+                <div className="flex items-center justify-between">
 
                     {/* Logo */}
-
                     <a
                         href="#"
                         className="flex items-center gap-3 group"
                     >
-                        <div className="w-9 h-9 rounded-full overflow-hidden border border-white/10">
+                        <div className="w-9 h-9 rounded-full overflow-hidden border border-slate-200 shadow-sm">
                             <img
                                 src="/images/cmp.jpeg"
                                 alt="Dieudonné"
@@ -87,13 +83,12 @@ const Header = () => {
                             />
                         </div>
 
-                        <span className="font-semibold text-white tracking-tight">
+                        <span className="font-bold text-slate-900 tracking-tight text-base">
                             Dieudonné
                         </span>
                     </a>
 
                     {/* Desktop Navigation */}
-
                     <nav className="hidden md:flex items-center gap-8">
                         {t.nav.map((item) => (
                             <a
@@ -103,9 +98,9 @@ const Header = () => {
                                     text-xs
                                     uppercase
                                     tracking-[0.14em]
-                                    font-medium
-                                    text-white/80
-                                    hover:text-white
+                                    font-bold
+                                    text-slate-600
+                                    hover:text-slate-900
                                     transition-colors
                                 "
                             >
@@ -115,39 +110,43 @@ const Header = () => {
                     </nav>
 
                     {/* Desktop Actions */}
-
-                    <div className="hidden md:flex items-center gap-4">
-
+                    <div className="hidden md:flex items-center gap-5">
                         <button
                             onClick={toggleLanguage}
                             className="
                                 text-xs
-                                font-semibold
+                                font-bold
                                 tracking-widest
-                                text-white/70
-                                hover:text-white
+                                text-slate-600
+                                hover:text-slate-900
                                 transition-colors
+                                px-2 py-1
                             "
                         >
                             {t.switchTo}
                         </button>
 
                         <a
-                            href="#contact"
+                            href="https://calendar.app.google/XwfDAm67pz7uL7pV8"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="
                                 group
                                 inline-flex
                                 items-center
                                 gap-2
                                 rounded-full
-                                bg-white
-                                text-black
-                                px-5
+                                bg-[#ff2a4d]
+                                text-white
+                                px-6
                                 py-2.5
                                 text-sm
                                 font-semibold
-                                hover:bg-zinc-200
+                                shadow-md
+                                shadow-red-500/20
+                                hover:bg-[#e02041]
                                 transition-all
+                                hover:scale-[1.02]
                             "
                         >
                             {t.cta}
@@ -162,26 +161,22 @@ const Header = () => {
                         </a>
                     </div>
 
-                    {/* Mobile */}
-
+                    {/* Mobile Button */}
                     <div className="md:hidden flex items-center gap-4">
-
                         <button
                             onClick={toggleLanguage}
                             className="
                                 text-xs
-                                font-semibold
-                                text-white/80
+                                font-bold
+                                text-slate-700
                             "
                         >
                             {t.switchTo}
                         </button>
 
                         <button
-                            onClick={() =>
-                                setMobileOpen(!mobileOpen)
-                            }
-                            className="text-white"
+                            onClick={() => setMobileOpen(!mobileOpen)}
+                            className="text-slate-900 p-1"
                         >
                             {mobileOpen ? (
                                 <X size={22} />
@@ -193,9 +188,7 @@ const Header = () => {
                 </div>
 
                 {/* Mobile Menu */}
-
                 <AnimatePresence>
-
                     {mobileOpen && (
                         <motion.div
                             initial={{
@@ -218,10 +211,8 @@ const Header = () => {
                                 overflow-hidden
                             "
                         >
-                            <div className="px-6 pt-6 pb-5 border-t border-white/10 mt-4">
-
-                                <div className="flex flex-col gap-5">
-
+                            <div className="pt-6 pb-4 border-t border-slate-100 mt-4">
+                                <div className="flex flex-col gap-4">
                                     {t.nav.map((item) => (
                                         <a
                                             key={item.href}
@@ -230,9 +221,11 @@ const Header = () => {
                                                 setMobileOpen(false)
                                             }
                                             className="
-                                                text-white
-                                                text-lg
+                                                text-slate-800
+                                                text-base
                                                 font-medium
+                                                hover:text-[#ff2a4d]
+                                                transition-colors
                                             "
                                         >
                                             {item.label}
@@ -240,7 +233,9 @@ const Header = () => {
                                     ))}
 
                                     <a
-                                        href="#contact"
+                                        href="https://calendar.google.com/calendar/appointments/surtout_votre_lien_ici"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         onClick={() =>
                                             setMobileOpen(false)
                                         }
@@ -249,26 +244,27 @@ const Header = () => {
                                             inline-flex
                                             items-center
                                             justify-center
+                                            gap-2
                                             rounded-full
-                                            bg-white
-                                            text-black
+                                            bg-[#ff2a4d]
+                                            text-white
                                             py-3
                                             font-semibold
+                                            text-sm
+                                            shadow-md
+                                            shadow-red-500/20
                                         "
                                     >
-                                        {t.cta}
+                                        {t.cta} <ArrowRight size={15} />
                                     </a>
-
                                 </div>
-
                             </div>
                         </motion.div>
                     )}
-
                 </AnimatePresence>
             </div>
         </motion.header>
     );
 };
 
-export default Header;
+export default Navbar;

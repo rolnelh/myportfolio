@@ -145,7 +145,7 @@ export default function RootLayout({
 
         <div className="flex h-screen">
           <div className="flex flex-col flex-1">
-            <main className="flex-1 overflow-y-auto bg-black">
+            <main className="flex-1">
               <div className="mx-auto">
                 {children}
                 <Analytics />

@@ -1,10 +1,8 @@
-
-
-
 "use client";
+
 import React from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, ArrowRight } from "lucide-react";
 import { useLanguage } from "../components/Languagecontext";
 
 interface Project {
@@ -18,21 +16,6 @@ interface Project {
 const projectsData: Record<"EN" | "FR", Project[]> = {
     EN: [
         {
-            title: "ANIP Bénin – E-services Redesign",
-            description: "Complete UI/UX overhaul of the National Identification Agency — mobile-first, simplified citizen journeys. I redesigned the entire platform with a mobile-first approach. I simplified the service access flow, built a clean dashboard for tracking request status, and reduced the number of screens required to complete core tasks.",
-            image: "/images/anip_refonte.webp",
-            link: "https://anip-eservices-redesign-koy3.vercel.app/dashboard",
-            technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Dashboard Architecture"],
-
-        },
-        {
-            title: "Mefolio Platform",
-            description: "The first African platform for creative talent — professional portfolios & project management in one ecosystem. I designed and built a full-stack platform from scratch — a clean, fast, and mobile-optimized ecosystem where creatives can build their portfolio, manage client projects, and get discovered. I optimized the app for low-bandwidth connections common in West Africa.",
-            image: "/images/mefolio.webp",
-            link: "https://mefolio-z6n9.onrender.com/",
-            technologies: ["Laravel", "Tailwind CSS", "MySQL", "JavaScript"],
-        },
-        {
             title: "L'Expo",
             description: "A SaaS platform & digital showcase for African artisans and creators. It allows users to generate a professional, interactive, and optimized catalog in under 2 minutes, with no technical skills required. Designed with a guided, smooth, and responsive user journey.",
             image: "/images/lexpo-desktop.png",
@@ -40,137 +23,178 @@ const projectsData: Record<"EN" | "FR", Project[]> = {
             technologies: ["React.js", "TypeScript", "Tailwind CSS"],
         },
         {
+            title: "Mefolio Platform",
+            description: "The first African platform for creative talent — professional portfolios & project management in one ecosystem. I designed and built a full-stack platform from scratch — a clean, fast, and mobile-optimized ecosystem where creatives can build their portfolio, manage client projects, and get discovered, optimized for low-bandwidth connections.",
+            image: "/images/mefolio.webp",
+            link: "https://mefolio-z6n9.onrender.com/",
+            technologies: ["Laravel", "Tailwind CSS", "MySQL", "JavaScript"],
+        },
+
+        {
             title: "Gozem Web Experience",
-            description: "A strategic UI overhaul focused on restructuring the web platform for a seamless and premium user experience. I completely redesigned the platform, focusing on a logical section architecture and full responsiveness for a predominantly mobile audience. I implemented a new typographic hierarchy, integrated realistic icons for better immersion, and optimized every component to ensure a 'Pixel-Perfect' finish.",
+            description: "A strategic UI overhaul focused on restructuring the web platform for a seamless and premium user experience. I completely redesigned the platform, focusing on a logical section architecture and full responsiveness, integrating a new typographic hierarchy and a 'Pixel-Perfect' finish.",
             image: "/images/bbbb.png",
             link: "https://rolnelh.github.io/gozem-refonte/",
             technologies: ["React", "Tailwind CSS", "Figma", "UI Design"],
         },
         {
             title: "Admin Dashboard",
-            description: "Intuitive admin interface for performance tracking, product management, and real-time sales analytics. I rebuilt the dashboard UI from scratch with a focus on information hierarchy. The most critical KPIs are visible immediately on load. I used Shadcn components for consistency and built a responsive layout that works perfectly on tablets and phones.",
+            description: "Intuitive admin interface for performance tracking, product management, and real-time sales analytics. Rebuilt from scratch with a focus on information hierarchy where the most critical KPIs are visible immediately on load.",
             image: "/images/dash.webp",
             link: "https://dashboard-nextjs-pi-ten.vercel.app/dashboard",
             technologies: ["Next.js 15", "Lucide React", "Shadcn", "Tailwind CSS"],
         },
         {
             title: "My Portfolio",
-            description: "Minimalist, high-speed showcase — 100% Lighthouse score for SEO & Best Practices. I completely redesigned it with a conversion-first mindset. New headline focused on client benefit, added social proof, clear service packages, a direct contact flow, and bilingual support. Every section was built to answer the visitor's unspoken question: 'why should I hire you?'",
+            description: "Minimalist, high-speed showcase — 100% Lighthouse score for SEO & Best Practices. Redesigned with a conversion-first mindset featuring clear service packages, social proof, and bilingual support.",
             image: "/images/pp.webp",
             link: "https://dieudonne-dev.vercel.app/",
             technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion"],
         },
-    ],
-    FR: [
         {
-            title: "ANIP Bénin – Refonte E-services",
-            description: "Refonte complète UI/UX du portail de l'Agence Nationale d'Identification — mobile-first. J'ai redesigné toute la plateforme en mobile-first. Simplifié l'accès aux services, construit un dashboard propre pour le suivi des demandes, et réduit le nombre d'écrans nécessaires pour les tâches essentielles.",
+            title: "ANIP Bénin – E-services Redesign",
+            description: "Complete UI/UX overhaul of the National Identification Agency — mobile-first, simplified citizen journeys. I redesigned the entire platform with a mobile-first approach, simplified the service access flow, built a clean dashboard for tracking request status, and reduced the number of screens required to complete core tasks.",
             image: "/images/anip_refonte.webp",
             link: "https://anip-eservices-redesign-koy3.vercel.app/dashboard",
             technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Dashboard Architecture"],
         },
+    ],
+    FR: [
+
+        {
+            title: "L'Expo",
+            description: "Plateforme SaaS & vitrine digitale dédiée aux artisans et créateurs africains. Permet de générer un catalogue professionnel interactif et optimisé en moins de 2 minutes sans compétences techniques requises.",
+            image: "/images/expo.webp",
+            link: "https://lexpo-gallery.vercel.app",
+            technologies: ["React.js", "Next.js", "Tailwind CSS", "Laravel", "REST API", "PostgreSQL"],
+        },
         {
             title: "Mefolio Platform",
-            description: "La première plateforme africaine dédiée aux créatifs — portfolios professionnels & gestion de projets. J'ai conçu et développé une plateforme full-stack from scratch — rapide, mobile-optimisée, permettant aux créatifs de construire leur portfolio et de gérer leurs projets clients. J'ai optimisé l'app pour les connexions faibles courantes en Afrique de l'Ouest.",
+            description: "La première plateforme africaine dédiée aux créatifs — portfolios professionnels & gestion de projets. Application full-stack conçue from scratch, rapide, mobile-optimisée et adaptée aux connexions faibles en Afrique de l'Ouest.",
             image: "/images/mefolio.webp",
             link: "https://mefolio-z6n9.onrender.com/",
             technologies: ["Laravel", "Tailwind CSS", "MySQL", "JavaScript"],
         },
         {
-            title: "L'Expo",
-            description: "Plateforme SaaS & vitrine digitale dédiée aux artisans et créateurs africains. Elle permet de générer un catalogue professionnel interactif et optimisé en moins de 2 minutes, sans compétences techniques requises. Conçue avec un parcours utilisateur guidé, fluide et responsive.",
-            image: "/images/expo.webp", 
-            link: "https://lexpo-gallery.vercel.app",
-            technologies: [
-                "React.js",
-                "Next.js",
-                "Tailwind CSS",
-                "Laravel",
-                "REST API",
-                "PostgreSQL"
-            ],
-        },
-        {
             title: "Gozem Web Experience",
-            description: "Modernisation et restructuration complète de l'interface web pour une expérience utilisateur fluide et premium. J'ai entièrement redesigné la plateforme en me concentrant sur une structure de sections logique et une responsivité pensée pour une audience majoritairement mobile. J'ai intégré une nouvelle hiérarchie typographique, des icônes réalistes pour améliorer l'immersion, et optimisé chaque composant pour garantir un rendu 'Pixel-Perfect'.",
+            description: "Modernisation et restructuration complète de l'interface web pour une expérience utilisateur fluide et premium. Structure logique, responsivité mobile-first et rendu Pixel-Perfect.",
             image: "/images/zemgo.webp",
             link: "https://rolnelh.github.io/gozem-refonte/",
             technologies: ["React", "Tailwind CSS", "Figma", "UI Design"],
         },
         {
             title: "Dashboard Admin",
-            description: "Interface admin intuitive pour le suivi des performances, la gestion des produits et l'analytique temps réel. J'ai reconstruit l'UI du dashboard from scratch en mettant l'accent sur la hiérarchie de l'information. Les KPIs les plus critiques sont visibles immédiatement au chargement. Interface responsive qui fonctionne sur tablettes et téléphones.",
+            description: "Interface admin intuitive pour le suivi des performances, la gestion des produits et l'analytique temps réel. KPIs critiques visibles immédiatement au chargement.",
             image: "/images/dash.webp",
             link: "https://dashboard-nextjs-pi-ten.vercel.app/dashboard",
             technologies: ["Next.js 15", "Lucide React", "Shadcn", "Tailwind CSS"],
         },
         {
             title: "Mon Portfolio",
-            description: "Vitrine minimaliste et rapide — score Lighthouse 100% en SEO & Bonnes Pratiques. J'ai entièrement redesigné avec une approche conversion-first. Nouveau titre axé sur le bénéfice du visiteur, preuve sociale, packs de services clairs, parcours de contact direct, et support bilingue EN/FR.",
+            description: "Vitrine minimaliste et rapide — score Lighthouse 100% en SEO & Bonnes Pratiques. Approche conversion-first, packs de services clairs et support bilingue EN/FR.",
             image: "/images/pp.webp",
             link: "https://dieudonne-dev.vercel.app/",
             technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion"],
         },
+        {
+            title: "ANIP Bénin – Refonte E-services",
+            description: "Refonte complète UI/UX du portail de l'Agence Nationale d'Identification — mobile-first. Redesign complet de la plateforme avec simplification de l'accès aux services, dashboard propre pour le suivi et réduction du nombre d'écrans.",
+            image: "/images/anip_refonte.webp",
+            link: "https://anip-eservices-redesign-koy3.vercel.app/dashboard",
+            technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Dashboard Architecture"],
+        },
     ],
 };
+
 export default function Projects() {
     const { language } = useLanguage();
     const lang = language === "EN" ? "EN" : "FR";
     const projects = projectsData[lang];
 
     return (
-        <section id="projects" className="py-24 px-6 bg-[#09090B] text-white transition-colors duration-300">
-            <div className="max-w-6xl mx-auto">
+        <section id="projects" className="py-28 px-6 bg-slate-50/60 text-slate-900 transition-colors duration-300">
+            <div className="max-w-7xl mx-auto">
 
-                <div className="mb-16 text-center space-y-4">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-500">
-                        {language === "EN" ? "Portfolio" : "Projets"}
-                    </span>
-                    <h2 className="text-3xl font-bold tracking-tight" style={{ fontFamily: "'Syne', sans-serif" }}>
-                        {language === "EN" ? "Projects I've Shipped" : "Mes Projets Réalisés"}
+                {/* Section Header */}
+                <div className="mb-20 space-y-4">
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-200/60 border border-slate-300/60 text-xs font-bold uppercase tracking-[0.2em] text-slate-700">
+                        {language === "EN" ? "Our Work" : "Nos Projets"}
+                    </div>
+                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900" style={{ fontFamily: "'Syne', sans-serif" }}>
+                        {language === "EN" ? "Projects We've Shipped" : "Mes Réalisations & Projets"}
                     </h2>
-                    <p className="text-zinc-400 max-w-lg mx-auto">
+                    <p className="text-slate-600 max-w-2xl text-base leading-relaxed">
                         {language === "EN"
-                            ? "A range of projects demonstrating how I turn ideas into functional experiences"
-                            : "Une sélection de projets illustrant ma capacité à transformer des idées en expériences fonctionnelles"}
+                            ? "A curated selection of high-impact web apps, SaaS products, and digital experiences built for scale."
+                            : "Une sélection rigoureuse d'applications web à fort impact, de produits SaaS et d'expériences digitales conçues pour performer."}
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Projects Grid matching Agency Card Style */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
                     {projects.map((project, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group bg-[#111] border border-zinc-800 rounded-2xl overflow-hidden hover:border-zinc-700 transition-all duration-300"
+                            className="group bg-white border border-slate-200/80 rounded-3xl p-8 md:p-10 shadow-sm hover:shadow-xl hover:border-slate-300 transition-all duration-300 flex flex-col justify-between"
                         >
-
-                            <div className="aspect-video overflow-hidden">
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                />
-                            </div>
-
-                            <div className="p-6">
-                                <h3 className="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">
-                                    {project.title}
-                                </h3>
-                                <p className="text-zinc-400 text-sm leading-relaxed mb-6 line-clamp-2">
-                                    {project.description}
-                                </p>
-
-                                <div className="flex items-center gap-3">
+                            {/* Top Content: Title & Action Link */}
+                            <div>
+                                <div className="flex items-start justify-between gap-4 mb-4">
+                                    <h3 className="text-2xl md:text-3xl font-bold text-slate-900 group-hover:text-[#ff2a4d] transition-colors" style={{ fontFamily: "'Syne', sans-serif" }}>
+                                        {project.title}
+                                    </h3>
                                     <a
                                         href={project.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 px-4 py-2 bg-white text-black rounded-full text-xs font-bold hover:bg-zinc-200 transition-colors"
+                                        className="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-700 group-hover:bg-[#ff2a4d] group-hover:text-white group-hover:border-[#ff2a4d] transition-all shrink-0"
+                                        aria-label="View project link"
                                     >
-                                        {language === "EN" ? "Live Website" : "Voir le site"} <ExternalLink size={12} />
+                                        <ExternalLink size={18} />
+                                    </a>
+                                </div>
+
+                                <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-6">
+                                    {project.description}
+                                </p>
+
+                                {/* Technologies Badges */}
+                                <div className="flex flex-wrap gap-2 mb-8">
+                                    {project.technologies.map((tech, techIdx) => (
+                                        <span
+                                            key={techIdx}
+                                            className="text-[11px] font-semibold tracking-wide bg-slate-100 text-slate-700 px-3 py-1 rounded-full border border-slate-200/60"
+                                        >
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Image Preview Container inside Card */}
+                            <div className="mt-auto pt-6 border-t border-slate-100">
+                                <div className="aspect-[16/10] overflow-hidden rounded-2xl bg-slate-100 border border-slate-200/60 relative group/img">
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover object-top group-hover/img:scale-105 transition-transform duration-700 ease-out"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300" />
+                                </div>
+
+                                <div className="mt-6 flex items-center justify-between">
+                                    <a
+                                        href={project.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 text-sm font-bold text-slate-900 group-hover:text-[#ff2a4d] transition-colors"
+                                    >
+                                        <span>{language === "EN" ? "See Project" : "Voir le projet"}</span>
+                                        <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                                     </a>
                                 </div>
                             </div>
