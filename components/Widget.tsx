@@ -3,7 +3,7 @@ import React from "react";
 import { ChevronDown } from "lucide-react"; // On retire Bot car on utilise une image
 // Note : Si vous utilisez Next.js, vous pouvez importer Image : import Image from 'next/image';
 
-export default function Widget({ onOpenChat, isOpen }) {
+export default function Widget({ onOpenChat, isOpen = false }) {
     return (
         <div className="fixed bottom-4 right-4 sm:right-6 z-50 group">
             <button
