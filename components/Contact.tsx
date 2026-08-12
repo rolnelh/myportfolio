@@ -85,7 +85,7 @@ export default function ContactSection() {
     message: "",
   });
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const mailtoLink = `mailto:${socialLinks.email}?subject=Project Inquiry from ${formData.name}&body=${encodeURIComponent(formData.message)}%0A%0AEmail: ${formData.email}%0AService: ${selectedService}`;
     window.location.href = mailtoLink;
