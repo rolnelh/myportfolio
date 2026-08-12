@@ -17,7 +17,7 @@ export default function Widget({ onOpenChat, isOpen = false }: WidgetProps) {
             >
                 <div className="relative transition-transform duration-300 group-hover:-translate-y-0.5">
                     <img
-                        src="/mon-avatar.jpg"
+                        src="/images/cmp.jpeg"
                         alt="Dieudonné"
                         className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-inner ring-2 ring-[#ff2a4d]/20"
                     />
