@@ -42,7 +42,7 @@ export default function Hero() {
     const t = content[langKey];
 
     return (
-        <section className="relative flex flex-col items-center justify-center px-6 md:px-6 max-w-7xl mx-auto pt-22 pb-20 overflow-hidden bg-white text-slate-900">
+        <section className="relative flex flex-col items-center justify-center px-6 md:px-6 max-w-7xl mx-auto pt-20 pb-18 overflow-hidden bg-white text-slate-900">
 
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-60 pointer-events-none" />
 
@@ -67,7 +67,7 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-slate-900 max-w-2xl"
+                        className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-slate-900 max-w-3xl"
                     >
                         {t.title}
                     </motion.h1>

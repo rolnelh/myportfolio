@@ -18,11 +18,6 @@ export default function Home() {
 
   const [isChatOpen, setIsChatOpen] = useState(false);
 
-  // Fonction de bascule (toggle) : si c'est ouvert, ça ferme ; si c'est fermé, ça ouvre
-  const toggleChat = () => {
-    setIsChatOpen((prev) => !prev);
-  };
-
   return (
     <LanguageProvider>
       <main className="antialiased">
@@ -38,7 +33,7 @@ export default function Home() {
           {/* <Footer /> */}
 
           {/* 2. On transmet la fonction qui met l'état à true lorsqu'on clique */}
-          <Widget onOpenChat={toggleChat} />
+          <Widget />
 
           {/* Le modal de chat */}
           <ChatModal
