@@ -1,40 +1,76 @@
 "use client";
-import React from "react";
-import { ChevronDown } from "lucide-react";
 
-interface WidgetProps {
-    onOpenChat: () => void;
-    isOpen?: boolean;
-}
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MessageSquare, X } from 'lucide-react';
+import { useLanguage } from "../components/Languagecontext";
 
-export default function Widget({ onOpenChat, isOpen = false }: WidgetProps) {
+export default function Widget() {
+    const { language } = useLanguage();
+    const langKey = language?.toUpperCase() === "EN" ? "EN" : "FR";
+    const [isOpen, setIsOpen] = useState(true);
+
+    const content = {
+        EN: {
+            message: "Hello, how can I help you?"
+        },
+        FR: {
+            message: "Bonjour, comment puis-je vous aider ?"
+        }
+    };
+
+    const t = content[langKey];
+
     return (
-        <div className="fixed bottom-4 right-4 sm:right-6 z-50 group">
-            <button
-                onClick={onOpenChat}
-                className="bg-white/95 backdrop-blur-md border border-slate-200/80 shadow-xl shadow-slate-900/10 rounded-full w-16 h-16 flex items-center justify-center transition-all duration-300 hover:shadow-2xl hover:shadow-[#ff2a4d]/20 hover:border-[#ff2a4d]/30 active:scale-95 group"
-                title="Ouvrir l'assistant"
+        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end font-sans">
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                        transition={{ duration: 0.2 }}
+                        className="relative mb-4 w-72 sm:w-80 bg-white rounded-2xl shadow-2xl border border-slate-100 p-5 pt-10 text-slate-900"
+                    >
+                        {/* Avatar superposé en haut au centre */}
+                        <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full border-4 border-white overflow-hidden shadow-md bg-slate-200">
+                            <img
+                                src="/images/cmp.jpeg" 
+                                alt="Dieudonné Houndagnon"
+                                className="w-full h-full object-cover"
+                                
+                            />
+                        </div>
+
+                        {/* Bouton de fermeture */}
+                        <button
+                            onClick={() => setIsOpen(false)}
+                            className="absolute top-3 right-3 text-slate-400 hover:text-slate-600 transition-colors p-1"
+                            aria-label="Fermer"
+                        >
+                            <X size={18} />
+                        </button>
+
+                        {/* Corps du message */}
+                        <div className="text-center sm:text-left mt-2">
+                            <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed">
+                                {t.message}
+                            </p>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Bouton flottant principal */}
+            <motion.button
+                onClick={() => setIsOpen(!isOpen)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-14 h-14 rounded-full bg-[#ff2a4d] hover:bg-[#e02041] text-white flex items-center justify-center shadow-xl shadow-red-500/30 transition-colors focus:outline-none"
+                aria-label="Ouvrir le chat"
             >
-                <div className="relative transition-transform duration-300 group-hover:-translate-y-0.5">
-                    <img
-                        src="/images/cmp.jpeg"
-                        alt="Dieudonné"
-                        className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-inner ring-2 ring-[#ff2a4d]/20"
-                    />
-                    <span className="absolute top-0 right-0 block h-3.5 w-3.5 rounded-full bg-emerald-500 ring-2 ring-white" />
-                </div>
-
-                <div className={`absolute -bottom-1 bg-white p-0.5 rounded-full border border-slate-200 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
-                    <ChevronDown
-                        size={14}
-                        className={`text-slate-500 transition-transform duration-500 ease-in-out ${isOpen ? "rotate-180" : "rotate-0"}`}
-                    />
-                </div>
-            </button>
-
-            <span className="absolute -top-10 right-1/2 translate-x-1/2 scale-0 group-hover:scale-100 transition-all bg-slate-900 text-white text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap shadow-lg">
-                Besoin d'aide ?
-            </span>
+                <MessageSquare size={24} />
+            </motion.button>
         </div>
     );
 }

@@ -29,8 +29,9 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://dieudonne-dev.vercel.app/'),
-  title: "Dieudonné Houndagnon | Frontend Engineer & UI/UX Specialist",
-  description: "Premium Next.js, React, and modern UI/UX developer crafting high-performance digital solutions. Specializing in conversion-focused landing pages, website redesigns, and custom SaaS products.",
+  title: "Dieudonné Houndagnon | Front-End Developer",
+  description:
+    "Front-End Developer specializing in React, Next.js, TypeScript and modern UI/UX. Explore my projects, portfolio and experience building fast, responsive and user-focused web applications.",
   manifest: "/site.webmanifest",
   keywords: [
     // 1. Intentions d'achat (Clients internationaux & locaux)
@@ -75,9 +76,9 @@ export const metadata: Metadata = {
 
   openGraph: {
 
-    title: "Dieudonné Houndagnon | Frontend Engineer & UI/UX Specialist",
-
-    description: "Building high-performance digital experiences and premium web interfaces. Specialized in Next.js, React, and modern UI/UX design. Let's build your next project together.",
+    title: "Dieudonné Houndagnon | Front-End Developer",
+    description:
+      "Front-End Developer specializing in React, Next.js, TypeScript and modern UI/UX. Explore my projects, portfolio and experience building fast, responsive and user-focused web applications.",
 
     url: 'https://dieudonne-dev.vercel.app/',
     siteName: 'Dieudonné Houndagnon | Frontend Engineering',
@@ -139,7 +140,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${syne.variable} ${poppins.variable} ${plusJakarta.variable}`}>
       <body className="antialiased text-white" style={{
-        fontFamily: "var(--font-jakarta), sans-serif",       
+        fontFamily: "var(--font-jakarta), sans-serif",
         scrollBehavior: "smooth",
       }}>
 

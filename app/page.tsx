@@ -11,6 +11,7 @@ import Contact from "../components/Contact";
 // import TechStack from "@/components/TechStack";
 import Widget from "@/components/Widget";
 import ChatModal from "@/components/ChatModal";
+import AuditPopup from "@/components/AuditPopup";
 import { useState } from "react";
 // import Footer from "../components/Footer";
 export default function Home() {
@@ -44,6 +45,8 @@ export default function Home() {
             isOpen={isChatOpen}
             onClose={() => setIsChatOpen(false)}
           />
+
+           <AuditPopup /> 
         </div>
       </main>
     </LanguageProvider>
