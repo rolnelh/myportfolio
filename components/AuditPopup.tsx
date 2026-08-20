@@ -2,10 +2,10 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Download, X } from 'lucide-react';
-import { useLanguage } from "../components/Languagecontext";
+import { X } from 'lucide-react';
+import { useLanguage } from "./Languagecontext";
 
-export default function Widget() {
+export default function AuditPopup() {
     const { language } = useLanguage();
     const langKey = language?.toUpperCase() === "EN" ? "EN" : "FR";
     const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +25,7 @@ export default function Widget() {
 
     const t = content[langKey];
 
-    // Animation de vibration continue pour le bouton
+    // Typage explicite en "any" pour éviter les erreurs de build TypeScript
     const shakeAnimation = {
         rotate: [0, -12, 12, -12, 12, 0],
         scale: [1, 1.05, 1, 1.05, 1],
@@ -33,7 +33,7 @@ export default function Widget() {
             duration: 1.2,
             repeat: Infinity,
             repeatDelay: 2,
-            ease: "easeInOut" as const ,
+            ease: "easeInOut" as const
         }
     };
 
@@ -69,6 +69,7 @@ export default function Widget() {
 
                         {/* Corps du message */}
                         <div className="text-center sm:text-left mt-2 space-y-3">
+
                             <h4 className="text-slate-900 font-normal text-base tracking-tight">
                                 {t.title}
                             </h4>
@@ -76,16 +77,16 @@ export default function Widget() {
                                 {t.description}
                             </p>
 
-                            {/* Bouton de téléchargement de l'Ebook */}
+                            {/* Bouton de téléchargement de l'Ebook avec effet Glass */}
                             <a
                                 href="/images/ton-ebook.pdf"
                                 download
-                                className="w-full mt-2 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-sm font-medium transition-colors shadow-sm"
+                                className="w-full mt-2 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900/5 hover:bg-slate-900/10 backdrop-blur-md border border-slate-200/80 text-slate-900 text-sm font-medium transition-all shadow-sm"
                             >
                                 <img
                                     src="/images/download.png"
                                     alt="file"
-                                    className="w-8 h-8 object-cover"
+                                    className="w-5 h-5 object-contain"
                                 />
                                 {t.cta}
                             </a>

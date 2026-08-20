@@ -85,7 +85,7 @@ const Navbar = () => {
                         </div>
 
                         <span className="font-bold text-slate-900 dark:text-white tracking-tight text-base font-serif">
-                            Dieudonné<span className="text-[#FDE08D]">.</span>
+                            Dicode<span className="text-[#FDE08D]">.</span>
                         </span>
                     </a>
 
