@@ -1,180 +1,118 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, Link2, CheckCircle2, ShieldCheck } from 'lucide-react';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
 import { useLanguage } from "../components/Languagecontext";
 
 export default function AuditPopup() {
-    const { language } = useLanguage();
-    const langKey = language?.toUpperCase() === "EN" ? "EN" : "FR";
+  const { language } = useLanguage();
+  const langKey = language?.toUpperCase() === "EN" ? "EN" : "FR";
+  const [isOpen, setIsOpen] = useState(false);
 
-    const [isOpen, setIsOpen] = useState(false);
-    const [websiteUrl, setWebsiteUrl] = useState('');
-    const [isSubmitted, setIsSubmitted] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
+  const content = {
+    EN: {
+      title: "Want to build with AI?",
+      description:
+        "Download my digital guide: 10 ready-to-use prompts, even if you don't know how to code.",
+      cta: "Download Ebook",
+    },
+    FR: {
+      title: "Crée ton site avec l'IA",
+      description:
+        "Télécharge mon guide digital : 10 prompts prêts à l'emploi, même sans savoir coder.",
+      cta: "Télécharger l'Ebook",
+    },
+  };
 
-    // Affichage automatique après 2 secondes
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            const hasClosedPopup = sessionStorage.getItem('audit_popup_closed');
-            if (!hasClosedPopup) {
-                setIsOpen(true);
-            }
-        }, 2000);
+  const t = content[langKey];
 
-        return () => clearTimeout(timer);
-    }, []);
+  // Déclaration de l'animation de vibration (qui manquait)
+  const shakeAnimation = {
+    rotate: [0, -12, 12, -12, 12, 0],
+    scale: [1, 1.05, 1, 1.05, 1],
+    transition: {
+      duration: 1.2,
+      repeat: Infinity,
+      repeatDelay: 2,
+      ease: "easeInOut",
+    },
+  };
 
-    const handleClose = () => {
-        setIsOpen(false);
-        sessionStorage.setItem('audit_popup_closed', 'true');
-    };
+  return (
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+      {/* Pop-up / Carte de message */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            transition={{ duration: 0.2 }}
+            className="relative mb-4 w-72 sm:w-80 bg-white rounded-2xl shadow-2xl border border-slate-100 p-5 pt-10 text-slate-900"
+          >
+            {/* Avatar superposé en haut au centre */}
+            <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full border-4 border-white overflow-hidden shadow-md bg-slate-200">
+              <img
+                src="/images/cmp.jpeg"
+                alt="Dieudonné Houndagnon"
+                className="w-full h-full object-cover"
+              />
+            </div>
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (!websiteUrl) return;
+            {/* Bouton de fermeture */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-3 right-3 text-slate-400 hover:text-slate-600 transition-colors p-1"
+              aria-label="Fermer"
+            >
+              <X size={18} />
+            </button>
 
-        setIsLoading(true);
+            {/* Corps du message */}
+            <div className="text-center sm:text-left mt-2 space-y-3">
+              <h4 className="text-slate-900 font-normal text-base tracking-tight">
+                {t.title}
+              </h4>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                {t.description}
+              </p>
 
-        try {
-            const response = await fetch("https://formspree.io/f/xojybgwq", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ websiteUrl, type: "Demande d'audit gratuit" })
-            });
+              {/* Bouton de téléchargement de l'Ebook avec effet Glass */}
+              <a
+                href="https://losrfvhm.mychariow.market/prd_p9cm1pqt"
+                download
+                className="w-full mt-2 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900/5 hover:bg-slate-900/10 backdrop-blur-md border border-slate-200/80 text-slate-900 text-sm font-medium transition-all shadow-sm"
+              >
+                <img
+                  src="/images/download.png"
+                  alt="file"
+                  className="w-5 h-5 object-contain"
+                />
+                {t.cta}
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-            if (response.ok) {
-                setIsLoading(false);
-                setIsSubmitted(true);
-
-                setTimeout(() => {
-                    setIsOpen(false);
-                    sessionStorage.setItem('audit_popup_closed', 'true');
-                }, 3000);
-            } else {
-                setIsLoading(false);
-                alert("Une erreur est survenue, veuillez réessayer.");
-            }
-
-        } catch (error) {
-            console.error("Erreur lors de l'envoi", error);
-            setIsLoading(false);
-        }
-    };
-
-    const content = {
-        EN: {
-            badge: "Free Offer",
-            title: "Want a Free Website Audit?",
-            description: "Enter your website link below. I will analyze your performance, UI/UX, and SEO, and send the report directly to my inbox.",
-            placeholder: "https://your-website.com",
-            send: "Send Request",
-            sending: "Sending...",
-            success: "Thank you! Your request has been sent successfully."
-        },
-        FR: {
-            badge: "Offre Gratuite",
-            title: "Envie d'un audit gratuit pour votre site ?",
-            description: "Entrez le lien de votre site ci-dessous. J'analyserai vos performances, votre UI/UX et votre SEO, et recevrai votre demande directement.",
-            placeholder: "https://votre-site.com",
-            send: "Envoyer",
-            sending: "Envoi en cours...",
-            success: "Merci ! Votre demande a bien été envoyée."
-        }
-    };
-
-    const t = content[langKey];
-
-    return (
-        <AnimatePresence>
-            {isOpen && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95, y: 15 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.95, y: 15 }}
-                        transition={{ duration: 0.25, ease: "easeOut" }}
-                        className="relative w-full max-w-md bg-white rounded-2xl shadow-xl shadow-slate-200/60 border border-slate-100 p-6 text-slate-900 overflow-hidden"
-                    >
-                        {/* Gradient lumineux très subtil */}
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-red-50/80 rounded-full blur-2xl pointer-events-none -z-10" />
-
-                        {/* Bouton de fermeture */}
-                        <button
-                            onClick={handleClose}
-                            className="absolute top-3.5 right-3.5 text-slate-400 hover:text-slate-600 bg-slate-50 hover:bg-slate-100 p-1.5 rounded-full transition-colors"
-                            aria-label="Fermer"
-                        >
-                            <X size={16} />
-                        </button>
-
-                        {!isSubmitted ? (
-                            <div>
-                                {/* Badge */}
-                                <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-red-50 border border-red-200/60 text-red-500 text-[11px] font-bold uppercase tracking-wider mb-3">
-                                    <ShieldCheck size={13} />
-                                    {t.badge}
-                                </div>
-
-                                <h3 className="text-lg sm:text-xl font-bold tracking-tight text-slate-900 mb-1.5">
-                                    {t.title}
-                                </h3>
-                                <p className="text-slate-500 text-xs sm:text-sm leading-relaxed mb-5">
-                                    {t.description}
-                                </p>
-
-                                <form onSubmit={handleSubmit} className="space-y-3.5">
-                                    <div>
-                                        <label className="block text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-1">
-                                            {langKey === "EN" ? "Enter your link" : "Entrez votre lien"}
-                                        </label>
-                                        <div className="relative flex items-center">
-                                            <span className="absolute left-3 text-slate-400">
-                                                <Link2 size={16} />
-                                            </span>
-                                            <input
-                                                type="url"
-                                                required
-                                                value={websiteUrl}
-                                                onChange={(e) => setWebsiteUrl(e.target.value)}
-                                                placeholder={t.placeholder}
-                                                className="w-full pl-10 pr-4 py-3 bg-slate-50/80 border border-slate-200/80 rounded-xl text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-red-500 focus:bg-white transition-all shadow-2xs"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <button
-                                        type="submit"
-                                        disabled={isLoading}
-                                        className="w-full inline-flex items-center justify-center gap-2 bg-[#ff2a4d] hover:bg-[#e02041] text-white font-medium text-xs sm:text-sm py-3 px-5 rounded-xl transition-all shadow-md shadow-red-500/20 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-70"
-                                    >
-                                        {isLoading ? (
-                                            <span>{t.sending}</span>
-                                        ) : (
-                                            <>
-                                                {t.send} <Send size={14} />
-                                            </>
-                                        )}
-                                    </button>
-                                </form>
-                            </div>
-                        ) : (
-                            <div className="py-6 text-center space-y-3">
-                                <div className="w-12 h-12 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center mx-auto shadow-inner">
-                                    <CheckCircle2 size={24} />
-                                </div>
-                                <h4 className="text-base font-bold text-slate-900">
-                                    {langKey === "EN" ? "Request Sent!" : "Demande envoyée !"}
-                                </h4>
-                                <p className="text-slate-500 text-xs max-w-xs mx-auto">
-                                    {t.success}
-                                </p>
-                            </div>
-                        )}
-                    </motion.div>
-                </div>
-            )}
-        </AnimatePresence>
-    );
+      {/* Conteneur du bouton principal */}
+      <div className="flex items-center gap-3">
+        <motion.button
+          onClick={() => setIsOpen(!isOpen)}
+          animate={shakeAnimation}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          className="w-14 h-14 rounded-full overflow-hidden border-2 border-white bg-slate-100 flex items-center justify-center shadow-xl shadow-orange-500/30 transition-colors focus:outline-none"
+          aria-label="Ouvrir le menu"
+        >
+          <img
+            src="/images/stationary.png"
+            alt="file"
+            className="w-full h-full object-cover"
+          />
+        </motion.button>
+      </div>
+    </div>
+  );
 }

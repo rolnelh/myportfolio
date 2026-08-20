@@ -8,8 +8,9 @@ import { useLanguage } from "../Languagecontext";
 const content = {
     EN: {
         nav: [
-            { label: "Work", href: "#projects" },
+            { label: "About", href: "#about" },
             { label: "Services", href: "#services" },
+            { label: "Work", href: "#projects" },
             { label: "Contact", href: "#contact" },
         ],
         cta: "Get in touch",
@@ -17,8 +18,9 @@ const content = {
     },
     FR: {
         nav: [
-            { label: "Projets", href: "#projects" },
+            { label: "À propos", href: "#about" },
             { label: "Services", href: "#services" },
+            { label: "Projets", href: "#projects" },
             { label: "Contact", href: "#contact" },
         ],
         cta: "Prendre contact",
@@ -27,7 +29,6 @@ const content = {
 };
 
 const Navbar = () => {
-    // Correction ici : on récupère aussi setLanguage depuis le hook
     const { language, setLanguage } = useLanguage();
 
     const lang = language === "EN" ? "EN" : "FR";
@@ -59,23 +60,23 @@ const Navbar = () => {
                 duration: 0.6,
                 ease: [0.16, 1, 0.3, 1],
             }}
-            className="fixed top-4 left-0 right-0 z-[9999] px-4"
+            className={`fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-300 ${scrolled ? "pt-4 px-4" : "p-4 w-full"
+                }`}
         >
             <div
-                className={`max-w-7xl mx-auto transition-all duration-300 rounded-2xl border
-                ${scrolled
-                        ? "bg-white/90 backdrop-blur-md border-slate-200/80 shadow-lg shadow-slate-200/50 py-3 px-6"
-                        : "bg-white/70 backdrop-blur-sm border-slate-200/50 py-4 px-6"
+                className={`mx-auto w-full transition-all duration-300 ${scrolled
+                        ? "max-w-4xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200/80 dark:border-slate-800 py-2.5 px-6 rounded-full shadow-lg shadow-slate-900/5"
+                        : "max-w-7xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm border border-transparent py-4 px-6 rounded-2xl"
                     }`}
             >
                 <div className="flex items-center justify-between">
 
-                    {/* Logo */}
+                    {/* Logo (Gauche) */}
                     <a
                         href="#"
                         className="flex items-center gap-3 group"
                     >
-                        <div className="w-9 h-9 rounded-full overflow-hidden border border-slate-200 shadow-sm">
+                        <div className="w-9 h-9 rounded-full overflow-hidden border border-slate-200 dark:border-slate-700">
                             <img
                                 src="/images/cmp.jpeg"
                                 alt="Dieudonné"
@@ -83,25 +84,30 @@ const Navbar = () => {
                             />
                         </div>
 
-                        <span className="font-bold text-slate-900 tracking-tight text-base">
-                            Dieudonné
+                        <span className="font-bold text-slate-900 dark:text-white tracking-tight text-base font-serif">
+                            Dieudonné<span className="text-[#FDE08D]">.</span>
                         </span>
                     </a>
 
-                    {/* Desktop Navigation */}
-                    <nav className="hidden md:flex items-center gap-8">
+                    {/* Desktop Navigation en capsule (Centre) */}
+                    <nav className="hidden md:flex items-center gap-1 bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 rounded-full px-4 py-1">
                         {t.nav.map((item) => (
                             <a
                                 key={item.href}
                                 href={item.href}
                                 className="
+                                    tracking-[0.1em]
+                                    text-slate-700 
+                                    dark:text-slate-300
+                                    font-medium 
                                     text-xs
-                                    uppercase
-                                    tracking-[0.14em]
-                                    font-bold
-                                    text-slate-600
                                     hover:text-slate-900
+                                    dark:hover:text-white
                                     transition-colors
+                                    px-3 py-1
+                                    rounded-full
+                                    hover:bg-white
+                                    dark:hover:bg-slate-700
                                 "
                             >
                                 {item.label}
@@ -109,8 +115,8 @@ const Navbar = () => {
                         ))}
                     </nav>
 
-                    {/* Desktop Actions */}
-                    <div className="hidden md:flex items-center gap-5">
+                    {/* Desktop Actions (Droite) */}
+                    <div className="hidden md:flex items-center gap-3">
                         <button
                             onClick={toggleLanguage}
                             className="
@@ -118,9 +124,14 @@ const Navbar = () => {
                                 font-bold
                                 tracking-widest
                                 text-slate-600
+                                dark:text-slate-300
                                 hover:text-slate-900
+                                dark:hover:text-white
                                 transition-colors
-                                px-2 py-1
+                                px-2.5 py-1.5
+                                rounded-lg
+                                hover:bg-slate-100
+                                dark:hover:bg-slate-800
                             "
                         >
                             {t.switchTo}
@@ -136,23 +147,21 @@ const Navbar = () => {
                                 items-center
                                 gap-2
                                 rounded-full
-                                bg-[#ff2a4d]
-                                text-white
-                                px-6
-                                py-2.5
-                                text-sm
+                                bg-[#FDE08D]
+                                text-slate-900
+                                px-5
+                                py-2
+                                text-xs
                                 font-semibold
-                                shadow-md
-                                shadow-red-500/20
-                                hover:bg-[#e02041]
+                                hover:bg-[#fcd34d]
                                 transition-all
-                                hover:scale-[1.02]
+                                shadow-2xs
                             "
                         >
                             {t.cta}
 
                             <ArrowRight
-                                size={15}
+                                size={14}
                                 className="
                                     transition-transform
                                     group-hover:translate-x-1
@@ -161,28 +170,20 @@ const Navbar = () => {
                         </a>
                     </div>
 
-                    {/* Mobile Button */}
-                    <div className="md:hidden flex items-center gap-4">
+                    {/* Mobile Button & Langue */}
+                    <div className="md:hidden flex items-center gap-3">
                         <button
                             onClick={toggleLanguage}
-                            className="
-                                text-xs
-                                font-bold
-                                text-slate-700
-                            "
+                            className="text-xs font-bold text-slate-700 dark:text-slate-300 px-2 py-1"
                         >
                             {t.switchTo}
                         </button>
 
                         <button
                             onClick={() => setMobileOpen(!mobileOpen)}
-                            className="text-slate-900 p-1"
+                            className="text-slate-900 dark:text-white p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
                         >
-                            {mobileOpen ? (
-                                <X size={22} />
-                            ) : (
-                                <Menu size={22} />
-                            )}
+                            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
                         </button>
                     </div>
                 </div>
@@ -191,40 +192,28 @@ const Navbar = () => {
                 <AnimatePresence>
                     {mobileOpen && (
                         <motion.div
-                            initial={{
-                                opacity: 0,
-                                height: 0,
-                            }}
-                            animate={{
-                                opacity: 1,
-                                height: "auto",
-                            }}
-                            exit={{
-                                opacity: 0,
-                                height: 0,
-                            }}
-                            transition={{
-                                duration: 0.3,
-                            }}
-                            className="
-                                md:hidden
-                                overflow-hidden
-                            "
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="md:hidden overflow-hidden"
                         >
-                            <div className="pt-6 pb-4 border-t border-slate-100 mt-4">
-                                <div className="flex flex-col gap-4">
+                            <div className="pt-5 pb-3 border-t border-slate-100 dark:border-slate-800 mt-4">
+                                <div className="flex flex-col gap-2">
                                     {t.nav.map((item) => (
                                         <a
                                             key={item.href}
                                             href={item.href}
-                                            onClick={() =>
-                                                setMobileOpen(false)
-                                            }
+                                            onClick={() => setMobileOpen(false)}
                                             className="
                                                 text-slate-800
-                                                text-base
+                                                dark:text-slate-200
+                                                text-sm
                                                 font-medium
-                                                hover:text-[#ff2a4d]
+                                                px-3 py-2
+                                                rounded-lg
+                                                hover:bg-slate-100
+                                                dark:hover:bg-slate-800
                                                 transition-colors
                                             "
                                         >
@@ -233,12 +222,10 @@ const Navbar = () => {
                                     ))}
 
                                     <a
-                                        href="https://calendar.google.com/calendar/appointments/surtout_votre_lien_ici"
+                                        href="https://calendar.app.google/XwfDAm67pz7uL7pV8"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        onClick={() =>
-                                            setMobileOpen(false)
-                                        }
+                                        onClick={() => setMobileOpen(false)}
                                         className="
                                             mt-2
                                             inline-flex
@@ -246,16 +233,14 @@ const Navbar = () => {
                                             justify-center
                                             gap-2
                                             rounded-full
-                                            bg-[#ff2a4d]
-                                            text-white
-                                            py-3
+                                            bg-[#FDE08D]
+                                            text-slate-900
+                                            py-2.5
                                             font-semibold
-                                            text-sm
-                                            shadow-md
-                                            shadow-red-500/20
+                                            text-xs
                                         "
                                     >
-                                        {t.cta} <ArrowRight size={15} />
+                                        {t.cta} <ArrowRight size={14} />
                                     </a>
                                 </div>
                             </div>

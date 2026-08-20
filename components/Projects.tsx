@@ -1,206 +1,244 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { ExternalLink, ArrowRight } from "lucide-react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUpRight, CheckCircle2, AlertCircle, Cpu } from "lucide-react";
 import { useLanguage } from "../components/Languagecontext";
 
-interface Project {
-    title: string;
-    description: string;
-    image: string;
+interface ProjectCaseStudy {
+    id: string;
+    badgeImage: string;
+    title: { EN: string; FR: string };
+    subtitle: { EN: string; FR: string };
+    problem: { EN: string; FR: string };
+    solution: { EN: string; FR: string };
+    techStack: string[];
     link: string;
-    technologies: string[];
+    mainImage: string;
 }
 
-const projectsData: Record<"EN" | "FR", Project[]> = {
-    EN: [
-        {
-            title: "L'Expo",
-            description: "A SaaS platform & digital showcase for African artisans and creators. It allows users to generate a professional, interactive, and optimized catalog in under 2 minutes, with no technical skills required. Designed with a guided, smooth, and responsive user journey.",
-            image: "/images/lexpo-desktop.png",
-            link: "https://lexpo-gallery.vercel.app",
-            technologies: ["React.js", "TypeScript", "Tailwind CSS"],
+const projectsData: ProjectCaseStudy[] = [
+    {
+        id: "mefolio",
+        badgeImage: "/images/ampoule.png",
+        title: { EN: "MeFolio Platform", FR: "Plateforme MeFolio" },
+        subtitle: { EN: "A modern developer portfolio and management tool.", FR: "Un portfolio de développeur moderne et outil de gestion." },
+        problem: {
+            EN: "Developers struggle to showcase their projects, experience, and custom branding seamlessly in one fast, maintainable web interface.",
+            FR: "Les développeurs ont du mal à présenter leurs projets, expériences et image de marque de manière fluide dans une interface web rapide."
         },
-        {
-            title: "Mefolio Platform",
-            description: "The first African platform for creative talent — professional portfolios & project management in one ecosystem. I designed and built a full-stack platform from scratch — a clean, fast, and mobile-optimized ecosystem where creatives can build their portfolio, manage client projects, and get discovered, optimized for low-bandwidth connections.",
-            image: "/images/mefolio.webp",
-            link: "https://mefolio-z6n9.onrender.com/",
-            technologies: ["Laravel", "Tailwind CSS", "MySQL", "JavaScript"],
+        solution: {
+            EN: "Migrated to a robust decoupled architecture utilizing a Laravel API backend hosted on Render and a high-performance Next.js frontend deployed on Vercel.",
+            FR: "Migration vers une architecture découplée robuste utilisant une API Laravel hébergée sur Render et un frontend Next.js haute performance."
         },
+        techStack: ["Next.js", "Laravel API", "Tailwind CSS", "Render", "Vercel"],
+        link: "https://your-mefolio-link.com",
+        mainImage: "/images/mefolio.webp"
+    },
+    {
+        id: "lexpo",
+        badgeImage: "/images/artisanal.png",
+        title: { EN: "L'Expo Digital Gallery", FR: "Galerie Numérique L'Expo" },
+        subtitle: { EN: "A digital exhibition showcasing talented local artisans.", FR: "Une exposition numérique mettant en valeur les artisans locaux." },
+        problem: {
+            EN: "Local artisans lack a modern digital gallery space to exhibit their product catalogs and reach a wider audience online.",
+            FR: "La coordination de la participation aux événements locaux et l'engagement communautaire manquent de fluidité numérique."
+        },
+        solution: {
+            EN: "Platform SaaS & digital showcase dedicated to African artisans and creators. Allows generating a professional interactive and optimized catalog in under 2 minutes without technical skills required.",
+            FR: "Plateforme SaaS & vitrine digitale dédiée aux artisans et créateurs africains. Permet de générer un catalogue professionnel interactif et optimisé en moins de 2 minutes sans compétences techniques requises."
+        },
+        techStack: ["React", "Tailwind CSS", "Node.js", "Vercel"],
+        link: "https://lexpo-gallery.vercel.app/",
+        mainImage: "/images/expo.webp"
+    },
+    {
+        id: "Refonte",
+        badgeImage: "/images/refonte.png",
+        title: { EN: "Redesign of the Gozem Platform", FR: "Refonte de la plateforme Gozem" },
+        subtitle: { EN: "A digital exhibition showcasing talented local artisans.", FR: "Une exposition numérique mettant en valeur les artisans locaux." },
+        problem: {
+            EN: "Local artisans lack a modern digital gallery space to exhibit their product catalogs and reach a wider audience online.",
+            FR: "Les artisans locaux manquent d'un espace de galerie numérique moderne pour exposer leurs catalogues de produits en ligne."
+        },
+        solution: {
+            EN: "Built a sleek React and Tailwind CSS digital exhibition platform featuring high-fidelity product cards and seamless deployment.",
+            FR: "Conception d'une plateforme d'exposition numérique épurée en React et Tailwind CSS avec des fiches produits haute fidélité."
+        },
+        techStack: ["React", "Tailwind CSS", "Vercel Analytics", "Formspree"],
+        link: "https://rolnelh.github.io/gozem-refonte/",
+        mainImage: "/images/zemgo.webp"
+    },
+    {
+        id: "Dashboard",
+        badgeImage: "/images/donnes.png",
+        title: { EN: "Dashboard Admin", FR: "Tableau de bord administratif" },
+        subtitle: { EN: "Interactive admin dashboard for performance tracking and analytics.", FR: "Interface admin interactive pour le suivi des performances et l'analytique." },
+        problem: {
+            EN: "Local artisans lack a modern digital gallery space to exhibit their product catalogs and reach a wider audience online.",
+            FR: "Les artisans locaux manquent d'un espace de galerie numérique moderne pour exposer leurs catalogues de produits en ligne."
+        },
+        solution: {
+            EN: "Interactive admin dashboard for performance tracking, product management, and real-time analytics. Critical KPIs visible immediately upon loading.",
+            FR: "Interface admin intuitive pour le suivi des performances, la gestion des produits et l'analytique temps réel. KPIs critiques visibles immédiatement au chargement.."
+        },
+        techStack: ["React", "Tailwind CSS", "Vercel Analytics", "Formspree"],
+        link: "https://dashboard-nextjs-pi-ten.vercel.app/dashboard",
+        mainImage: "/images/dash.webp"
+    }
+];
 
-        {
-            title: "Gozem Web Experience",
-            description: "A strategic UI overhaul focused on restructuring the web platform for a seamless and premium user experience. I completely redesigned the platform, focusing on a logical section architecture and full responsiveness, integrating a new typographic hierarchy and a 'Pixel-Perfect' finish.",
-            image: "/images/bbbb.png",
-            link: "https://rolnelh.github.io/gozem-refonte/",
-            technologies: ["React", "Tailwind CSS", "Figma", "UI Design"],
-        },
-        {
-            title: "Admin Dashboard",
-            description: "Intuitive admin interface for performance tracking, product management, and real-time sales analytics. Rebuilt from scratch with a focus on information hierarchy where the most critical KPIs are visible immediately on load.",
-            image: "/images/dash.webp",
-            link: "https://dashboard-nextjs-pi-ten.vercel.app/dashboard",
-            technologies: ["Next.js 15", "Lucide React", "Shadcn", "Tailwind CSS"],
-        },
-        {
-            title: "My Portfolio",
-            description: "Minimalist, high-speed showcase — 100% Lighthouse score for SEO & Best Practices. Redesigned with a conversion-first mindset featuring clear service packages, social proof, and bilingual support.",
-            image: "/images/pp.webp",
-            link: "https://dieudonne-dev.vercel.app/",
-            technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion"],
-        },
-        {
-            title: "ANIP Bénin – E-services Redesign",
-            description: "Complete UI/UX overhaul of the National Identification Agency — mobile-first, simplified citizen journeys. I redesigned the entire platform with a mobile-first approach, simplified the service access flow, built a clean dashboard for tracking request status, and reduced the number of screens required to complete core tasks.",
-            image: "/images/anip_refonte.webp",
-            link: "https://anip-eservices-redesign-koy3.vercel.app/dashboard",
-            technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Dashboard Architecture"],
-        },
-    ],
-    FR: [
-
-        {
-            title: "L'Expo",
-            description: "Plateforme SaaS & vitrine digitale dédiée aux artisans et créateurs africains. Permet de générer un catalogue professionnel interactif et optimisé en moins de 2 minutes sans compétences techniques requises.",
-            image: "/images/expo.webp",
-            link: "https://lexpo-gallery.vercel.app",
-            technologies: ["React.js", "Next.js", "Tailwind CSS", "Laravel", "REST API", "PostgreSQL"],
-        },
-        {
-            title: "Mefolio Platform",
-            description: "La première plateforme africaine dédiée aux créatifs — portfolios professionnels & gestion de projets. Application full-stack conçue from scratch, rapide, mobile-optimisée et adaptée aux connexions faibles en Afrique de l'Ouest.",
-            image: "/images/mefolio.webp",
-            link: "https://mefolio-z6n9.onrender.com/",
-            technologies: ["Laravel", "Tailwind CSS", "MySQL", "JavaScript"],
-        },
-        {
-            title: "Gozem Web Experience",
-            description: "Modernisation et restructuration complète de l'interface web pour une expérience utilisateur fluide et premium. Structure logique, responsivité mobile-first et rendu Pixel-Perfect.",
-            image: "/images/zemgo.webp",
-            link: "https://rolnelh.github.io/gozem-refonte/",
-            technologies: ["React", "Tailwind CSS", "Figma", "UI Design"],
-        },
-        {
-            title: "Dashboard Admin",
-            description: "Interface admin intuitive pour le suivi des performances, la gestion des produits et l'analytique temps réel. KPIs critiques visibles immédiatement au chargement.",
-            image: "/images/dash.webp",
-            link: "https://dashboard-nextjs-pi-ten.vercel.app/dashboard",
-            technologies: ["Next.js 15", "Lucide React", "Shadcn", "Tailwind CSS"],
-        },
-        {
-            title: "Mon Portfolio",
-            description: "Vitrine minimaliste et rapide — score Lighthouse 100% en SEO & Bonnes Pratiques. Approche conversion-first, packs de services clairs et support bilingue EN/FR.",
-            image: "/images/pp.webp",
-            link: "https://dieudonne-dev.vercel.app/",
-            technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion"],
-        },
-        {
-            title: "ANIP Bénin – Refonte E-services",
-            description: "Refonte complète UI/UX du portail de l'Agence Nationale d'Identification — mobile-first. Redesign complet de la plateforme avec simplification de l'accès aux services, dashboard propre pour le suivi et réduction du nombre d'écrans.",
-            image: "/images/anip_refonte.webp",
-            link: "https://anip-eservices-redesign-koy3.vercel.app/dashboard",
-            technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Dashboard Architecture"],
-        },
-    ],
-};
-
-export default function Projects() {
+export default function FeaturedProjects() {
     const { language } = useLanguage();
-    const lang = language === "EN" ? "EN" : "FR";
-    const projects = projectsData[lang];
+    const langKey = language?.toUpperCase() === "EN" ? "EN" : "FR";
+    const [activeTab, setActiveTab] = useState(projectsData[0].id);
+
+    const currentProject = projectsData.find(p => p.id === activeTab) || projectsData[0];
 
     return (
         <section id="projects" className="py-28 px-6 bg-slate-50/60 text-slate-900 transition-colors duration-300">
             <div className="max-w-7xl mx-auto">
 
-                {/* Section Header */}
-                <div className="mb-20 space-y-4">
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-200/60 border border-slate-300/60 text-xs font-bold uppercase tracking-[0.2em] text-slate-700">
-                        {language === "EN" ? "Our Work" : "Nos Projets"}
+                {/* En-tête */}
+                <div className="mb-14 text-center space-y-4">
+                    <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-slate-200/60 border border-slate-300/60 text-xs font-bold uppercase tracking-[0.2em] text-slate-700 shadow-2xs">
+                        {langKey === "EN" ? "Portfolio" : "Réalisations"}
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900" style={{ fontFamily: "'Syne', sans-serif" }}>
-                        {language === "EN" ? "Projects We've Shipped" : "Mes Réalisations & Projets"}
+                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 font-serif">
+                        {langKey === "EN" ? "Backed by real work." : "Soutenu par des projets concrets."}
                     </h2>
-                    <p className="text-slate-600 max-w-2xl text-base leading-relaxed">
-                        {language === "EN"
-                            ? "A curated selection of high-impact web apps, SaaS products, and digital experiences built for scale."
-                            : "Une sélection rigoureuse d'applications web à fort impact, de produits SaaS et d'expériences digitales conçues pour performer."}
+                    <p className="text-slate-600 text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed">
+                        {langKey === "EN"
+                            ? "A curated collection of websites designed with care."
+                            : "Une collection soignée de sites web conçus avec attention."}
                     </p>
+
+                    {/* Onglets */}
+                    <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
+                        {projectsData.map((proj) => (
+                            <button
+                                key={proj.id}
+                                onClick={() => setActiveTab(proj.id)}
+                                className={`px-6 py-2.5 rounded-full text-xs font-medium transition-all duration-300 border ${activeTab === proj.id
+                                    ? "bg-slate-900 text-white border-slate-900 shadow-sm"
+                                    : "bg-white text-slate-600 border-slate-200 hover:border-slate-300 hover:text-slate-900"
+                                    }`}
+                            >
+                                {proj.title[langKey]}
+                            </button>
+                        ))}
+                    </div>
                 </div>
 
-                {/* Projects Grid matching Agency Card Style */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
-                    {projects.map((project, index) => (
+                {/* Conteneur principal */}
+                <div className="bg-white border border-slate-200/80 rounded-[2.5rem] p-8 sm:p-12 shadow-sm relative overflow-hidden">
+
+                    <AnimatePresence mode="wait">
                         <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group bg-white border border-slate-200/80 rounded-3xl p-8 md:p-10 shadow-sm hover:shadow-xl hover:border-slate-300 transition-all duration-300 flex flex-col justify-between"
+                            key={currentProject.id}
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -15 }}
+                            transition={{ duration: 0.35 }}
                         >
-                            {/* Top Content: Title & Action Link */}
-                            <div>
-                                <div className="flex items-start justify-between gap-4 mb-4">
-                                    <h3 className="text-2xl md:text-3xl font-bold text-slate-900 group-hover:text-[#ff2a4d] transition-colors" style={{ fontFamily: "'Syne', sans-serif" }}>
-                                        {project.title}
-                                    </h3>
-                                    <a
-                                        href={project.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-700 group-hover:bg-[#ff2a4d] group-hover:text-white group-hover:border-[#ff2a4d] transition-all shrink-0"
-                                        aria-label="View project link"
-                                    >
-                                        <ExternalLink size={18} />
-                                    </a>
-                                </div>
-
-                                <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-6">
-                                    {project.description}
-                                </p>
-
-                                {/* Technologies Badges */}
-                                <div className="flex flex-wrap gap-2 mb-8">
-                                    {project.technologies.map((tech, techIdx) => (
-                                        <span
-                                            key={techIdx}
-                                            className="text-[11px] font-semibold tracking-wide bg-slate-100 text-slate-700 px-3 py-1 rounded-full border border-slate-200/60"
-                                        >
-                                            {tech}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Image Preview Container inside Card */}
-                            <div className="mt-auto pt-6 border-t border-slate-100">
-                                <div className="aspect-[16/10] overflow-hidden rounded-2xl bg-slate-100 border border-slate-200/60 relative group/img">
+                            {/* Titre et description du projet sélectionné */}
+                            <div className="flex items-center gap-3 mb-3">
+                                <div className="w-9 h-9 rounded-xl bg-white border border-slate-200/60 flex items-center justify-center shadow-2xs overflow-hidden p-1.5">
                                     <img
-                                        src={project.image}
-                                        alt={project.title}
-                                        className="w-full h-full object-cover object-top group-hover/img:scale-105 transition-transform duration-700 ease-out"
+                                        src={currentProject.badgeImage}
+                                        alt="Logo"
+                                        className="w-full h-full object-contain"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300" />
+                                </div>
+                                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 font-serif">
+                                    {currentProject.title[langKey]}
+                                </h3>
+                            </div>
+
+                            <p className="text-slate-600 text-sm sm:text-base font-light max-w-3xl mb-10 leading-relaxed">
+                                {currentProject.subtitle[langKey]}
+                            </p>
+
+                            {/* Grille de 4 cartes distinctes côte à côte */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 items-stretch">
+
+                                {/* Carte 1 : Image du projet */}
+                                <div className="bg-slate-50/80 border border-slate-200/70 rounded-3xl p-5 flex flex-col justify-between overflow-hidden group shadow-2xs">
+                                    <div className="w-full aspect-[16/11] rounded-2xl overflow-hidden relative border border-slate-100 shadow-inner mb-3">
+                                        <img
+                                            src={currentProject.mainImage}
+                                            alt={currentProject.title[langKey]}
+                                            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                                        />
+                                    </div>
+                                    <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider text-center">
+                                        {langKey === "EN" ? "Project Preview" : "Aperçu"}
+                                    </span>
                                 </div>
 
-                                <div className="mt-6 flex items-center justify-between">
-                                    <a
-                                        href={project.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 text-sm font-bold text-slate-900 group-hover:text-[#ff2a4d] transition-colors"
-                                    >
-                                        <span>{language === "EN" ? "See Project" : "Voir le projet"}</span>
-                                        <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                                    </a>
+                                {/* Carte 2 : Le Problème */}
+                                <div className="bg-slate-50/80 border border-slate-200/70 rounded-3xl p-6 flex flex-col justify-between shadow-2xs">
+                                    <div>
+                                        <div className="flex items-center gap-2 text-rose-600 font-semibold text-xs uppercase tracking-wider mb-4">
+                                            <AlertCircle size={16} />
+                                            <span>{langKey === "EN" ? "The Problem" : "Le Problème"}</span>
+                                        </div>
+                                        <p className="text-slate-600 text-sm font-light leading-relaxed">
+                                            {currentProject.problem[langKey]}
+                                        </p>
+                                    </div>
                                 </div>
+
+                                {/* Carte 3 : La Solution */}
+                                <div className="bg-slate-50/80 border border-slate-200/70 rounded-3xl p-6 flex flex-col justify-between shadow-2xs">
+                                    <div>
+                                        <div className="flex items-center gap-2 text-emerald-600 font-semibold text-xs uppercase tracking-wider mb-4">
+                                            <CheckCircle2 size={16} />
+                                            <span>{langKey === "EN" ? "The Solution" : "La Solution"}</span>
+                                        </div>
+                                        <p className="text-slate-600 text-sm font-light leading-relaxed">
+                                            {currentProject.solution[langKey]}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Carte 4 : Stack Technique */}
+                                <div className="bg-slate-50/80 border border-slate-200/70 rounded-3xl p-6 flex flex-col justify-between shadow-2xs">
+                                    <div>
+                                        <div className="flex items-center gap-2 text-amber-600 font-semibold text-xs uppercase tracking-wider mb-4">
+                                            <Cpu size={16} />
+                                            <span>{langKey === "EN" ? "Tech Stack" : "Technologies"}</span>
+                                        </div>
+                                        <div className="flex flex-wrap gap-1.5 pt-1">
+                                            {currentProject.techStack.map((tech, i) => (
+                                                <span key={i} className="px-3 py-1.5 rounded-xl bg-white border border-slate-200/80 text-slate-700 text-xs font-medium shadow-2xs">
+                                                    {tech}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
+
                         </motion.div>
-                    ))}
+                    </AnimatePresence>
+
+                    {/* Bouton "View Live" centré avec ta couleur */}
+                    <div className="flex justify-center pt-2">
+                        <a
+                            href={currentProject.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#FDE08D] hover:bg-[#fcd34d] text-slate-900 font-semibold text-sm transition-all duration-300 shadow-sm hover:shadow group"
+                        >
+                            <span>{langKey === "EN" ? "View Live" : "Voir le projet en direct"}</span>
+                            <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        </a>
+                    </div>
+
                 </div>
+
             </div>
         </section>
     );
