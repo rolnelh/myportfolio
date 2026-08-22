@@ -17,7 +17,7 @@ export default function AuditPopup() {
             cta: "Download Ebook"
         },
         FR: {
-            title: "Crée ton site avec l'IA",
+            title: "Vous voulez construire avec l'IA ?",
             description: "Télécharge mon guide digital : 10 prompts prêts à l'emploi, même sans savoir coder.",
             cta: "Télécharger l'Ebook"
         }
