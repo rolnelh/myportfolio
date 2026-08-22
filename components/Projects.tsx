@@ -32,7 +32,7 @@ const projectsData: ProjectCaseStudy[] = [
             FR: "Migration vers une architecture découplée robuste utilisant une API Laravel hébergée sur Render et un frontend Next.js haute performance."
         },
         techStack: ["Next.js", "Laravel API", "Tailwind CSS", "Render", "Vercel"],
-        link: "https://your-mefolio-link.com",
+        link: "https://mefolio-z6n9.onrender.com/",
         mainImage: "/images/mefolio.webp"
     },
     {
