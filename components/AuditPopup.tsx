@@ -79,7 +79,7 @@ export default function AuditPopup() {
 
                             {/* Bouton de téléchargement de l'Ebook avec effet Glass */}
                             <a
-                                href="/images/ton-ebook.pdf"
+                                href="https://losrfvhm.mychariow.market/prd_p9cm1pqt" target="_blank" rel="noopener noreferrer"
                                 download
                                 className="w-full mt-2 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900/5 hover:bg-slate-900/10 backdrop-blur-md border border-slate-200/80 text-slate-900 text-sm font-medium transition-all shadow-sm"
                             >

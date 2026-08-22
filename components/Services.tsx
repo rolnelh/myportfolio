@@ -59,7 +59,7 @@ export default function Services() {
                 {
                     title: "Refonte de site",
                     description: "Donnez à votre plateforme existante une interface fraîche, professionnelle et axée sur la conversion.",
-                    image: "/images/service.png",
+                    image: "/images/beforafter.png",
                 },
                 {
                     title: "Optimisation & Performance",
