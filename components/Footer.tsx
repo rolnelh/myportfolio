@@ -26,7 +26,7 @@ export default function Footer() {
             socials: [
                 { name: "GitHub", href: "https://github.com/rolnelh" },
                 { name: "LinkedIn", href: "https://www.linkedin.com/in/dieudonn%C3%A9-houndagnon-093387250" },
-                { name: "Twitter", href: "https://twitter.com" },
+                { name: "Threads", href: "https://www.threads.com/@dsquare_09" },
             ],
             rights: "© 2026 Dieudonné Houndagnon. All rights reserved."
         },
@@ -48,7 +48,7 @@ export default function Footer() {
             socials: [
                 { name: "GitHub", href: "https://github.com/rolnelh" },
                 { name: "LinkedIn", href: "https://www.linkedin.com/in/dieudonn%C3%A9-houndagnon-093387250" },
-                { name: "Twitter", href: "https://twitter.com" },
+                { name: "Threads", href: "https://www.threads.com/@dsquare_09" },
             ],
             rights: "© 2026 Dieudonné Houndagnon."
         }
