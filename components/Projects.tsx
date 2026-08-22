@@ -101,11 +101,11 @@ export default function FeaturedProjects() {
 
                 {/* En-tête */}
                 <div className="mb-14 text-center space-y-4">
-                    <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-slate-200/60 border border-slate-300/60 text-xs font-bold uppercase tracking-[0.2em] text-slate-700 shadow-2xs">
+                    <div className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.2em] text-slate-700 shadow-2xs">
                         {langKey === "EN" ? "Portfolio" : "Réalisations"}
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 font-serif">
-                        {langKey === "EN" ? "Backed by real work." : "Soutenu par des projets concrets."}
+                        {langKey === "EN" ? "Discover My Work." : "Découvrez une sélection de mes projets."}
                     </h2>
                     <p className="text-slate-600 text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed">
                         {langKey === "EN"

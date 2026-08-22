@@ -82,7 +82,7 @@ export default function About() {
     <section id="about" className="py-24 px-6 max-w-7xl mx-auto">
       {/* En-tête de section */}
       <div className="text-center max-w-2xl mx-auto mb-16">
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -91,7 +91,7 @@ export default function About() {
           <span className="text-xs font-bold uppercase tracking-widest text-slate-700">
             {t.badge}
           </span>
-        </motion.div>
+        </motion.div> */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

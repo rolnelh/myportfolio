@@ -157,10 +157,10 @@ export default function Services() {
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
 
                         <div className="lg:col-span-7 space-y-5">
-                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100/50 border border-amber-200/50 text-xs font-bold text-amber-800">
+                            {/* <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100/50 border border-amber-200/50 text-xs font-bold text-amber-800">
                                 <Bot size={14} />
                                 {t.aiTakeover.badge}
-                            </div>
+                            </div> */}
                             <h3 className="text-3xl md:text-4xl font-serif font-medium text-slate-900 tracking-tight">
                                 {t.aiTakeover.title}
                             </h3>

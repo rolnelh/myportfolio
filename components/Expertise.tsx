@@ -119,9 +119,9 @@ export default function Expertise() {
 
                 {/* En-tête centré */}
                 <div className="mb-20 text-center space-y-4 max-w-2xl mx-auto">
-                    <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-slate-200/60 border border-slate-300/60 text-xs font-bold uppercase tracking-[0.2em] text-slate-700 shadow-2xs">
+                    {/* <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-slate-200/60 border border-slate-300/60 text-xs font-bold uppercase tracking-[0.2em] text-slate-700 shadow-2xs">
                         {t.badge}
-                    </div>
+                    </div> */}
                     <h2 className="text-3xl md:text-4xl font-normal tracking-tight text-slate-900 font-serif">
                         {t.title}
                     </h2>
