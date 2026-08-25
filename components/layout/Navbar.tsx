@@ -84,7 +84,7 @@ const Navbar = () => {
                             />
                         </div>
 
-                        <span className="font-bold text-slate-900 dark:text-white tracking-tight text-base font-serif">
+                        <span className="text-slate-900 dark:text-white tracking-tight text-lg italic font-serif">
                             Dicode<span className="text-[#FDE08D]">.</span>
                         </span>
                     </a>

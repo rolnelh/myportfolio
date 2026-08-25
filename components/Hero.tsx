@@ -31,10 +31,10 @@ export default function Hero() {
     const t = content[langKey];
 
     return (
-        <section className="relative flex flex-col items-center justify-center px-6 max-w-5xl mx-auto pt-36 pb-20 text-center bg-white text-slate-900">
+        <section className="relative flex flex-col items-center justify-center px-6 max-w-5xl mx-auto pt-34 pb-20 text-center bg-white text-slate-900">
 
             {/* Contenu Centré Style Éditorial */}
-            <div className="relative z-10 w-full mt-2 flex flex-col items-center space-y-6">
+            <div className="relative z-10 w-full mt-8 flex flex-col items-center space-y-6">
 
                 {/* Petit Badge supérieur */}
                 {/* <motion.div

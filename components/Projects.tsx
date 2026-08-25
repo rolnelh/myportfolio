@@ -24,12 +24,12 @@ const projectsData: ProjectCaseStudy[] = [
         title: { EN: "MeFolio Platform", FR: "Plateforme MeFolio" },
         subtitle: { EN: "A modern developer portfolio and management tool.", FR: "Un portfolio de développeur moderne et outil de gestion." },
         problem: {
-            EN: "Developers struggle to showcase their projects, experience, and custom branding seamlessly in one fast, maintainable web interface.",
-            FR: "Les développeurs ont du mal à présenter leurs projets, expériences et image de marque de manière fluide dans une interface web rapide."
+            EN: "African creatives need a modern platform tailored to their needs to showcase their projects, experiences, and personalized branding, comment, and interact with their audience.",
+            FR: "Les créatifs africians ont besoin d'une plateforme moderne adaptée à leurs besoins pour présenter leurs projets, expériences et branding personnalisé, commenter et interagir avec leur audience."
         },
         solution: {
-            EN: "Migrated to a robust decoupled architecture utilizing a Laravel API backend hosted on Render and a high-performance Next.js frontend deployed on Vercel.",
-            FR: "Migration vers une architecture découplée robuste utilisant une API Laravel hébergée sur Render et un frontend Next.js haute performance."
+            EN: "Platform designed for creatives (graphic designers, web developers, designers, etc.) who want to showcase their projects, experiences, and personalized branding, comment, and interact with their audience.",
+            FR: "Plateforme pensée pour les créatifs africains (graphistes, développeurs web, designers,...) qui souhaitent présenter leurs projets, expériences et branding personnalisé, commenter et interagir avec leur audience."
         },
         techStack: ["Next.js", "Laravel API", "Tailwind CSS", "Render", "Vercel"],
         link: "https://mefolio-z6n9.onrender.com/",
@@ -42,11 +42,11 @@ const projectsData: ProjectCaseStudy[] = [
         subtitle: { EN: "A digital exhibition showcasing talented local artisans.", FR: "Une exposition numérique mettant en valeur les artisans locaux." },
         problem: {
             EN: "Local artisans lack a modern digital gallery space to exhibit their product catalogs and reach a wider audience online.",
-            FR: "La coordination de la participation aux événements locaux et l'engagement communautaire manquent de fluidité numérique."
+            FR: "Les artisans locaux manquent d'un espace de galerie numérique moderne pour exposer leurs catalogues de produits en ligne."
         },
         solution: {
-            EN: "Platform SaaS & digital showcase dedicated to African artisans and creators. Allows generating a professional interactive and optimized catalog in under 2 minutes without technical skills required.",
-            FR: "Plateforme SaaS & vitrine digitale dédiée aux artisans et créateurs africains. Permet de générer un catalogue professionnel interactif et optimisé en moins de 2 minutes sans compétences techniques requises."
+            EN: "Platform enabling local artisans to create a modern digital showcase to display their product catalogs and reach a wider online audience.",
+            FR: "Plateforme permettant aux artisans locaux de créer une vitrine digitale moderne pour exposer leurs catalogues de produits et atteindre un public plus large en ligne."
         },
         techStack: ["React", "Tailwind CSS", "Node.js", "Vercel"],
         link: "https://lexpo-gallery.vercel.app/",
@@ -56,14 +56,14 @@ const projectsData: ProjectCaseStudy[] = [
         id: "Refonte",
         badgeImage: "/images/refonte.png",
         title: { EN: "Redesign of the Gozem Platform", FR: "Refonte de la plateforme Gozem" },
-        subtitle: { EN: "A digital exhibition showcasing talented local artisans.", FR: "Une exposition numérique mettant en valeur les artisans locaux." },
+        subtitle: { EN: "Complete redesign of the Gozem platform", FR: "Refonte entière de la plateforme Gozem" },
         problem: {
-            EN: "Local artisans lack a modern digital gallery space to exhibit their product catalogs and reach a wider audience online.",
-            FR: "Les artisans locaux manquent d'un espace de galerie numérique moderne pour exposer leurs catalogues de produits en ligne."
+            EN: "The Gozem platform needed a redesign to enhance user experience and modernize its interface.",
+            FR: "La plateforme Gozem avait besoin d'une refonte pour améliorer l'expérience utilisateur et moderniser son interface."
         },
         solution: {
-            EN: "Built a sleek React and Tailwind CSS digital exhibition platform featuring high-fidelity product cards and seamless deployment.",
-            FR: "Conception d'une plateforme d'exposition numérique épurée en React et Tailwind CSS avec des fiches produits haute fidélité."
+            EN: "Complete redesign of the Gozem platform (adhering to their branding), improving user experience (maps, buttons, sections), and modernizing the interface.",
+            FR: "Refonte entière de la plateforme Gozem (respectant leur charte), amélioration de l'expérience utilisateur (cartes, boutons, sections) et modernisation de l'interface."
         },
         techStack: ["React", "Tailwind CSS", "Vercel Analytics", "Formspree"],
         link: "https://rolnelh.github.io/gozem-refonte/",
@@ -75,8 +75,8 @@ const projectsData: ProjectCaseStudy[] = [
         title: { EN: "Dashboard Admin", FR: "Tableau de bord administratif" },
         subtitle: { EN: "Interactive admin dashboard for performance tracking and analytics.", FR: "Interface admin interactive pour le suivi des performances et l'analytique." },
         problem: {
-            EN: "Local artisans lack a modern digital gallery space to exhibit their product catalogs and reach a wider audience online.",
-            FR: "Les artisans locaux manquent d'un espace de galerie numérique moderne pour exposer leurs catalogues de produits en ligne."
+            EN: "A lack of a modern admin interface for performance tracking, product management, and real-time analytics.",
+            FR: "Un manque d'interface admin moderne pour le suivi des performances, la gestion des produits et l'analytique temps réel."
         },
         solution: {
             EN: "Interactive admin dashboard for performance tracking, product management, and real-time analytics. Critical KPIs visible immediately upon loading.",
