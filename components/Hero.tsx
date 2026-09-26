@@ -12,17 +12,17 @@ export default function Hero() {
     const content = {
         EN: {
             // badge: "FRONTEND & MOBILE DEVELOPER",
-            titlePart1: "Building code is easy. Scaling a product,",
-            titleItalic: " that's my craft.",
-            description: "Hi, I'm Dieudonné Houndagnon. I build your custom web and mobile application to deliver seamless experiences, maximize performance, and accelerate your growth.",
+            titlePart1: "AI builds code fast ?",
+            titleItalic: "I turn it into a product that scales and sells.",
+            description: "Hi, I'm Dieudonné. You've used AI to go from 0 to 1, I help you go from 1 to 1000, a clean architecture that maximizes your performance and accelerates your growth.",
             cta1: "Book a Call",
             cta2: "See My Case Studies",
         },
         FR: {
             // badge: "DÉVELOPPEUR FRONTEND & MOBILE",
-            titlePart1: "Créer du code, c'est facile. Faire scaler un produit,",
-            titleItalic: " c'est mon métier.",
-            description: "Bonjour, je suis Dieudonné Houndagnon. Je crée votre application web et mobile sur-mesure pour offrir des expériences fluides, maximiser vos performances et accélérer votre croissance.",
+            titlePart1: "L'IA écrit le code rapidement ?",
+            titleItalic: "Je le transforme en un produit qui se développe et se vend.",
+            description: "Salut, je suis Dieudonné. Vous avez utilisé l'IA pour passer de 0 à 1, je vous aide à passer de 1 à 1000 , une architecture propre qui maximise vos performances et accélère votre croissance.",
             cta1: "Prendre rendez-vous",
             cta2: "Voir mes études de cas",
         }
@@ -54,7 +54,7 @@ export default function Hero() {
                     transition={{ delay: 0.1 }}
                     className="text-4xl sm:text-5xl lg:text-6xl font-serif font-normal leading-[1.15] tracking-tight text-slate-900 max-w-4xl"
                 >
-                    {t.titlePart1}
+                    {t.titlePart1} <br />
                     <span className="italic font-serif text-slate-800">
                         {t.titleItalic}
                     </span>

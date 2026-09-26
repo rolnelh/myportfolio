@@ -33,7 +33,7 @@ const projectsData: ProjectCaseStudy[] = [
         },
         techStack: ["Next.js", "Laravel API", "Tailwind CSS", "Render", "Vercel"],
         link: "https://mefolio-z6n9.onrender.com/",
-        mainImage: "/images/mefolio.webp"
+        mainImage: "/images/mef.png"
     },
     {
         id: "lexpo",
@@ -50,7 +50,7 @@ const projectsData: ProjectCaseStudy[] = [
         },
         techStack: ["React", "Tailwind CSS", "Node.js", "Vercel"],
         link: "https://lexpo-gallery.vercel.app/",
-        mainImage: "/images/expo.webp"
+        mainImage: "/images/art.png"
     },
     {
         id: "Refonte",

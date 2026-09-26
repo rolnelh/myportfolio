@@ -29,9 +29,9 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://dieudonne-dev.vercel.app/'),
-  title: "Dieudonné Houndagnon | Front-End Developer",
+  title: "Dieudonné Houndagnon | Frontend Developer & Web Redesign",
   description:
-    "Front-End Developer specializing in React, Next.js, TypeScript and modern UI/UX. Explore my projects, portfolio and experience building fast, responsive and user-focused web applications.",
+  "Développeur Front-End freelance, je crée et modernise des sites web rapides, professionnels et responsive avec React et Next.js. Découvrez mes projets et réalisations.",
   manifest: "/site.webmanifest",
   keywords: [
     // 1. Intentions d'achat (Clients internationaux & locaux)
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
       "Front-End Developer specializing in React, Next.js, TypeScript and modern UI/UX. Explore my projects, portfolio and experience building fast, responsive and user-focused web applications.",
 
     url: 'https://dieudonne-dev.vercel.app/',
-    siteName: 'Dieudonné Houndagnon | Frontend Engineering',
+    siteName: 'Dieudonné Houndagnon | UI/UX & Frontend Engineering',
 
     images: [
       {
@@ -92,7 +92,7 @@ export const metadata: Metadata = {
       },
     ],
 
-    locale: 'fr_FR',
+    locale: 'fr_BJ',
     type: 'website',
   },
 

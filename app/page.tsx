@@ -14,6 +14,9 @@ import AuditPopup from "@/components/AuditPopup";
 import Footer from "@/components/Footer";
 import Resources from "@/components/Resources";
 import Expertise from "@/components/Expertise";
+import How from "@/components/How";
+import Forwho from "@/components/Forwho";
+import With from "@/components/With";
 
 export default function Home() {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -35,6 +38,9 @@ export default function Home() {
           <Services />
           <Expertise />
           <Contact />
+          <How />
+          <Forwho />
+          <With />
           <Resources />
           <Footer />
         </div>
